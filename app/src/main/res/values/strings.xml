@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Traffic Scotland Explorer</string>
+    <string name="app_subtitle">GCU Mobile Platform Development · CW1</string>
+    <string name="scaffold_status_heading">Project setup</string>
+    <string name="scaffold_status">Starter screen ready. Traffic data functionality has not yet been implemented.</string>
+    <string name="setup_verified">Setup interaction works. Build and emulator checks must be recorded separately.</string>
+    <string name="check_setup">Check setup</string>
+    <string name="project_notice">Coursework scaffold only · Not an official Traffic Scotland application.</string>
+</resources>

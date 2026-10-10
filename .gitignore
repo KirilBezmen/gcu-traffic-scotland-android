@@ -1,0 +1,25 @@
+# Android Studio, Java and Gradle
+.gradle/
+**/build/
+local.properties
+*.iml
+.idea/
+!.idea/codeStyles/
+*.hprof
+.cxx/
+.externalNativeBuild/
+captures/
+*.log
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp
+# Signing and secrets (do not commit)
+*.keystore
+*.jks
+*.pem
+*.key
+.env
+.env.*
+# Keep the Gradle wrapper scripts and JAR in version control once generated
