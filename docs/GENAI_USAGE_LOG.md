@@ -34,3 +34,10 @@ How independently checked:
 Related commit/issue/test IDs:
 
 **Integrity:** Never hide AI-assisted code or fabricate testing. Consolidate actual entries into the submitted Word appendix.
+
+## Entry 003 — 10 October 2026
+**Tool:** ChatGPT with file analysis and connected GitHub.
+**User message:** Begins `такс теперь важная инфа` and contains the pasted assessment schedule/rubric plus uploads `skeletonCode.zip`, `xmlStructure_summary.txt`, `roadworksContentExample.xml`, `unplannedContentExample.xml`, `MarksBreakdown_Traffic.pdf`, `MPD_26_27_Traffic.docx`. This is an identifying excerpt, **not falsely presented as a verbatim full prompt**; retain the complete user message in the ChatGPT chat history for the final appendix.
+**Assistance:** Analysed rubric, inspected Java skeleton code, audited the XML samples and their item counts, proposed rubric-led MVVM architecture, created requirements/tracing/audit documentation. No new Android runtime functionality written in this entry.
+**Adopted / verification:** Documentation committed to GitHub; XML sample inspection with an XML parser was conducted for **analysis only**, *not* as the implementation parser. No Android build or app testing performed.
+**Student follow-up:** Review assessment matrix and source restrictions; confirm source access, check app locally, maintain complete prompt transcript for GCU declaration.

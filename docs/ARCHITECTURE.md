@@ -1,19 +1,36 @@
-# Provisional architecture (not yet implemented)
+# Architecture — officially rubric-led plan (not yet implemented)
 
-**Target:** Traffic Scotland XML → XML parser → typed Java records → collection/repository → Android Views → selected details.
+**Rubric target: 10/10 architecture marks.** Required path is explicitly **Single Activity + Fragments + MVVM**. Prior multiple-Activities proposal is superseded. No third-party frameworks beyond allowed mapping library; use standard Android / permitted AndroidX components.
 
-Planned components:
-- **MainActivity** — current setup placeholder, later actual navigation as rubric requires.
-- **data/model** — Java class(es) for incident and roadwork data; final field list follows provided sample feed.
-- **data/parser** — XmlPullParser implementation matching lecturer requirements.
-- **data/repository** — obtain feeds, manage parsed collections and error states.
-- **ui/list** — list displays, selections, filters as required.
-- **ui/detail** — readable single-record view.
-- **util** — minimal shared helpers only where justified.
+## Desired flow
+```text
+Traffic Scotland official authenticated DATEX II XML endpoints
+   -> background HTTP fetch (on start + periodic)
+   -> downloaded XML String
+   -> XmlPullParser (not DOM, Gson, SAX, or parsing directly from network stream)
+   -> Java model objects: Situation, Impact, Validity, LocationPoint(s)
+   -> Repository with last-successful cache and load/error state
+   -> ViewModel holds list, selection, query, status
+   -> MainActivity (fragment host)
+       -> List / Search Fragment
+       -> Details Fragment
+       -> Map Fragment (permitted Google Maps / free mapping)
+```
 
-No API client, backend, database, maps, analytic models or additional frameworks will be added without an assessment need.
+## Resources and orientation
+- `res/layout/activity_main.xml`: portrait main Activity host and navigation arrangement.
+- `res/layout-land/activity_main.xml`: materially different landscape (e.g. list and details side-by-side) using same state.
+- Keep selected incident, filters, feed data and scroll/display context across rotation using ViewModel and appropriate state restoration.
+- Access to the map should support **multiple selected situations**, not only a single marker, to target the full rubric 8 for maps.
 
-## Validation principles
-Handle malformed XML, empty feeds, absent fields, networking errors, device rotation and unusable UI states where relevant. Heavy or network work must not freeze the UI. Actual threading pattern to follow lab/starter guidance.
+## Background / update
+- Do **not** keep starter `runOnUiThread` nor adopt deprecated `AsyncTask`. Design callback/observable updates from a background `ExecutorService` (or a permitted equivalent).
+- On app start and every hour (shorter during demonstration) check official feeds; preserve most recent good data on network loss, with clearly labelled stale state.
+- Never commit client credentials. Store in ignored local settings; ensure build instructions explain local configuration.
+- Only platform services, AndroidX/Jetpack and explicitly permitted map service; check lecturer's restriction before any third-party dependencies.
 
-**Hold point:** obtain full official specification, DOs/DON'Ts, rubric and starter examples. Do not infer missing grading criteria.
+## Domain model (provisional)
+`TrafficSituation`: record id, feed category, situation subtype, public comment, dates/status, road name(s), direction, impact/delays, location(s). Extra nested Java model classes as data merits. Different situation types have optional fields.
+
+## Next milestone
+**First parsed official sample in Java**: start with given XML content String, PullParser, Java ArrayList and correctness tests; defer UI polish until it works.

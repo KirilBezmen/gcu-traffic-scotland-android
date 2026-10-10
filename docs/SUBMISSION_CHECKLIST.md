@@ -1,6 +1,6 @@
 # CW1 submission checklist
 
-**External official deadline:** Monday 23 November 2026 (formal brief noon; module schedule 17:00 — treat noon as safe until clarified).
+**Detailed CW1 assignment deadline:** Monday **23 November 2026 at 17:00** (also module schedule). Earlier generic formal brief says noon; aim for **12:00 as internal safety** until clarified.
 
 ## Deliverables
 - [ ] Word summary (.docx or .doc) with GCU originality declaration.
@@ -10,8 +10,15 @@
 - [ ] Link to APK in GitHub.
 - [ ] Written documented testing strategy with actual results.
 
+## External Examiner backup — newly confirmed in detailed CW1 assignment
+- [ ] Create folder named `Surname_GivenName_StudentId`.
+- [ ] Place APK, narrated video and cleaned Android Studio project ZIP inside.
+- [ ] ZIP the enclosing folder (ZIP only; no RAR/7z, no password).
+- [ ] Submit separate backup ZIP where specified by GCULearn.
+- [ ] Name Word `Surname_GivenName_StudentId.docx` and video `Surname_GivenName_StudentId_Video.mp4` (or .wmv).
+
 ## Final verification
-- [ ] Full marking rubric and prohibited approaches checked.
+- [x] Detailed rubric and prohibited approaches reviewed in documentation; check them again during final verification.
 - [ ] No secrets or sensitive data in repository.
 - [ ] Fresh clone directly opens/syncs in Android Studio.
 - [ ] Gradle wrapper launchers and JAR present.

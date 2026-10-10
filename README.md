@@ -32,9 +32,9 @@ The above is a **plan**. It does not claim that these features currently work.
 | --- | --- |
 | GitHub repository, source scaffold and documentation | Prepared and committed |
 | Local Android Studio build and emulator run | **Not verified** |
-| XML feed loading, parsing and collections | Not implemented |
+| XML feed loading, parsing and collections | Not implemented — mandatory next milestone |
 | Incidents/roadworks list, filter and details | Not implemented |
-| Official detailed marking rubric | Awaiting file |
+| Official detailed marking rubric | Reviewed; see docs/ASSESSMENT_TRACKER.md |
 | Test evidence, APK and narrated video | Not produced |
 
 ### Source layout
@@ -64,8 +64,11 @@ After the wrapper is fixed, sync, launch the app on an emulator and press **Chec
 
 ## Tracking and quality
 
-- [Assessment tracker](docs/ASSESSMENT_TRACKER.md): requirements mapped to proof; official mark values pending.
-- [Architecture](docs/ARCHITECTURE.md): baseline architecture and scope limits.
+- [Assessment tracker](docs/ASSESSMENT_TRACKER.md): confirmed 100-mark rubric and traceability plan.
+- [Architecture](docs/ARCHITECTURE.md): revised one-Activity + Fragments + MVVM architecture.
+- [Coursework constraints](docs/COURSEWORK_CONSTRAINTS.md): hard requirements and zero-mark pitfalls.
+- [Starter code audit](docs/STARTER_CODE_AUDIT.md): what must be replaced, rather than merely copied.
+- [Sample XML audit](docs/SAMPLE_XML_AUDIT.md): checked data counts and optional fields.
 - [Development log](docs/DEVELOPMENT_LOG.md): chronological implementation and verification.
 - [Testing strategy](docs/TEST_STRATEGY.md): test cases and evidence, kept separate from planned tests.
 - [GenAI usage and prompts](docs/GENAI_USAGE_LOG.md): mandatory Guided GenAI disclosure.
@@ -74,7 +77,7 @@ After the wrapper is fixed, sync, launch the app on an emulator and press **Chec
 
 ## Dates
 
-- **CW1:** Monday **23 November 2026**. The module schedule says 17:00, while the provided formal brief says noon. Treat **12:00 as the safer cutoff** until the lecturer confirms otherwise.
+- **CW1:** Monday **23 November 2026**. The detailed CW1 assignment and module schedule both say **17:00**. An earlier generic assessment brief states noon, so use **12:00 as an internal safety cutoff** unless clarified with the module team.
 - **CW2:** Monday **30 November 2026**, invigilated at GCU during lab time.
 - **Internal completion target:** 18–20 November 2026.
 
