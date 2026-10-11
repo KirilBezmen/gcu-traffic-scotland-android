@@ -1,64 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:fillViewport="true">
-    <LinearLayout
+    android:orientation="vertical">
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
-        <TextView
-            android:layout_width="match_parent"
+        android:padding="20dp"
+        android:text="@string/app_name"
+        android:textColor="@color/ink"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/navigationGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        android:contentDescription="@string/navigation_description">
+
+        <RadioButton
+            android:id="@+id/navIncidents"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textColor="@color/ink"
-            android:textSize="28sp"
-            android:textStyle="bold" />
-        <TextView
-            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:checked="true"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:text="@string/incidents" />
+
+        <RadioButton
+            android:id="@+id/navRoadworks"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/app_subtitle"
-            android:textColor="@color/subtitle"
-            android:textSize="15sp" />
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:text="@string/roadworks" />
+
+        <RadioButton
+            android:id="@+id/navMap"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:background="@drawable/panel_background"
-            android:orientation="vertical"
-            android:padding="22dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/scaffold_status_heading"
-                android:textColor="@color/ink"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/setupStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:accessibilityLiveRegion="polite"
-                android:text="@string/scaffold_status"
-                android:textColor="@color/subtitle"
-                android:textSize="15sp" />
-            <Button
-                android:id="@+id/checkSetupButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:text="@string/check_setup" />
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/project_notice"
-            android:textColor="@color/subtitle"
-            android:textSize="13sp" />
-    </LinearLayout>
-</ScrollView>
+            android:layout_weight="1"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:text="@string/map" />
+    </RadioGroup>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentHost"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>
