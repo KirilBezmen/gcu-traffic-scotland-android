@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import com.kirilbezmen.trafficscotland.data.model.TrafficSituation;
 import com.kirilbezmen.trafficscotland.data.repository.TrafficRepository;
+import com.kirilbezmen.trafficscotland.util.TrafficDistance;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,8 @@ public class TrafficViewModel extends AndroidViewModel {
     private Section section = Section.HOME;
     private String incidentSearch = "";
     private String roadworksSearch = "";
+    private boolean nearbyOnly = false;
+    private int radiusKm = 25;
 
     public TrafficViewModel(@NonNull Application app) {
         super(app);
@@ -47,15 +50,22 @@ public class TrafficViewModel extends AndroidViewModel {
         if (section == Section.INCIDENTS) incidentSearch = query == null ? "" : query;
     }
 
+    public boolean isNearbyOnly() { return nearbyOnly; }
+    public void setNearbyOnly(boolean enabled) { nearbyOnly = enabled; }
+    public int getRadiusKm() { return radiusKm; }
+    public void setRadiusKm(int value) { radiusKm = Math.max(5, Math.min(value, 200)); }
+
     /** Road ID is matched as a complete route number; descriptive text is not used as a live fact. */
     public List<TrafficSituation> filtered(Section section, TrafficRepository.Snapshot snapshot) {
         List<TrafficSituation> values = section == Section.ROADWORKS
                 ? snapshot.roadworks : snapshot.incidents;
         String query = getSearch(section).trim().toUpperCase(Locale.ROOT);
-        if (query.isEmpty()) return values;
+        if (query.isEmpty() && !nearbyOnly) return values;
         ArrayList<TrafficSituation> filtered = new ArrayList<>();
         for (TrafficSituation situation : values) {
-            if (situation.matchesRoad(query)) filtered.add(situation);
+            if (!query.isEmpty() && !situation.matchesRoad(query)) continue;
+            if (nearbyOnly && TrafficDistance.nearestKm(situation) > radiusKm) continue;
+            filtered.add(situation);
         }
         return filtered;
     }

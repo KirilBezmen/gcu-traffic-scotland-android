@@ -6,6 +6,8 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.CheckBox;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -63,6 +65,27 @@ public class TrafficListFragment extends Fragment {
                 update(view, model.getSnapshot().getValue());
             }
             @Override public void afterTextChanged(Editable s) {}
+        });
+        CheckBox nearby = view.findViewById(R.id.nearbyOnly);
+        nearby.setChecked(model.isNearbyOnly());
+        nearby.setOnCheckedChangeListener((button, checked) -> {
+            model.setNearbyOnly(checked);
+            update(view, model.getSnapshot().getValue());
+        });
+        SeekBar radius = view.findViewById(R.id.nearbyRadius);
+        radius.setMax(195); // 5..200 km
+        radius.setProgress(model.getRadiusKm() - 5);
+        TextView radiusLabel = view.findViewById(R.id.radiusLabel);
+        radiusLabel.setText(getString(R.string.nearby_radius, model.getRadiusKm()));
+        radius.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override public void onProgressChanged(SeekBar bar, int value, boolean user) {
+                if (!user) return;
+                model.setRadiusKm(value + 5);
+                radiusLabel.setText(getString(R.string.nearby_radius, model.getRadiusKm()));
+                if (model.isNearbyOnly()) update(view, model.getSnapshot().getValue());
+            }
+            @Override public void onStartTrackingTouch(SeekBar bar) {}
+            @Override public void onStopTrackingTouch(SeekBar bar) {}
         });
         view.findViewById(R.id.listRefresh).setOnClickListener(v -> model.refresh());
         model.getSnapshot().observe(getViewLifecycleOwner(), s -> update(view, s));

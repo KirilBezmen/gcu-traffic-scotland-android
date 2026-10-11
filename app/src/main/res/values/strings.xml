@@ -16,6 +16,10 @@
     <string name="home_counts">%1$d incidents  ·  %2$d roadworks</string>
     <string name="data_overview">Data overview</string>
     <string name="navigation_description">Traffic section navigation</string>
+    <string name="nearby_filter">Show nearby situations</string>
+    <string name="nearby_radius">%1$d km from Glasgow city centre (fixed reference)</string>
+    <string name="nearby_radius_default">25 km from Glasgow city centre (fixed reference)</string>
+    <string name="radius_description">Nearby search radius in kilometres</string>
     <string name="search_road">Search by road — e.g. M8, A9</string>
     <string name="results_count">%1$d situations</string>
     <string name="results_count_placeholder">0 situations</string>
