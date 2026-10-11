@@ -10,13 +10,14 @@
 
 > **Independent student coursework; not an official Traffic Scotland app.** The GitHub code is an evolving implementation, **not a completed or fully tested submission**. The approved DATEX II feeds and the coursework's DOs/DON'Ts govern every feature.
 
-## CW1 Project Management (GitHub)
+## One clean CW1 workflow
 
-- [**Visual Board setup and issue/status import**](docs/PROJECT_BOARD.md) — ready-to-create GitHub Projects blueprint, workflow columns, prioritised #1–#13, sprints. **Visual board itself is not yet created.**
-- [**Full functional / product logic**](docs/PRODUCT_REQUIREMENTS.md) — Home, feeds, details, road/nearby search, delay colours, map, rotation, MVVM, startup/hourly updates, offline handling and risks.
-- [**100-mark rubric acceptance**](docs/RUBRIC_100_CHECKLIST.md) — exact marking areas and safe evidence gates; icon discrepancy noted.
-- [**QA actual-versus-expected execution table**](docs/QA_EXECUTION_MATRIX.md) — 26 cases, previously executed check distinguished from unexecuted checks.
-- Existing [GitHub Issues](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues) track 7 major milestones, 3 new P0 blocker/verification issues and 3 closed verified checkpoints.
+We have **seven active Issues** ([M0–M6](docs/PROJECT_BOARD.md)), one per coursework milestone. [#8–#10](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues?q=is%3Aissue%20is%3Aclosed) are three verified narrow completed checkpoints; **#11–#13 are archived duplicates, not completed work**, merged back into M0/M1. As of 11 Oct: **7 Open / 6 Closed (3 completed + 3 duplicate)**.
+
+- [**Simple board setup and seven task statuses**](docs/PROJECT_BOARD.md) — the visual GitHub Project **has not been created**; one manual click-through in Projects is still needed.
+- [**Full application/product logic**](docs/PRODUCT_REQUIREMENTS.md) — data, UI, state, maps, background refresh and offline.
+- [**All 100 rubric marks, possible vs verified**](docs/RUBRIC_100_CHECKLIST.md) — evidence and clarification requirements.
+- [**26 test scenarios: actual vs expected**](docs/QA_EXECUTION_MATRIX.md) — small XML 4/4 previously observed, new UI/full XML unverified.
 
 ## Development dashboard
 

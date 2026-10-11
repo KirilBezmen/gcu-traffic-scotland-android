@@ -106,3 +106,10 @@ GenAI assistance logged:
 **Documentation:** Added PROJECT_BOARD.md, PRODUCT_REQUIREMENTS.md, RUBRIC_100_CHECKLIST.md and QA_EXECUTION_MATRIX.md; README linked all. Clarified double-counting risk in summary subcriteria, documented the still-unresolved icon mark discrepancy and deadline conflict.
 **Testing:** No new Android tests performed in this management-only commit. Previous synthetic 4/4 passes remain the only device parser result currently supplied.
 **AI assistance:** Entry 010.
+
+## 11 October 2026 — Issues housekeeping and board simplification
+**User issue:** A screenshot of the empty Projects tab and 10 open Issues led to confusion between unresolved bugs and planning issues. None of the extra issue count was an observed Java compile error.
+**Action:** Consolidated #11 and #12 into active M0/#1; #13 into active M1/#2, including their pending acceptance checks. Closed #11/#12/#13 as GitHub **duplicate**, explicitly not completed. Renamed and rewrote main #1–#7 to single concise milestone issues with proven status, remaining tests and evidence.
+**Documentation:** Simplified PROJECT_BOARD.md and README to describe **7 Open / 6 Closed** (3 narrow verified + 3 administrative duplicate); no visual Project has been created because GitHub connector lacks a Projects creation action.
+**Testing:** Management-only work. No new tests executed, no app build claimed.
+**GenAI:** See Entry 011.

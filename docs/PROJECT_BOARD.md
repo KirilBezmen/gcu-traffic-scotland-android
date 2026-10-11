@@ -1,63 +1,59 @@
-# CW1 Project Board — Traffic Scotland Explorer
+# Traffic Scotland Explorer — Simple CW1 development board
 
-> **Board blueprint, NOT an already-created GitHub Project.** The repository has working GitHub Issues and this project-management document. The GitHub connector currently does not expose the GitHub Projects creation/add-item operation. Create the visual board in GitHub with the steps below and link these existing issues.
+> **Not a GitHub Project yet:** this file is the source-of-truth board plan. The real visual board is not created until the repository owner clicks **Projects → New project → Board**. Creating documentation or GitHub Issues does not automatically create a visual GitHub Project.
 
-## Create the board once (owner: KirilBezmen)
-1. Visit the [repository Projects tab](https://github.com/KirilBezmen/gcu-traffic-scotland-android/projects), click **New project**, choose **Board**, and name it **Traffic Scotland Explorer — CW1 Development**.
-2. Set visibility **Private** (check the GitHub Project privacy separately from repo privacy), then link it to the repository using **Link a project**, if it is not already associated.
-3. Use the existing **Status** field. Rename/create workflow options **Backlog, In Progress, Testing, Done, Blocked** (status wording can be adapted to GitHub's current UI).
-4. In the Board, **+ Add item** → search for existing repository issues. Add **#1–#13**. **Do not recreate them**. Move #8, #9, #10 to Done because those narrowly defined outcomes were actually verified; do not close broader milestones prematurely.
-5. Optional: use the board's built-in filters or group by Status. Create a custom **Priority** field (P0 / P1 / P2) only if it saves time; priority already exists in task names/text.
+## One project · seven active tasks · no duplicate work
 
-## Status meanings
-- **Backlog:** not started; has concrete acceptance criteria.
-- **In Progress:** work started, but acceptance tests not complete.
-- **Testing:** implementation exists, verification/evidence still pending.
-- **Done:** tests ran and passed, evidence recorded, issue closed.
-- **Blocked:** external dependency (Traffic Scotland approval, optional Maps key, lecturer clarification).
+**Keep just seven open GitHub Issues, one for each coursework phase (M0–M6).** Each issue contains current verified progress, remaining acceptance checkboxes and evidence needed for full marks. Treat **Issues as tasks, not errors**; an Open Issue does not imply broken software.
 
-**Never move a task to Done solely because a source file is committed or GitHub Actions successfully compiled it.**
+| GitHub Issue | Phase | Initial board status | What actually needs doing next |
+| --- | --- | --- | --- |
+| [#1](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/1) | **M0** Android setup and official API | **Blocked** | Fresh-clone Gradle wrapper; await Traffic Scotland approval; validate both official feeds |
+| [#2](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/2) | **M1** DATEX II XmlPullParser | **Testing** | Run Android tests against complete lecturer XML fixtures (4 incidents / 405 roadworks) |
+| [#3](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/3) | **M2** Incident/roadworks UI + details | **Testing** | Pull code, launch new UI, check rows/details vs source XML |
+| [#4](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/4) | **M3** Single Activity/MVVM/rotation | **Testing** | Portrait↔landscape switching, preserve filters, selected detail and visible data |
+| [#5](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/5) | **M4** Search/nearby/map/icons/delays | **In Progress** | Validate radius/search; restricted Maps key and multi-selection; proper 6+ icons |
+| [#6](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/6) | **M5** Live updates/background/offline | **Blocked** | Test official startup/hourly download, no internet and caching after API approval |
+| [#7](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/7) | **M6** QA/video/APK/Word/ZIP | **In Progress** | Record real expected/actual tests and final delivery assets |
 
-## Existing GitHub Issues — ready for board import
+**Already completed narrow checkpoints** (optional Done column): [#8](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/8) repo foundation, [#9](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/9) old app baseline on emulator, [#10](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/10) four small Android XML tests (4/4 PASS). They do **not** prove the final new app is complete.
 
-| Issue | Work package | Proposed board status | Priority | Target / dependency |
-| --- | --- | --- | --- | --- |
-| [#1](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/1) | M0 — Setup + Traffic Scotland API | In Progress (contains blocked API) | P0 | API approval; wrapper |
-| [#11](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/11) | Portable Gradle wrapper / clean clone / project naming | In Progress | P0 | 14 Oct |
-| [#12](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/12) | Approved endpoints, safe credentials + LIVE validation | Blocked | P0 | Traffic Scotland admin |
-| [#2](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/2) | M1 — Full PullParser + data structures | Testing | P0 | Full XML tests |
-| [#13](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/13) | Run real 4/405 XML instrumentation tests | Testing | P0 | 14 Oct, emulator |
-| [#3](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/3) | M2 — Incidents, roadworks lists + details | Testing | P0 | UI emulator tests |
-| [#4](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/4) | M3 — Distinct orientation + MVVM state | Testing | P0 | Rotation test |
-| [#5](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/5) | M4 — Road/nearby, delay, icons, map | In Progress | P0 | Maps key; correct icon use |
-| [#6](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/6) | M5 — Background refresh + offline resilience | In Progress | P0 | Approved live API |
-| [#7](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/7) | M6 — Evidence, APK, video, Word, ZIP | In Progress | P0 | Final verification |
-| [#8](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/8) | Repository + docs foundation | Done (Closed) | — | Verified |
-| [#9](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/9) | Basic app ran on Pixel 9 Pro | Done (Closed) | — | Verified on older snapshot |
-| [#10](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/10) | Four *representative* Android parser tests | Done (Closed) | — | 4/4 PASS, not full samples |
+**Archived duplicates:** [#11](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/11), [#12](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/12), [#13](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/13) were opened during planning, their tasks merged into #1 or #2, then closed with reason **duplicate**, **NOT completed**. Do not import these three into the new Project. This yields **7 Open and 6 Closed** issues, but only **3 of those Closed are verified completed checks**.
 
-The broad Milestone 0–6 titles are **Issues**, not automatically GitHub's separate 'Milestone' objects.
+## Create the visual GitHub board — one-time owner action
 
-## Internal delivery plan (not official university dates)
-- **11–14 October:** ensure fresh-clone Gradle build; execute full XML 4/405 tests; correct discrepancies. Blocked: live API approval.
-- **15–20 October:** test both real sample lists, details, road search, nearby distance, Home, landscape, navigation and data provenance on device.
-- **21–27 October:** live authenticated feed after approval, Google Maps key and multiple map markers, semantically appropriate icons, delay display.
-- **28 October–7 November:** threading/periodic-refresh, offline caching, error recovery, UI and state persistence regression.
-- **8–15 November:** complete rubric test matrix on emulator and/or phone, capture source-to-screen evidence; polish UI.
-- **16–20 November:** final Word + GenAI prompt appendix, narrated MP4, clean APK, GitHub links and External Examiner ZIP; test fresh import and actual playback.
-- **23 November:** university CW1 deadline is given as **17:00** in detailed brief; a generic document says **noon**. Use **noon as internal submission target** pending written clarification.
-- **30 November:** separate invigilated CW2 class test (30% of module); prepare separately.
+1. Open [GitHub → repository → Projects](https://github.com/KirilBezmen/gcu-traffic-scotland-android/projects). The "No projects found" screen is normal at this stage.
+2. Click the green **New project** button (top right), then choose the **Board** template and name it **Traffic Scotland Explorer — CW1**.
+3. Create the project. Check that its visibility is **Private**, independently of repo visibility. If the project does not appear under the repo Projects tab afterwards, use **Link a project** to attach it.
+4. From the Board use **+ Add item** or the project's repository issue picker and import **only issues #1 through #7**. These are existing Issues; **do not create new draft cards**.
+5. Use four statuses: **Todo / In Progress / Testing / Done**. If GitHub allows, add **Blocked** for M0 and M5. Otherwise put M0/M5 in Todo with a clear blocker label/description. Move M1/M2/M3 to Testing and M4/M6 to In Progress.
+6. Optionally import #8/#9/#10 into Done for context. **Do not import #11/#12/#13**, because those are administrative duplicates.
+7. Share a screenshot of the created board once; from then on Issues contain task detail and the Board is only the high-level visual status. No second task list needs to be manually maintained.
 
-## Development operating procedure
-1. Choose the **smallest open item** with an evidence-based definition of done.
-2. Check the course constraints first. Implement in Java + XML Android Views, only approved Traffic Scotland feeds, mandatory XmlPullParser from downloaded String.
-3. Commit coherent changes; if using a branch/PR, link the issue with **Fixes #N** only when all checks pass. A direct-to-main commit is acceptable for this solo coursework but is not automatically a PR.
-4. Run CI. A successful build/JVM test **does not run Android instrumented tests on a real emulator**.
-5. Student pulls, runs Pixel 9 Pro and captures tests; enter **expected**, **observed**, outcome, device/API, date, commit and screenshot in [QA matrix](QA_EXECUTION_MATRIX.md).
-6. Update Development Log, GenAI prompts and README. Close the issue only after evidence. For blocked work, record dependency and choose another task.
-7. Before release, verify no real private keys in repo/APK, rights for supplied samples, accessibility, and all hand-in links.
+> **Connector limitation:** the GitHub integration currently offers Issue and repository write operations but no creation/assignment of GitHub Projects. The assistant can maintain the issue bodies and repo docs; board setup and moving cards require the GitHub UI or a supported browser-enabled workflow.
 
-## 100-mark dependency overview
-**Source approval + XML parsing → typed objects → repository / MVVM → lists & details → road & nearby search → colour/icons → selected map → orientation → live background refresh/offline → evidence/video/submission.**
+## What "Done" means
+A phase is complete **only** when its acceptance checklist is satisfied, actual Android evidence exists, source data constraints are met, and the main Issue is closed. GitHub green **BUILD SUCCESS** proves code compilation/JVM tests, not actual emulator/map/API success.
 
-The mark allocation comes from the original assessment brief. See [rubric requirements](RUBRIC_100_CHECKLIST.md) for the exact maxima and outstanding icon-mark ambiguity. **Aiming for 100 is a goal, not a grade promise.**
+- **Development:** Java/XML Android code + targeted commit; link issue in commit message when relevant.
+- **Verification:** run on Pixel 9 Pro, compare XML to views, verify orientation/network/map. Write actual vs expected with date, SHA, screenshots in [QA_EXECUTION_MATRIX.md](QA_EXECUTION_MATRIX.md).
+- **Documentation:** update [DEVELOPMENT_LOG.md](DEVELOPMENT_LOG.md) and [GENAI_USAGE_LOG.md](GENAI_USAGE_LOG.md). Source requirements in [PRODUCT_REQUIREMENTS.md](PRODUCT_REQUIREMENTS.md), official [100-mark checklist](RUBRIC_100_CHECKLIST.md).
+- **Closing:** do not mark completed before real acceptance. If blocked, keep Open.
+
+## Internal delivery windows (not official submission deadlines)
+
+| Dates | Main objective |
+| --- | --- |
+| **12–16 October** | M0 wrapper/clean build, M1 full XML tests, M2 new UI run; API request pending |
+| **17–27 October** | M2/M3 UI and rotation verified; M4 road/nearby, map, icon/delay checks |
+| **28 October–7 November** | M5 actual authorised feed and offline/refresh tests if API access granted |
+| **8–15 November** | Full M6 system testing, screenshot evidence, accessibility and regression |
+| **16–20 November** | Narrated video, Word + exact GenAI prompts, APK, clean-project ZIP, External Examiner ZIP |
+| **23 November** | CW1 detailed instructions say **17:00**, generic assessment brief says **12:00**; internal **noon submission target** until clarified |
+| **30 November** | Separate invigilated CW2 class test (30% of module) |
+
+## Rubric breakdown — possible, not achieved
+
+**42 functionality + 8 portrait/landscape + 10 XML parsing/collections + 10 MVVM architecture + 10 threading/refresh + 15 documented testing + 5 narrated demo = 100.**
+
+There is an unresolved discrepancy within the icons rubric (heading max 6 vs explanatory max 8). Clarify with Mario Mata; detailed acceptance criteria are in [RUBRIC_100_CHECKLIST.md](RUBRIC_100_CHECKLIST.md). **100/100 is our development target, not an assured grade.**

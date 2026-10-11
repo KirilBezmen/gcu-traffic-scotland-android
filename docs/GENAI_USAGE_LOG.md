@@ -101,3 +101,9 @@ Related commit/issue/test IDs:
 **Context:** Direct reply to prior discussion of a GitHub Projects Kanban board, all GCU CW1 assessment functions and verification stages.
 **AI contribution:** Drafted project-board setup blueprint, full product/backend/UI flow, rubric acceptance matrix and expected/actual QA scenarios. Created GitHub Issues #11–#13 for clean build, approved feeds and full lecturer XML tests; corrected accounting of rubric summary submarks; linked documentation from README. No visual board was actually created, and no device test or grade is claimed.
 **Student actions:** Create/link the visual private GitHub Project manually, add existing issues, review test/mark assumptions, execute tests, and disclose all AI prompt/code assistance in final Word appendix.
+
+## Entry 011 — 11 October 2026
+**Tool:** ChatGPT with connected GitHub.
+**Exact student request:** такс я немного запутался тут ничего не появилось и у нас появилось теперь 10 ошибок которые нужно закрыть давай так чтобы у нас не было каши а четка структура
+**AI contribution:** Explained that 10 GitHub Open Issues were planning tasks rather than bugs, and Projects was empty because the actual visual board had not been created. Reorganized Issues into seven single M0–M6 phases; consolidated acceptance checks from new planning Issues #11–#13 into #1/#2; closed redundant #11–#13 with **duplicate** reason (not completed). Rewrote PROJECT_BOARD.md and README to explain a one-time manual visual board creation and accurate 7 Open/6 Closed counts.
+**Validation:** Checked GitHub Issue state changes; no new Android app test performed and no actual Projects board created.
