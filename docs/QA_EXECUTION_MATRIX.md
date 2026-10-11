@@ -35,3 +35,16 @@
 Store non-sensitive evidence in \`docs/evidence/screenshots/<test-id>_<YYYYMMDD>_<short-commit>.png\` or \`docs/evidence/test-logs/\`. Do **not** include Traffic Scotland Client ID/Key, unrestricted Maps key, private tokens or other account details.
 
 If test fails: record actual failure; create/change GitHub Issue; fix, rerun; log **FAILED → PASS** with both timestamps. A screenshot of GitHub Actions **BUILD SUCCESS** is valid only as compilation/JVM evidence, **not** proof of Android UI, full XML instrumentation or live map.
+
+## UI revision QA — 11 October 2026 (all pending on new commit)
+| Test | Steps | Expected | Actual observed | Status |
+| --- | --- | --- | --- | --- |
+| UX-01 | Launch Home portrait | Illustration and counts; ONE primary navigation only; no Explore traffic block; no whole-screen scroll | — | NOT RUN |
+| UX-02 | Open Incidents, scroll past first 4 cards | Title, source, search, Nearby and refresh remain fixed; **only card list** moves | — | NOT RUN |
+| UX-03 | Open Roadworks, scroll historical 405 | Same fixed header, 405 scrollable cards and correct data label | — | NOT RUN |
+| UX-04 | Toggle Nearby off/on | Radius slider appears only when checked; filter results remain correct | — | NOT RUN |
+| UX-05 | Tap circular refresh icon on Home/list | Real repository refresh triggered, control uses accessibility description | — | NOT RUN |
+| UX-06 | Rotate Home, Incidents, Roadworks | Distinct landscape panels, fixed filters and usable scroll area; data preserved | — | NOT RUN |
+| UX-07 | Run NavigationChromeTest on Pixel 9 Pro | 2/2 Android instrumentation smoke tests pass | — | NOT RUN |
+
+**Screenshot already observed before this UI refactor:** 4/4 original `TrafficXmlParserTest` passing on Pixel 9 Pro AVD, and Incidents screen displaying **4 situations** from historical lecturer XML. These are baseline observations, not evidence for UX-01 through UX-07 after refactor.

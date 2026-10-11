@@ -157,3 +157,9 @@ The [Google Maps SDK](https://developers.google.com/maps/documentation/android-s
 - GitHub Actions debug app + Android test APK compilation and JVM unit tests have passed on recent 11 Oct commits; view the [current CI history](https://github.com/KirilBezmen/gcu-traffic-scotland-android/actions/workflows/android-build.yml).
 - A **credential-free debug APK** is uploaded as an Actions artifact for 7 days on green builds. It contains labelled lecturer examples, not verified live traffic.
 - Android instrumentation tests for 4/405 full lecturer XML **must still be run on a Pixel 9 Pro emulator** and documented. CI only compiled the Android test APK, it did not execute emulator tests.
+
+### UI refinement (11 October 2026)
+
+The current source has **one MainActivity navigation**, an illustrated fixed Home without the duplicate Explore traffic buttons, **fixed list headers and filters with ListView-only scrolling**, compact Nearby controls, and a 48dp accessible circular refresh icon (Home and lists). Separate portrait/landscape fragment layouts were added. Full change list and acceptance evidence are in [UI Refinement](docs/UI_REFINEMENT_2026-10-11.md).
+
+The student's pre-refactor screenshot shows **4/4 prior parser tests PASS** and the Incidents DEBUG sample list containing 4 situations. Those screenshots **do not yet verify this specific UI revision**. [NavigationChromeTest](app/src/androidTest/java/com/kirilbezmen/trafficscotland/ui/NavigationChromeTest.java) was added but has not been run on an emulator; it only compiles in CI.

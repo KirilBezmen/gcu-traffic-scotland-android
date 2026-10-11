@@ -113,3 +113,10 @@ GenAI assistance logged:
 **Documentation:** Simplified PROJECT_BOARD.md and README to describe **7 Open / 6 Closed** (3 narrow verified + 3 administrative duplicate); no visual Project has been created because GitHub connector lacks a Projects creation action.
 **Testing:** Management-only work. No new tests executed, no app build claimed.
 **GenAI:** See Entry 011.
+
+## 11 October 2026 — UI polish requested from Pixel 9 Pro screenshots
+**Observation:** Student supplied screenshot of 4/4 original parser tests green, and displayed 4 Incidents in the historic XML sample mode on an Android emulator. Another screenshot revealed the duplicate 'Explore traffic' buttons on Home.
+**Task:** Student explicitly asked to rewrite/fix the affected code, document everything in GitHub and let them update their local Android Studio project. Their requested changes: remove duplicate Home navigation, prohibit whole-page scrolling but retain the cards list scroll, replace text Refresh with circular-arrow icon.
+**Code change:** Rewrote HomeFragment and Home portrait layout; added compact dedicated Home landscape XML. Rewrote TrafficListFragment to use fixed non-scrolling controls with ListView-only scrolling, dynamic Nearby radius, 48dp ImageButton with accessible label; added distinct list landscape layout and original vector ic_refresh.xml. Kept tested parser, models, repository, ViewModel and ListView adapter without a gratuitous migration. Added two NavigationChromeTest instrumentation UI smoke cases (not run).
+**Documentation:** [UI refinement design and test criteria](UI_REFINEMENT_2026-10-11.md), README update and QA matrix entries. GenAI prompts in Entry 012.
+**Verification at commit time:** Pre-refactor user screenshot shows 4/4 parser smoke test PASS and 4 incidents rendered; **new UI has not yet been exercised on emulator**. GitHub Actions status tracked separately; failure on early partial Home commit for a missing refresh string was corrected in a later commit. Do not claim the incomplete intermediate build passed.

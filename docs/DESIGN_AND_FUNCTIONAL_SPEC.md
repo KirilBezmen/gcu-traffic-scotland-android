@@ -6,18 +6,18 @@ A readable **native Java/XML Android app**, built for GCU Mobile Platform Develo
 
 ## Concept
 
-**Home:** original illustrated Scottish mountain highway with **traffic cones and warning sign**, title *Roads in focus*, live/fixture data status, three quick actions. No copied Traffic Scotland identity. This illustration is drawn from self-authored Android VectorDrawable shapes.
+**Home:** original illustrated Scottish mountain highway with **traffic cones and warning sign**, title *Roads in focus* and live/fixture data status; use the **single MainActivity navigation bar** (no duplicate Home actions). No copied Traffic Scotland identity. This illustration is drawn from self-authored Android VectorDrawable shapes.
 
 **Visual language:** navy #0B2D5B, blue #2563EB, off-white #F3F6FA; semantic amber for reported delay, red for long delay, muted when unknown. Large legible text, high-contrast cards, 48dp navigation touch targets, colour always paired with text.
 
-**Portrait:** title + horizontal four-section navigation; one fragment on screen.
-**Landscape:** navy left navigation rail, fragment content on the right. Must preserve section and selected details on rotation (requires device check).
+**Portrait:** title + horizontal four-section navigation; Home is fixed-height, and list headers/filters are fixed above the independently scrolling ListView.
+**Landscape:** navy left navigation rail; Home has side-by-side hero/summary panels and list fragments place fixed filters to the left of the scrollable cards. Must preserve section and selected details on rotation (requires device check).
 
 ## Screens and data flow
 
 | Destination | Content | Required interactions | Implementation |
 | --- | --- | --- | --- |
-| Home | Illustrated road, counts, clear data provenance | Incidents / Roadworks / Map, refresh | Source committed; Android UI test pending |
+| Home | Illustrated road, counts, clear data provenance | Use global tabs, 48dp circular-arrow refresh | Revised fixed Home source committed; Android UI test pending |
 | Incidents | Feed record type, road ID(s), generalPublicComment, original icon | Search road exactly, select -> details | Source committed; Android UI test pending |
 | Roadworks | Same plus colour-coded delay-type label | Search road, select -> details | Source committed; Android UI test pending |
 | Details | Record fields, subtype, validity, impact, lane restrictions, direction, from/to coords | Back navigation | Source committed; Android UI test pending |
@@ -52,3 +52,6 @@ Official feed only. Parse **downloaded String** with XmlPullParser. No WebView. 
 - **Google Maps SDK 20.0.0**, official Google Maps Android API. Map cannot display tiles without separately supplied/restricted `MAPS_API_KEY`. AndroidManifest and Gradle read key from untracked local.properties.
 - Selecting **Show filtered results on map** from a road/nearby list records multiple situation IDs in ViewModel. Google Map displays markers and polylines for available to/from endpoints; tap info window for details. Label distinguishes lecturer samples vs actual feed.
 - Seven **original vector icons** and provenance documented in [ICON_SOURCES.md](ICON_SOURCES.md). No external third-party icon library.
+
+## 11 October follow-up — UI refinement
+See [UI_REFINEMENT_2026-10-11.md](UI_REFINEMENT_2026-10-11.md). The duplicate Home navigation was removed; Refresh is a vector icon; full-page ScrollView was removed from Home, and only the card ListView scrolls under fixed header/filters. An independent compact landscape list layout is committed. New on-device UI tests are **NOT RUN** until the student executes them.
