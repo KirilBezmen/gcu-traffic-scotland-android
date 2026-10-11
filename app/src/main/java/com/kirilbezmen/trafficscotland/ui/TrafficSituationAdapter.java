@@ -17,6 +17,7 @@ import com.kirilbezmen.trafficscotland.data.model.TrafficSituation;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /** A simple efficient native ListView adapter (no unapproved external frameworks). */
 public final class TrafficSituationAdapter extends BaseAdapter {
@@ -34,6 +35,29 @@ public final class TrafficSituationAdapter extends BaseAdapter {
     @Override public TrafficSituation getItem(int index) { return data.get(index); }
     @Override public long getItemId(int index) { return index; }
 
+    private static int iconFor(TrafficRecord record, boolean works) {
+        if (works) return R.drawable.ic_cone;
+        if (record == null) return R.drawable.ic_warning;
+        String kind = (record.getSubtype() + " " + record.getRecordType()).toLowerCase(Locale.ROOT);
+        if (kind.contains("roadclosed") || kind.contains("carriagewayclosed"))
+            return R.drawable.ic_road_closed;
+        if (kind.contains("queuing") || kind.contains("abnormaltraffic"))
+            return R.drawable.ic_queue;
+        if (kind.contains("laneclosed") || kind.contains("laneclosure"))
+            return R.drawable.ic_lane_closed;
+        if (kind.contains("weather") || kind.contains("snow") || kind.contains("ice"))
+            return R.drawable.ic_weather;
+        if (kind.contains("obstruction") || kind.contains("debris"))
+            return R.drawable.ic_obstruction;
+        return R.drawable.ic_warning;
+    }
+
+    private static String humanType(String value) {
+        if (value == null || value.isEmpty()) return "Traffic information";
+        String spaced = value.replaceAll("([a-z])([A-Z])", "$1 $2");
+        return Character.toUpperCase(spaced.charAt(0)) + spaced.substring(1);
+    }
+
     @Override public View getView(int index, View reusable, ViewGroup parent) {
         View row = reusable == null
                 ? inflater.inflate(R.layout.row_traffic_situation, parent, false)
@@ -48,10 +72,10 @@ public final class TrafficSituationAdapter extends BaseAdapter {
         ((TextView) row.findViewById(R.id.rowDescription)).setText(situation.getSummary());
         ((TextView) row.findViewById(R.id.rowType)).setText(
                 record == null ? situation.getType() :
-                        (!record.getSubtype().isEmpty() ? record.getSubtype() : record.getRecordType()));
+                        humanType(!record.getSubtype().isEmpty() ? record.getSubtype() : record.getRecordType()));
         ImageView icon = row.findViewById(R.id.rowIcon);
         boolean works = situation.getFeed() == TrafficSituation.Feed.CURRENT_ROADWORKS;
-        icon.setImageResource(works ? R.drawable.ic_cone : R.drawable.ic_warning);
+        icon.setImageResource(iconFor(record, works));
 
         TextView delay = row.findViewById(R.id.rowDelay);
         if (works) {
