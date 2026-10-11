@@ -71,3 +71,12 @@ GenAI assistance logged:
 **Changes:** README now records verified Pixel 9 Pro app run and 4/4 actual instrumented parser tests, separated from untested full XML fixtures and pending API access. Proposed UI direction and seven milestone links added. Issue #1 being reopened because official API approval and clean wrapper setup are still outstanding.
 **Testing:** No application code or new tests executed in this documentation-only change.
 **GenAI assistance:** Entry 006.
+
+## 11 October 2026 — GitHub checkpoint close-out
+**User request:** Asked whether Projects, Pull Requests and Issues need maintenance, and requested that already completed work be closed.
+
+**Actions:** Created GitHub issues [#8](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/8), [#9](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/9), and [#10](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/10) for small independently verified outcomes and marked them `closed/completed`. All seven full-coursework milestone issues remain open (pending API access, complete fixtures, real UI, mapping, offline, documented full test/video). Updated README with closed checklist and open tasks.
+
+**Testing:** No new code or Android tests executed in this housekeeping change.
+
+**GenAI assistance:** See log Entry 007.

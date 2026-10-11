@@ -45,6 +45,18 @@
 [ ] Full testing evidence, demo video, APK and Word summary
 ```
 
+### Completed, verified checkpoints
+
+Three narrowly scoped tasks are **closed as completed**, without prematurely closing the broader assessment milestones:
+
+| Closed issue | Verified result |
+| :-- | :-- |
+| [#8 — Repository foundation](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/8) | Dedicated private repository, coursework documentation and issue tracker created |
+| [#9 — Emulator launch](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/9) | Android GitHub project ran on Pixel 9 Pro; navigation placeholders displayed |
+| [#10 — Parser smoke tests](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/10) | **4/4 Android instrumentation tests passed** on representative XML, API 36 |
+
+**Open:** #1 API approval/clean wrapper, #2 full XML samples, #3 real lists, #4 rotation/MVVM validation, #5 search/maps/icons, #6 background/offline, #7 final testing/deliverables.
+
 ## How we manage tasks in GitHub
 
 | Issue | Milestone | Status |

@@ -72,3 +72,10 @@ Related commit/issue/test IDs:
 **AI contribution:** Answered app-design/documentation questions using course brief, reviewed repository status, drafted a concise design direction and rewrote GitHub README as transparent progress dashboard with issue links, evidence status and final Word/submission requirements. No production app functionality changed.
 
 **Human review:** User should verify dashboard status and decide whether to adopt proposed styling. No marks claimed as already awarded.
+
+## Entry 007 — 11 October 2026
+**Tool:** ChatGPT with connected GitHub.
+**Exact user text prompt (screenshots separately provided):**
+> вот я про это говорил это нам нужно вести? и давай закроем то что мы сделали с тобой уже будем двигаться ?
+
+**AI contribution:** Explained the difference between GitHub Issues, optional Projects board and Pull Requests; inspected existing seven milestones, created and closed three narrowly scoped verification issues (#8 repo setup, #9 first emulator launch, #10 four smoke parser tests) and updated README/development log links. Did not assert full rubric features are complete, and did not change implementation code or claim new tests.
