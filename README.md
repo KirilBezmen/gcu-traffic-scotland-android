@@ -10,6 +10,14 @@
 
 > **Independent student coursework; not an official Traffic Scotland app.** The GitHub code is an evolving implementation, **not a completed or fully tested submission**. The approved DATEX II feeds and the coursework's DOs/DON'Ts govern every feature.
 
+## CW1 Project Management (GitHub)
+
+- [**Visual Board setup and issue/status import**](docs/PROJECT_BOARD.md) — ready-to-create GitHub Projects blueprint, workflow columns, prioritised #1–#13, sprints. **Visual board itself is not yet created.**
+- [**Full functional / product logic**](docs/PRODUCT_REQUIREMENTS.md) — Home, feeds, details, road/nearby search, delay colours, map, rotation, MVVM, startup/hourly updates, offline handling and risks.
+- [**100-mark rubric acceptance**](docs/RUBRIC_100_CHECKLIST.md) — exact marking areas and safe evidence gates; icon discrepancy noted.
+- [**QA actual-versus-expected execution table**](docs/QA_EXECUTION_MATRIX.md) — 27 cases, all unexecuted new checks clearly marked NOT RUN.
+- Existing [GitHub Issues](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues) track 7 major milestones, 3 new P0 blocker/verification issues and 3 closed verified checkpoints.
+
 ## Development dashboard
 
 **Last verified:** 11 October 2026 · **Target:** high First Class (85%+ for CW1, not guaranteed) · **Official CW1 date:** 23 November 2026, 17:00 (earlier generic brief says noon; aim to submit by noon).

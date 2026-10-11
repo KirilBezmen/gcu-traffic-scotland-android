@@ -1,8 +1,8 @@
-# Architecture — officially rubric-led plan (not yet implemented)
+# Architecture — rubric-led implementation and outstanding validation
 
 **Rubric target: 10/10 architecture marks.** Required path is explicitly **Single Activity + Fragments + MVVM**. Prior multiple-Activities proposal is superseded. No third-party frameworks beyond allowed mapping library; use standard Android / permitted AndroidX components.
 
-## Desired flow
+## Implemented-source target flow (newest device verification pending)
 ```text
 Traffic Scotland official authenticated DATEX II XML endpoints
    -> background HTTP fetch (on start + periodic)
@@ -32,5 +32,5 @@ Traffic Scotland official authenticated DATEX II XML endpoints
 ## Domain model (provisional)
 `TrafficSituation`: record id, feed category, situation subtype, public comment, dates/status, road name(s), direction, impact/delays, location(s). Extra nested Java model classes as data merits. Different situation types have optional fields.
 
-## Next milestone
-**First parsed official sample in Java**: start with given XML content String, PullParser, Java ArrayList and correctness tests; defer UI polish until it works.
+## Current test gate
+Parser/models, repository, fragments, map integration and different XML navigation layouts exist in source and compiled via CI. Four representative Android XML tests passed on 11 Oct. The full 4/405 original-fixture tests, current UI navigation/rotation, authenticated live API and Google Maps drawing are **still not demonstrated on the user's emulator**. See [product spec](PRODUCT_REQUIREMENTS.md) and [QA matrix](QA_EXECUTION_MATRIX.md).

@@ -18,9 +18,9 @@ Source documents supplied 10 October 2026: MPD_26_27_Traffic.docx (9 pages), Mar
 ### Functionality subcriteria (rubric p2)
 | Feature | Maximum / specific rubric wording | Implementation / evidence target |
 | --- | --- | --- |
-| Summary of incidents + roadworks | **4 + 4 = 8** | Type and generalPublicComment in independently selectable rows, accessible and readable |
-| Selectable summary usability | **up to 2 + 2 = 4** | Select both types intuitively |
-| Summary display formatting | **up to 2 + 2 = 4** | Consistent mobile formatting for both types |
+| Summary of incidents + roadworks | **4 + 4 = 8** (includes selection and formatting notes) | Type and generalPublicComment in independently selectable rows, accessible and readable |
+| Selectable summary usability | **2 + 2 within the above 8, not additive** | Select both types intuitively |
+| Summary display formatting | **2 + 2 within the above 8, not additive** | Consistent mobile formatting for both types |
 | Selected situation details | **8** | 4 available fields extracted + 4 display formatting, include impact, validity, locations |
 | Roadwork delay colour coding | **2** | Consistent colours with legend for delay type incl. missing values |
 | Search by road | **4** | Case-insensitive useful query for both streams, useful empty state |
@@ -65,3 +65,6 @@ Source documents supplied 10 October 2026: MPD_26_27_Traffic.docx (9 pages), Mar
 - No external frameworks besides expressly allowed Google Maps/free mapping. Prefer platform and Android/AndroidX built-in components, confirm permitted libraries before adding dependencies.
 - Missing client credentials must not be committed.
 - Student work must be understandable, verified locally and **GenAI prompts fully disclosed**.
+
+### 11 October 2026 rubric bookkeeping correction
+The summary selection and display-formatting lines explain the **4 + 4 = 8** summary marks rather than adding eight separate extra marks; see [Rubric 100 acceptance checklist](RUBRIC_100_CHECKLIST.md). The icon heading=6 vs explanatory max=8 remains unresolved. All scores in this tracker are possible maxima, not earned marks.

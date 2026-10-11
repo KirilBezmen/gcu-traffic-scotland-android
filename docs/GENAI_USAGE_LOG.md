@@ -94,3 +94,10 @@ Related commit/issue/test IDs:
 **Exact initiating prompt:** `все начинаем разработку начинай делать все` (same user request; not a separate user prompt).
 **AI contribution:** Added nearby-distance filtering with point-to-line handling, JUnit tests, Google Maps SDK with optional locally configured key, marker/segment display and multiple selected road-search results, seven hand-authored vector icons with attribution and event mapping, CI compile/unit-test workflow + debug APK artifact, and updated development/GenAI documentation. Explained academic restrictions and avoided unapproved frameworks or WebView.
 **Testing honesty:** Recent GitHub Actions green builds compile Java/XML and run JVM tests; they do **not** run Android instrumentation/emulator tests, validate the Google Cloud map key, or verify real Traffic Scotland credentials/live/offline behaviour. These must be performed and logged by student.
+
+## Entry 010 — 11 October 2026
+**Tool:** ChatGPT connected GitHub.
+**Exact student prompt:** `да  создай и пропишу там всю логику все что нужно нам для 100%`
+**Context:** Direct reply to prior discussion of a GitHub Projects Kanban board, all GCU CW1 assessment functions and verification stages.
+**AI contribution:** Drafted project-board setup blueprint, full product/backend/UI flow, rubric acceptance matrix and expected/actual QA scenarios. Created GitHub Issues #11–#13 for clean build, approved feeds and full lecturer XML tests; corrected accounting of rubric summary submarks; linked documentation from README. No visual board was actually created, and no device test or grade is claimed.
+**Student actions:** Create/link the visual private GitHub Project manually, add existing issues, review test/mark assumptions, execute tests, and disclose all AI prompt/code assistance in final Word appendix.

@@ -98,3 +98,11 @@ GenAI assistance logged:
 **Verification:** GitHub Actions successfully compiled base UI, repository, radius feature and Maps-integrated project; JVM tests passed in green Actions builds. **No live Google Maps key, tile rendering or marker click has been observed on the student emulator yet.** User still needs to run full supplied XML instrumentation tests and UI tests manually. API approval pending.
 
 **CI artifact:** credential-free debug APK available through green GitHub Actions workflow run (expires after 7 days).
+
+## 11 October 2026 — CW1 Project Board blueprint and full acceptance organisation
+**User:** Requested creation of visual GitHub Project and complete project logic to maximise rubric outcomes.
+**Connector limitation:** GitHub connection supports repository files/Issues but does not expose **GitHub Projects creation or item assignment**. No board created or claimed. Added a ready-to-create board spec for user's single manual setup.
+**GitHub tasks:** Created new P0 child Issues #11 (clean Gradle build), #12 (official API approval/auth), #13 (full lecturer XML emulator test) and retained seven broad milestone Issues plus three earlier closed checkpoints.
+**Documentation:** Added PROJECT_BOARD.md, PRODUCT_REQUIREMENTS.md, RUBRIC_100_CHECKLIST.md and QA_EXECUTION_MATRIX.md; README linked all. Clarified double-counting risk in summary subcriteria, documented the still-unresolved icon mark discrepancy and deadline conflict.
+**Testing:** No new Android tests performed in this management-only commit. Previous synthetic 4/4 passes remain the only device parser result currently supplied.
+**AI assistance:** Entry 010.
