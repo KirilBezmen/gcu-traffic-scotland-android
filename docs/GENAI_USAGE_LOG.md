@@ -132,3 +132,10 @@ Related commit/issue/test IDs:
 **Student message:** Two Android Studio screenshots showing working Home with 4 incidents / 405 roadworks and first A74(M) Incident Details on Pixel 9 Pro.
 **AI contribution:** Compared each field actually visible on the Details screenshot to the lecturer-supplied original `sample_unplanned.xml`, documented matching values, missing optional incident end date, and unverified From endpoint; updated QA matrix and issue progress. **No new Android source was generated** and no live API/map test has been claimed.
 **Student next validation:** scroll Details to verify the From endpoint, inspect a Roadworks record and archive screenshots in GitHub.
+
+
+## Entry 015 — 11 October 2026 (A74 + M8 Android Details evidence)
+**Tool:** ChatGPT with connected private GitHub source files.
+**Student contribution:** Three Pixel 9 Pro emulator screenshots showing the A74(M) incident's previously hidden From location and the full details of selected M8 Woodside Roadworks record.
+**AI contribution:** Retrieved official lecturer-supplied original DATEX II XML samples from GitHub, compared screenshot values with the source (including dates, delays, direction and coordinates), authored the M8 test evidence report and updated the prior A74 report, QA matrix, development notes and GitHub milestone evidence. No Android Java/XML application code was generated in this entry.
+**Validation boundaries:** Comparisons cover two selected historical fixture records and observed screenshots only. Remaining emulator regression tests and live API not performed. Screenshot binary evidence still needs permanent upload.

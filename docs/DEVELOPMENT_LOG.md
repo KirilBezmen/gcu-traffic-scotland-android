@@ -130,3 +130,11 @@ Student screenshot of Android Studio test window demonstrates `OfficialXmlFixtur
 **Student evidence:** Two Pixel 9 Pro emulator screenshots show the new Home screen (4 incidents / 405 roadworks, historical-source warning and branded road/cone/warning artwork) and the first A74(M) incident Details after navigation.
 **Grounded verification:** Compared visible record id I_20260810_248, subtype roadClosed, type, generalPublicComment, validity status, start, last updated, southBound direction, operational lanes 0, to-location J19 Eaglesfield and coordinates 55.065432/-3.273135 against the original `sample_unplanned.xml`; all visible fields matched. An end time is absent in XML and appropriately not displayed.
 **Still required:** Scroll down to the From J18 Ecclefechan endpoint, independently verify one complete roadworks Details screen, UI tests/rotation and real LIVE feeds. Evidence/screenshots only in ChatGPT conversation, not GitHub yet. [Comparison matrix](evidence/test-logs/INCIDENT_A74_DETAILS_2026-10-11.md).
+
+
+## 11 October 2026 — Second source-to-screen audit: A74(M) both endpoints + M8 roadworks D_159301
+**Student screenshots:** Full bottom of A74(M) Details showing From J18 Ecclefechan and coordinates 55.103477/-3.349595; Roadworks Details for M8 D_159301 including both endpoints, validity Start/End, longDelays, summary and technical type. Compared with raw lecturer XML using GitHub file and Git blob contents.
+**Observed A74:** From location / coords exactly match `sample_unplanned.xml`; the full displayed record field comparison is now PASS.
+**Observed M8:** `D_159301`, MaintenanceWorks/roadworks, generalPublicComment, validity window 2023-07-22 → 2027-12-31, last updated 2026-06-25, westBound, longDelays, To (55.870380/-4.268265), From (55.869923/-4.261365) all correspond to `sample_roadworks.xml`.
+**Evidence:** [A74 audit](evidence/test-logs/INCIDENT_A74_DETAILS_2026-10-11.md) and [M8 audit](evidence/test-logs/ROADWORKS_M8_DETAILS_2026-10-11.md); original screenshots remain in student conversation, still need permanent upload into GitHub.
+**Limits:** Does not establish 405-item source-to-UI field fidelity, short/long **colour** coding, rotation state, API access, live refresh or online map. M1 and M2 remain open pending more acceptance tests.

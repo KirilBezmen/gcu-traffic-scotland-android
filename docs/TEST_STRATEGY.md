@@ -73,3 +73,9 @@ All other unexecuted tests remain NOT RUN; complete XML lecturer fixtures now ha
 
 ## Executed full sample tests — 11 October 2026
 Two full lecturer sample Android tests `OfficialXmlFixturesTest` **PASSED 2/2** on Pixel 9 Pro emulator API36. First test asserted four incident situations and incident record/summary/start/coordinates; second asserted 405 roadworks, required validity/summary and >390 entries with coordinates. `BUILD SUCCESSFUL in 8s`. Screenshot submitted by student in conversation, pending archival to GitHub. [Full test record](evidence/test-logs/XML_FULL_FIXTURES_2026-10-11.md). No LIVE API functionality is inferred.
+
+
+### Source-to-screen specimen audits (11 October 2026)
+- **A74(M) Incident, I_20260810_248:** exact screenshot compare including all displayed fields and *both* From/To coordinates: **PASS**. [Evidence record](evidence/test-logs/INCIDENT_A74_DETAILS_2026-10-11.md).
+- **M8 Roadworks, D_159301:** road closure summary, MaintenanceWorks, roadworks, validity dates, `longDelays`, westBound and both From/To coordinates match: **PASS**. [Evidence record](evidence/test-logs/ROADWORKS_M8_DETAILS_2026-10-11.md).
+- These are two specific historical samples, not an exhaustive 409-record UI audit or live API testing. Pending UI smoke suite, orientation, errors and colouring verification.

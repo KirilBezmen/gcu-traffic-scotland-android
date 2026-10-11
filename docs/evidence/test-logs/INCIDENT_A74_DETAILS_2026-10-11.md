@@ -1,6 +1,6 @@
 # A74(M) incident — XML-to-Android Details comparison
 
-**Test date:** 11 October 2026 (student Android Studio screenshots at ~20:26 UK time)  
+**Test date:** 11 October 2026 (initial screenshot ~20:26 and follow-up fully scrolled screenshot ~20:29, UK local time)  
 **Device:** Pixel 9 Pro emulator, API 36  
 **Source:** historical lecturer fixture `app/src/main/assets/sample_unplanned.xml` (not live data)  
 **UI navigation observed:** Home → Incidents → first incident A74(M) → Details  
@@ -28,14 +28,14 @@
 | To location | to / J19 / A74(M) / A74(M) J19 Eaglesfield | Location (to): `J19; A74(M) J19 Eaglesfield` | MATCH for visible human-readable location; selected name fields |
 | To coordinates | latitude `55.065432`, longitude `-3.273135` | `55.065432, -3.273135` | MATCH |
 | Incident end date | `overallEndTime` **absent** from sample incident | No End line on visible details | EXPECTED: not invented |
-| From location | from / J18 / A74(M) J18 Ecclefechan | Below screenshot viewport | **NOT VERIFIED** |
-| From coordinates | `55.103477, -3.349595` | Below screenshot viewport | **NOT VERIFIED** |
+| From location | from / J18 / A74(M) J18 Ecclefechan | `J18; A74(M) J18 Ecclefechan` | MATCH |
+| From coordinates | `55.103477, -3.349595` | `55.103477, -3.349595` | MATCH |
 
 ## Outstanding criteria / next proof
-- [ ] Scroll incident Details lower and capture **Location (from)** and **Coordinates (from)**; confirm the expected J18 location and pair `55.103477, -3.349595`.
-- [ ] Open at least one Roadworks situation, including end date, impact/delay and two locations; compare UI against `sample_roadworks.xml`.
+- [x] Student scrolled incident Details and supplied full screenshot showing **Location (from)** J18 Ecclefechan and **Coordinates (from)** `55.103477, -3.349595`, both matching original XML.
+- [x] Opened roadworks record `D_159301` (M8 Woodside), including end date, `longDelays` and both endpoints; compared with `sample_roadworks.xml` in [separate roadworks audit](ROADWORKS_M8_DETAILS_2026-10-11.md).
 - [ ] Confirm large/long details work in both portrait and landscape, and Back returns to the correct list/query.
 - [ ] Run `NavigationChromeTest` on the Pixel 9 Pro, and capture original screenshots for permanent GitHub evidence.
 - [ ] Record actual git SHA from local Android Studio after run.
 
-**Outcome:** A74(M) **visible field audit PASSED**; full M1/M2 acceptance remains **PARTIAL** pending From endpoint, Roadworks and other user-journey tests. This screenshot is *not* evidence of authenticated LIVE feed or Google Maps.
+**Outcome (updated with further student screenshot):** A74(M) **full displayed detail field audit PASSED**, including both endpoints. M1/M2 milestones remain **OPEN** pending broader tests (other records, edge cases, navigation/rotation, errors). This screenshot is *not* evidence of authenticated LIVE feed or Google Maps.

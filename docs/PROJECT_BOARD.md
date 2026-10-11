@@ -9,8 +9,8 @@
 | GitHub Issue | Phase | Initial board status | What actually needs doing next |
 | --- | --- | --- | --- |
 | [#1](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/1) | **M0** Android setup and official API | **Blocked** | Fresh-clone Gradle wrapper; await Traffic Scotland approval; validate both official feeds |
-| [#2](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/2) | **M1** DATEX II XmlPullParser | **Testing** | **2/2 full lecturer XML Android tests PASSED** (4 incidents, 405 roadworks); verify field-to-screen values next |
-| [#3](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/3) | **M2** Incident/roadworks UI + details | **Testing** | Pull code, launch new UI, check rows/details vs source XML |
+| [#2](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/2) | **M1** DATEX II XmlPullParser | **Testing** | **2/2 full XML tests PASSED** (4 incidents, 405 roadworks); **A74(M) and M8 sample Details match XML**; edge cases/performance still pending |
+| [#3](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/3) | **M2** Incident/roadworks UI + details | **Testing** | Home and first incident/roadworks Details verified against XML; next run navigation tests, rotation, other records and error states |
 | [#4](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/4) | **M3** Single Activity/MVVM/rotation | **Testing** | Portrait↔landscape switching, preserve filters, selected detail and visible data |
 | [#5](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/5) | **M4** Search/nearby/map/icons/delays | **In Progress** | Validate radius/search; restricted Maps key and multi-selection; proper 6+ icons |
 | [#6](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/6) | **M5** Live updates/background/offline | **Blocked** | Test official startup/hourly download, no internet and caching after API approval |
