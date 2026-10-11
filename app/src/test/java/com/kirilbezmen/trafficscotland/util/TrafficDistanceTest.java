@@ -24,6 +24,10 @@ public class TrafficDistanceTest {
         assertTrue(TrafficDistance.nearestKm(item) > 25);
         assertTrue(TrafficDistance.nearestKm(item) < 200);
     }
+    @Test public void roadCrossingGlasgowIsNearbyEvenWithDistantEndpoints() {
+        assertEquals(0.0, TrafficDistance.toSegmentKm(55.8642, -4.2518,
+                56.0, -4.2518, 55.7, -4.2518), 0.1);
+    }
     @Test public void missingLocationsHaveInfiniteDistance() {
         TrafficSituation item = new TrafficSituation("empty", TrafficSituation.Feed.UNPLANNED_EVENTS);
         assertEquals(Double.POSITIVE_INFINITY, TrafficDistance.nearestKm(item), 0.0);
