@@ -56,3 +56,12 @@ GenAI assistance logged:
 **Not implemented / verified:** Real authenticated network retrieval, cache, actual device/parser tests, view binding, UI data lists, map or filters. No real API credentials were accessed or committed.
 
 **Next:** Student uses Git Pull in Android Studio; run `TrafficXmlParserTest` instrumentation test. Then arrange official feeds in background repository/VM, connect parsed list, and test live source after approval.
+
+## 11 October 2026 — First successful on-emulator parser instrumentation run
+**Evidence source:** Student screenshot of Android Studio Run / Test Results, provided in project chat. The screenshot shows `4 passed`, `4 tests`, `BUILD SUCCESSFUL in 18s`, `Pixel_9_Pro(AVD) - 16` / API 36 and zero failed tests.
+
+**Executed tests:** `incidentCommentImpactAndTwoPointsAreExtracted`, `unknownFieldsAndMissingOptionalElementsDoNotCrash`, `roadworksDurationAndDelayCanBeParsed`, `emptyDownloadIsNotSilentlyAccepted`.
+
+**Result:** PASS — all 4 instrumented synthetic/minimal XML cases, no failures on emulator. Validates these cases on Android's actual PullParser implementation. **Does not yet verify full fixture parsing (4 incident/405 roadworks), live network updates, UI data accuracy, filters, maps or offline behaviour.**
+
+**Next:** Add full supplied XML sample-based instrumented tests (count + spot checks), then integrate parsed collections into repository/ViewModel and real selectable lists. API application approval still pending.

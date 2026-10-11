@@ -34,3 +34,16 @@ Summarise execution and any open defects in the Word test strategy. Never claim 
 Offline analysis of the supplied original examples found **4 unplanned + 405 roadworks** records. To count these as coursework testing evidence, run a device/instrumented test of the real full files and document observed values/screenshots. Independent local JDK compatibility checks are preliminary, not a substitute.
 
 Record actual Android run details (commit, emulator, API, date, outcome) only after executing tests.
+
+## Executed Android instrumented parser tests — 11 October 2026
+
+| Test | Expected | Observed from Android Studio screenshot | Result |
+| --- | --- | --- | --- |
+| `incidentCommentImpactAndTwoPointsAreExtracted` | Extract summary, dates, impact, 2 points and road ID | Test green | **PASS** |
+| `roadworksDurationAndDelayCanBeParsed` | Extract subtype, end date, delay, and road ID | Test green | **PASS** |
+| `emptyDownloadIsNotSilentlyAccepted` | Empty XML raises expected parse exception | Test green | **PASS** |
+| `unknownFieldsAndMissingOptionalElementsDoNotCrash` | Unknown nested XML and absent optional fields handled safely | Test green | **PASS** |
+
+**Environment:** Android Studio / Pixel 9 Pro Android emulator, API 36, 11 Oct 2026. **Test summary:** 4 passed, 0 failed; BUILD SUCCESSFUL in 18s. Screenshot is present in ChatGPT conversation, but **not yet archived into GitHub evidence folder**.
+
+**Scope limitation:** These tests use small representative constructed XML fragments and **not** the complete official supplied XML fixtures. Full-file parsing count, actual live XML feed, map/UI presentation and offline tests remain outstanding. Do not conflate these four tests with full coursework verification.
