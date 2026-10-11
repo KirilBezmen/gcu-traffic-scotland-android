@@ -5,7 +5,7 @@
 ![Java](https://img.shields.io/badge/Java-Android-007396)
 ![Platform](https://img.shields.io/badge/Platform-Android%208%2B-3DDC84)
 ![Assessment](https://img.shields.io/badge/CW1-70%25%20of%20module-485569)
-![Phase](https://img.shields.io/badge/Phase-XML%20parsing%20validation-E5A449)
+![Phase](https://img.shields.io/badge/Phase-native%20UI%20integration-E5A449)
 ![Tests](https://img.shields.io/badge/Android%20parser%20tests-4%20passed-238636)
 
 > **Independent student coursework; not an official Traffic Scotland app.** The GitHub code is an evolving implementation, **not a completed or fully tested submission**. The approved DATEX II feeds and the coursework's DOs/DON'Ts govern every feature.
@@ -18,13 +18,13 @@
 | :-- | :-- | :-- | :-- |
 | Android setup | GitHub app launched on **Pixel 9 Pro emulator**; Java and XML navigation shell | Verify fresh clone can build with committed Gradle wrapper | ✅ Local run / ⚠️ wrapper |
 | Official API access | Applied using GCU email on **11 Oct**, Public Restricted API | Wait for administrator approval; never commit client credentials | 🟡 Pending |
-| XmlPullParser + models | Parser and model Java classes committed; **4/4** representative Android instrumentation tests passed on API 36 | Test complete lecturer samples (**4 incidents, 405 roadworks**) and spot-check nested data | 🟡 In progress |
-| MVVM and Fragments | Single Activity, ViewModel, list/detail/map Fragment shells | Wire shared loaded data and selection; validate navigation | 🟡 Foundation |
+| XmlPullParser + models | Parser source; **4/4** representative tests passed; **4 + 405 original sample XML files now included** | Run newly added full-file instrumentation tests on Android | 🟡 New tests not yet run |
+| MVVM and Fragments | Shared AndroidViewModel, background repository and list/detail/home code committed | Build and verify transitions, rotation and selection | 🟡 Code committed, new UI unverified |
 | Portrait / landscape | Separate `activity_main.xml` arrangements committed | Test rotation and persistence of selected data, filters and scroll state | 🟡 Not verified |
-| Incident / roadworks lists + details | Placeholder views only | Bind real parsed records to selectable list and details | ⚪ To do |
-| Road / nearby search | No implementation | Add road ID search and distance filtering | ⚪ To do |
-| Delays, licensed icons, map | No implementation | Delay-colour legend, 6 licensed icons, multi-selected map | ⚪ To do |
-| Auto-update + offline state | No implementation | Startup/hourly background refresh, last good cache, errors | ⚪ To do |
+| Incident / roadworks lists + details | Native ListView card adapter and detail fields implemented in source | Pull and run on emulator; compare rows to XML values | 🟡 Not yet emulator-tested |
+| Road / nearby search | Exact road-ID list filter implemented in source | Test M8 vs M80; build nearby-radius filtering | 🟡 Road filter source only |
+| Delays, licensed icons, map | Delay type colour labels + 2 original vector icons; map still placeholder | 6+ varied icons, accessible legend, real selected marker map | 🟡 Partial |
+| Auto-update + offline state | Java Executor background worker, startup/hourly refresh, live-cache fallback **source committed** | Test after API approval (no live responses yet) | 🟡 Unverified live |
 | Assessment test evidence | Four instrumented parser tests passed (synthetic examples) | Full-fixture, UI, navigation, offline and feed-vs-display tests | 🟡 In progress |
 | Final submission | No APK/video/Word/backup ZIP submitted | Prepare final artefacts after working functionality | ⚪ To do |
 
@@ -37,11 +37,11 @@
 [✔] GitHub / Java+XML / single Activity and Fragment placeholders
 [✔] Representative XmlPullParser tests (4 pass)
 [~] Approval for official Traffic Scotland API
-[>] NEXT: Full supplied XML fixtures → robust records → real list
-[ ] Search + details + distance
-[ ] Maps, icons and delay colours
+[>] NEXT: Git Pull → compile / run new Home + lists → full sample XML tests
+[~] Search by road + details source written; distance remains
+[~] 2 original icons / delay badges; real map remains
 [ ] Distinct landscape state / usability validation
-[ ] Threading, auto-refresh and offline use
+[~] Background/refresh/cache code written; real conditions not verified
 [ ] Full testing evidence, demo video, APK and Word summary
 ```
 
@@ -63,10 +63,10 @@ Three narrowly scoped tasks are **closed as completed**, without prematurely clo
 | :-- | :-- | :-- |
 | [#1](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/1) | Android Studio setup and authorised API access | In progress (approval pending) |
 | [#2](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/2) | Complete XML parsing and real fixture tests | In progress |
-| [#3](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/3) | Selectable incidents / roadworks and detail UI | Planned |
+| [#3](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/3) | Selectable incidents / roadworks and detail UI | Source committed; emulator verification pending |
 | [#4](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/4) | Portrait, landscape and MVVM saved state | Partly implemented |
 | [#5](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/5) | Search, nearby, map, icons and delay colours | Planned |
-| [#6](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/6) | Background loading, auto refresh, offline handling | Planned |
+| [#6](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/6) | Background loading, auto refresh, offline handling | Implementation drafted; live verification pending |
 | [#7](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/7) | Testing, video, APK, Word and backup ZIP | Test evidence started |
 
 **Rules:** Each issue has a definition of done; close it only when the implementation AND its tests are verified. Each change should have a meaningful Git commit. No guessed completion percentages or unexecuted PASS results.
@@ -130,3 +130,13 @@ Other audit/reference documents in `docs/` are optional working notes; **they ar
 The official coursework specification requires a **Word document** `Surname_GivenName_StudentId.docx` with originality declaration, complete GenAI disclosure and prompt appendix, link to OneDrive narrated video, links to GitHub source and APK, and a written **documented test strategy**. Also prepare narrated portrait/landscape video and an External Examiner backup **ZIP** (APK + video + ZIP of cleaned Android project). See [Submission checklist](docs/SUBMISSION_CHECKLIST.md). Don't manufacture test results.
 
 **Internal targets:** core functionality by early November, testing/polish by mid-November, export/record/review final deliverables around 18–20 November. Honours Project remains the highest time priority.
+
+## Active development — 11 October 2026
+
+- [Native UI design and functional spec](docs/DESIGN_AND_FUNCTIONAL_SPEC.md): illustrated road/cones/warning sign home, lists, full details and selected states.
+- [Official sample XMLs](app/src/main/assets/): **4 unplanned events and 405 roadworks**, bundled for local **debug** testing only. UI explicitly says **historic samples, NOT live conditions**.
+- [Traffic Scotland credential setup](docs/ANDROID_CREDENTIALS_SETUP.md): uses ignored local properties after portal approval; do not publish credentials-bearing APK.
+- [GitHub Actions](.github/workflows/android-build.yml): debug + instrumentation test compilation only, not device execution. CI verification pending; user should check [Actions](https://github.com/KirilBezmen/gcu-traffic-scotland-android/actions).
+- [Full XML Android tests](app/src/androidTest/java/com/kirilbezmen/trafficscotland/data/parser/OfficialXmlFixturesTest.java): **written but NOT yet executed on Android**.
+
+**Next verification:** Git Pull → Gradle Sync → run `app` on Pixel 9 Pro (Home, lists, type/description, search M8/M80, details, landscape), then right-click `OfficialXmlFixturesTest` → Run and save the actual results. **None of these new UI/tests has been confirmed by an Android run yet.**

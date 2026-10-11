@@ -79,3 +79,12 @@ Related commit/issue/test IDs:
 > вот я про это говорил это нам нужно вести? и давай закроем то что мы сделали с тобой уже будем двигаться ?
 
 **AI contribution:** Explained the difference between GitHub Issues, optional Projects board and Pull Requests; inspected existing seven milestones, created and closed three narrowly scoped verification issues (#8 repo setup, #9 first emulator launch, #10 four smoke parser tests) and updated README/development log links. Did not assert full rubric features are complete, and did not change implementation code or claim new tests.
+
+## Entry 008 — 11 October 2026
+**Tool:** ChatGPT with connected GitHub, Files source access and official provided XML samples.
+**Exact most recent user prompt:** `все начинаем разработку начинай делать все`
+**Context:** User had earlier authorised design, GitHub commits and full implementation, proposing a road/cones/warning-sign home screen and insisting on rubric compliance. Original complete prompt and image remain in the chat transcript; this log does **not** falsely reproduce them as verbatim if abridged.
+
+**GenAI contributions:** Reviewed current GitHub code and official coursework XML, uploaded lecturer fixtures, wrote Java repository and AndroidViewModel, full-XML test source, Java/Android XML Views layouts, list/detail/home Fragments, road search/filter, delay badges, original hand-authored vector artwork, Gradle local credential config, GitHub workflow and design/technical docs. Created GitHub commits including `f0e3a91`, `afc40d7`, `bc3b9fe`, `3bc3ee4`, `1dac057` and CI adjustments. The GUI designs/code were written with AI assistance and must be disclosed in the final coursework Word appendix.
+
+**Validation honesty:** Previous small XML cases **4/4 PASS** on 11 October (student screenshot). **New full-fixture tests, UI integration, local demo, live fetch, rotation and map have NOT been run successfully on emulator yet.** CI SDK setup errors are not app-code verification. User must review and run these changes to establish real evidence.

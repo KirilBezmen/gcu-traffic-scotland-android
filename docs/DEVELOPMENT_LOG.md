@@ -80,3 +80,14 @@ GenAI assistance logged:
 **Testing:** No new code or Android tests executed in this housekeeping change.
 
 **GenAI assistance:** See log Entry 007.
+
+## 11 October 2026 — Native functional prototype Sprint 1
+**Action requested:** User delegated commencement of comprehensive coursework implementation, GitHub commits and continuous documentation.
+
+**Development:** Added exact lecturer XML fixtures to private repo (4 unplanned, 405 roadworks); implemented background `TrafficRepository` with official feed restriction, API key values from ignored local properties, debug-only labelled fixture fallback, scheduled hourly refresh and last-successful LIVE response cache; upgraded `TrafficViewModel` to AndroidViewModel. Added full-fixture Android instrumentation tests; created list adapter, functional list and detail Fragment source, HomeFragment, four-tab navigation, original vector road/cones/warning hero, separate landscape rail, cards and branded colour scheme. **These new features are not yet tested in emulator.**
+
+**Commits:** `f0e3a91` (fixtures), `afc40d7` (repository + tests), `bc3b9fe` (UI logic), `3bc3ee4` (native layouts/illustration), `1dac057` (CI/design specs). CI setup initially failed before Java compile because modern hosted runner rejected obsolete Android SDK tools; workflow is being repaired.
+
+**Academic scope:** Original official feeds ONLY; no WebView; Java/XML PullParser; sample mode clearly labelled. **Pending:** validate samples 4/405 on Android, test UI, official live API access, map and nearby filter, complete icon set, full test evidence.
+
+**Development note:** Original traffic sample XML may be copyrighted/licensed. It resides in a private coursework repository for educational testing. Review Traffic Scotland data terms before any public distribution.

@@ -47,3 +47,16 @@ Record actual Android run details (commit, emulator, API, date, outcome) only af
 **Environment:** Android Studio / Pixel 9 Pro Android emulator, API 36, 11 Oct 2026. **Test summary:** 4 passed, 0 failed; BUILD SUCCESSFUL in 18s. Screenshot is present in ChatGPT conversation, but **not yet archived into GitHub evidence folder**.
 
 **Scope limitation:** These tests use small representative constructed XML fragments and **not** the complete official supplied XML fixtures. Full-file parsing count, actual live XML feed, map/UI presentation and offline tests remain outstanding. Do not conflate these four tests with full coursework verification.
+
+## Pending full lecturer samples / UI — 11 October 2026
+| Scenario | Expected | Observed | Status |
+| --- | --- | --- | --- |
+| Full unplanned XML (lecturer fixture) | **4** situations; types/comments/from-to coords | Not yet executed on Android | NOT RUN |
+| Full current roadworks XML | **405** situations; validity/end, delays and coordinates | Not yet executed on Android | NOT RUN |
+| New Home, lists and detail screen | Clearly labelled sample source, valid counts, select a row and fields equal XML | Not yet run | NOT RUN |
+| Search `M8` versus `M80` | Exact road route match, not substring | Not yet run in new UI | NOT RUN |
+| Orientation | Portrait tabs vs landscape rail, state + loaded data stay | Not yet run | NOT RUN |
+| Live API fetch and offline cached mode | Authenticated official XML; cache on no internet | API approval pending | BLOCKED |
+| Map + nearby distance | Geolocated selected markers and radius filter | Not implemented | TODO |
+
+Tests are deliberately marked NOT RUN until evidence exists. Add Android Studio Screenshots to `docs/evidence/screenshots/` and record date/device/API/commit and actual results.

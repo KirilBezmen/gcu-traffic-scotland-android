@@ -6,11 +6,11 @@ Source documents supplied 10 October 2026: MPD_26_27_Traffic.docx (9 pages), Mar
 
 | Category | Maximum | Definition of done / mark evidence | Status |
 | --- | ---: | --- | --- |
-| Functionality: incidents + roadworks and interactions | **42** | Working selectable lists, details, road/distance search, delay colours, licensed icons and multi-selection map | Not implemented |
-| Portrait + landscape | **8** | Two different activity_main.xml arrangements; selection/display survives rotation | Two layouts committed; rotation not tested |
-| PullParser + Java collections | **10** | XML String parsed into typed objects; optional impact/validity/location details in appropriate collections | Source committed; 4/4 representative Android parser instrumented tests passed 11 Oct, complete fixture tests pending |
-| Architecture | **10** | One Activity + Fragments + explicit MVVM to target full 10 | Foundation committed; integration/build not tested |
-| Background threading + auto refresh | **10** | Replace starter runOnUiThread/Thread organisation (6); start-up + periodic refresh (4) | Not implemented |
+| Functionality: incidents + roadworks and interactions | **42** | Working selectable lists, details, road/distance search, delay colours, licensed icons and multi-selection map | Lists/details/road filter & delay badges source committed; device verification and map/nearby/icons pending |
+| Portrait + landscape | **8** | Two different activity_main.xml arrangements; selection/display survives rotation | Portrait top navigation / landscape left rail committed; rotation with data not tested |
+| PullParser + Java collections | **10** | XML String parsed into typed objects; optional impact/validity/location details in appropriate collections | Source committed; 4/4 representative Android tests passed 11 Oct; full 4/405 fixture tests added but not run |
+| Architecture | **10** | One Activity + Fragments + explicit MVVM to target full 10 | AndroidViewModel/repository+Fragments code committed, integration build not yet verified |
+| Background threading + auto refresh | **10** | Replace starter runOnUiThread/Thread organisation (6); start-up + periodic refresh (4) | Executor + startup/hourly scheduling + cache source committed; live verification pending |
 | Documented testing | **15** | Feed/UI consistency (5), navigation (4), feature tests (4), offline (2) with actual and expected results and evidence | Test plan draft only |
 | Narrated video | **5** | Show actual operation incl. portrait and landscape with voiceover | Not recorded |
 | **TOTAL** | **100** | All rows are assessed | **0 verified for implementation** |
