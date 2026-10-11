@@ -60,3 +60,15 @@ Related commit/issue/test IDs:
 **Exact user prompt:** `запросил что мы можем теперь делать дальше` (with screenshot showing Public Restricted API request submitted; complete screenshot remains in original chat).
 **Contribution:** Analysed two provided DATEX II samples; implemented Java PullParser and three nested model classes for incidents/roadworks and included an Android instrumentation test suite. Pushed code to private GitHub repository. Generated source fixture values from real coursework examples; external StAX adapter used only to preliminarily validate Java parsing algorithm offline and not included in app.
 **Adopted:** Code commit `d723f2e` and follow-up tests/docs commit. No Android emulator execution claimed. Student must Git Pull, review and run test suite; prompt is disclosed here for assessed use.
+
+## Entry 006 — 11 October 2026
+**Tool:** ChatGPT with connected GitHub.
+**Exact user prompt:**
+> хочу пару уточнений 
+> 1) У нас развязаны руки на счет дизайна приложение? если да мы можем сделать красивое приложение с дизайном 
+> 2) Когда мы начнем вести документацию документ? Нужен ли он нам? Так же мы ведем документацию на гит хабе 
+> 3) Нужно разобраться с гитом чтобы там отобрадалось что мы сделали что нам нужно сделать шаги и таблица с действиями я хз надо или нет или у нас и так очень классная стуктура нам нужен 1 класс 100%
+
+**AI contribution:** Answered app-design/documentation questions using course brief, reviewed repository status, drafted a concise design direction and rewrote GitHub README as transparent progress dashboard with issue links, evidence status and final Word/submission requirements. No production app functionality changed.
+
+**Human review:** User should verify dashboard status and decide whether to adopt proposed styling. No marks claimed as already awarded.

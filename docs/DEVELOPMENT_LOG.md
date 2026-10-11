@@ -65,3 +65,9 @@ GenAI assistance logged:
 **Result:** PASS — all 4 instrumented synthetic/minimal XML cases, no failures on emulator. Validates these cases on Android's actual PullParser implementation. **Does not yet verify full fixture parsing (4 incident/405 roadworks), live network updates, UI data accuracy, filters, maps or offline behaviour.**
 
 **Next:** Add full supplied XML sample-based instrumented tests (count + spot checks), then integrate parsed collections into repository/ViewModel and real selectable lists. API application approval still pending.
+
+## 11 October 2026 — Repository progress/dashboard housekeeping
+**Purpose:** Avoid confusion between scaffolding, verified tests and remaining assessment work.
+**Changes:** README now records verified Pixel 9 Pro app run and 4/4 actual instrumented parser tests, separated from untested full XML fixtures and pending API access. Proposed UI direction and seven milestone links added. Issue #1 being reopened because official API approval and clean wrapper setup are still outstanding.
+**Testing:** No application code or new tests executed in this documentation-only change.
+**GenAI assistance:** Entry 006.

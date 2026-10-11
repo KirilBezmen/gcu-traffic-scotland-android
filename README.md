@@ -1,90 +1,120 @@
 # Traffic Scotland Explorer
 
-**Glasgow Caledonian University · Mobile Platform Development (MHI326841) · CW1 · 2026/27**
+**GCU · Mobile Platform Development (MHI326841) · CW1 2026/27**
 
-![Android](https://img.shields.io/badge/Android-native-3DDC84?logo=android&logoColor=white)
-![Java](https://img.shields.io/badge/Java-coursework-007396)
-![XML](https://img.shields.io/badge/UI-XML%20Views-546E7A)
-![Assessment](https://img.shields.io/badge/CW1-70%25%20of%20module-4B5563)
-![Progress](https://img.shields.io/badge/status-foundation%20only-DAA520)
+![Java](https://img.shields.io/badge/Java-Android-007396)
+![Platform](https://img.shields.io/badge/Platform-Android%208%2B-3DDC84)
+![Assessment](https://img.shields.io/badge/CW1-70%25%20of%20module-485569)
+![Phase](https://img.shields.io/badge/Phase-XML%20parsing%20validation-E5A449)
+![Tests](https://img.shields.io/badge/Android%20parser%20tests-4%20passed-238636)
 
-> **Independent student coursework. This is NOT an official Traffic Scotland app.**
->
-> This repository currently contains a **project scaffold**, not a finished application. All Traffic Scotland functionality is subject to the *full coursework instructions, marking rubric and DOs/DON'Ts*. Do not submit this starter as a completed assignment.
+> **Independent student coursework; not an official Traffic Scotland app.** The GitHub code is an evolving implementation, **not a completed or fully tested submission**. The approved DATEX II feeds and the coursework's DOs/DON'Ts govern every feature.
 
-## Overview
+## Development dashboard
 
-Traffic Scotland Explorer is an Android Studio / Java project intended to read Traffic Scotland incident and roadworks XML streams, transform relevant records into Java objects, and present useful information and selections to mobile users. The design favours straightforward, testable implementation over unnecessary features.
+**Last verified:** 11 October 2026 · **Target:** high First Class (85%+ for CW1, not guaranteed) · **Official CW1 date:** 23 November 2026, 17:00 (earlier generic brief says noon; aim to submit by noon).
 
-### Planned pipeline
+| Workstream | Evidence / what is complete | Next action | Status |
+| :-- | :-- | :-- | :-- |
+| Android setup | GitHub app launched on **Pixel 9 Pro emulator**; Java and XML navigation shell | Verify fresh clone can build with committed Gradle wrapper | ✅ Local run / ⚠️ wrapper |
+| Official API access | Applied using GCU email on **11 Oct**, Public Restricted API | Wait for administrator approval; never commit client credentials | 🟡 Pending |
+| XmlPullParser + models | Parser and model Java classes committed; **4/4** representative Android instrumentation tests passed on API 36 | Test complete lecturer samples (**4 incidents, 405 roadworks**) and spot-check nested data | 🟡 In progress |
+| MVVM and Fragments | Single Activity, ViewModel, list/detail/map Fragment shells | Wire shared loaded data and selection; validate navigation | 🟡 Foundation |
+| Portrait / landscape | Separate `activity_main.xml` arrangements committed | Test rotation and persistence of selected data, filters and scroll state | 🟡 Not verified |
+| Incident / roadworks lists + details | Placeholder views only | Bind real parsed records to selectable list and details | ⚪ To do |
+| Road / nearby search | No implementation | Add road ID search and distance filtering | ⚪ To do |
+| Delays, licensed icons, map | No implementation | Delay-colour legend, 6 licensed icons, multi-selected map | ⚪ To do |
+| Auto-update + offline state | No implementation | Startup/hourly background refresh, last good cache, errors | ⚪ To do |
+| Assessment test evidence | Four instrumented parser tests passed (synthetic examples) | Full-fixture, UI, navigation, offline and feed-vs-display tests | 🟡 In progress |
+| Final submission | No APK/video/Word/backup ZIP submitted | Prepare final artefacts after working functionality | ⚪ To do |
 
-1. Retrieve or load authorised Traffic Scotland XML data.
-2. Parse XML into typed Java data objects using the permitted module approach.
-3. Store and manage the items in a suitable collection.
-4. Show incidents and roadworks with relevant filtering/selection.
-5. Show details, handle loading and errors, and verify behaviour with documented tests.
+**Legend:** ✅ verified · 🟡 partially done / pending · ⚪ not started. This table tracks *implementation evidence*, **not marks already awarded**.
 
-The above is a **plan**. A single-Activity/Fragments/ViewModel **navigation scaffold** is now committed, with clearly labelled placeholder screens. Traffic functionality is not yet implemented or verified.
+### Where we are in the workflow
 
-## Current status
+```text
+[✔] Android Studio + emulator launched
+[✔] GitHub / Java+XML / single Activity and Fragment placeholders
+[✔] Representative XmlPullParser tests (4 pass)
+[~] Approval for official Traffic Scotland API
+[>] NEXT: Full supplied XML fixtures → robust records → real list
+[ ] Search + details + distance
+[ ] Maps, icons and delay colours
+[ ] Distinct landscape state / usability validation
+[ ] Threading, auto-refresh and offline use
+[ ] Full testing evidence, demo video, APK and Word summary
+```
 
-| Area | Status |
-| --- | --- |
-| GitHub repository, source scaffold and documentation | Prepared and committed |
-| Local Android Studio build and emulator run | **GitHub snapshot not verified** (only separate local starter Hello World app ran) |
-| XML feed loading, parsing and collections | Parser/models source committed; Android instrumentation not yet run; network download not implemented |
-| Incidents/roadworks list, filter and details | Not implemented |
-| Official detailed marking rubric | Reviewed; see docs/ASSESSMENT_TRACKER.md |
-| Test evidence, APK and narrated video | Not produced |
+## How we manage tasks in GitHub
 
-### Source layout
+| Issue | Milestone | Status |
+| :-- | :-- | :-- |
+| [#1](../../issues/1) | Android Studio setup and authorised API access | In progress (approval pending) |
+| [#2](../../issues/2) | Complete XML parsing and real fixture tests | In progress |
+| [#3](../../issues/3) | Selectable incidents / roadworks and detail UI | Planned |
+| [#4](../../issues/4) | Portrait, landscape and MVVM saved state | Partly implemented |
+| [#5](../../issues/5) | Search, nearby, map, icons and delay colours | Planned |
+| [#6](../../issues/6) | Background loading, auto refresh, offline handling | Planned |
+| [#7](../../issues/7) | Testing, video, APK, Word and backup ZIP | Test evidence started |
 
-| Path | Responsibility |
-| --- | --- |
-| app/src/main/java/com/kirilbezmen/trafficscotland/MainActivity.java | Temporary setup screen |
-| app/src/main/java/.../data/model/ | Java traffic record classes (planned) |
-| app/src/main/java/.../data/parser/ | XML parsing (planned) |
-| app/src/main/java/.../data/repository/ | Data retrieval/storage boundary (planned) |
-| app/src/main/java/.../ui/list/ | List adapter/UI (planned) |
-| app/src/main/java/.../ui/detail/ | Details display (planned) |
-| app/src/main/res/ | Layout, theme, strings, drawable resources |
-| app/src/test/ | JVM unit tests (planned) |
-| app/src/androidTest/ | Instrumented Android tests (planned) |
-| docs/ | Traceability, decisions, architecture, test and AI records |
-| deliverables/apk/ | Placeholder for submission APK (not a generated APK) |
-| .github/ | Issue and PR templates |
+**Rules:** Each issue has a definition of done; close it only when the implementation AND its tests are verified. Each change should have a meaningful Git commit. No guessed completion percentages or unexecuted PASS results.
 
-## Local setup
+## Proposed UI direction (to be implemented)
 
-**Requirements:** Android Studio; Android SDK Platform 35 for the provided default config; JDK 17; an emulator or Android device.
+- **Visual language:** clear, modern traffic-information UI: deep navy (#142B49), blue (#2675C9), neutral off-white (#F3F6FA) and semantic amber/red for warnings.
+- **Navigation:** Incidents, Roadworks, Map, with search and detail screens in a **single Activity + Fragments + MVVM** architecture, as required for maximum architecture marks.
+- **Lists:** road/type at a glance, a concise `generalPublicComment`, severity/delay indication and useful empty/loading/error states.
+- **Details:** validity dates, impact, lane restrictions and from/to locations with safe handling of missing values.
+- **Landscape:** materially different arrangement, not portrait stretched; preserve current selection and filters on rotation.
+- **Accessibility:** readable sizes, tap targets, contrast, text labels paired with colours, licensed and attributed icons.
+- **Implementation constraint:** Java + XML Android Views; no HTML WebView or unrelated third-party UI frameworks. Maps via an explicitly allowed service.
 
-> **Incomplete Gradle wrapper:** This initial remote scaffold includes Gradle configuration and gradle-wrapper.properties but **does not include gradle-wrapper.jar or launcher scripts**. These standard generated files need to be added via a local Android Studio / Gradle setup before the project can be built from a clean checkout. See [setup guide](docs/ANDROID_STUDIO_SETUP.md). Do not mistake a GitHub upload for a verified build.
+This is an **aesthetic proposal**, not a claim of implemented screens. A polished UI matters only where it supports the marking rubric, performance and usability.
 
-After the wrapper is fixed, sync, launch the app on an emulator and press **Check setup**. That exercises the temporary UI only — it does **not** demonstrate traffic XML functionality.
+## Coursework architecture
 
-## Tracking and quality
+```text
+Official Traffic Scotland DATEX II UnplannedEvents + CurrentRoadworks XML
+    ↓ (approved credentials; startup + periodic background fetch)
+XML text String → XmlPullParser (mandatory) → Java TrafficSituation/Record/Location objects
+    ↓
+TrafficRepository (data + most recent good feed / failures)
+    ↓
+TrafficViewModel (observable data, current search, selection)
+    ↓
+MainActivity + ListFragment / DetailsFragment / MapFragment
+    ↓
+Portrait and landscape XML layouts
+```
 
-- [Assessment tracker](docs/ASSESSMENT_TRACKER.md): confirmed 100-mark rubric and traceability plan.
-- [Architecture](docs/ARCHITECTURE.md): revised one-Activity + Fragments + MVVM architecture.
-- [Coursework constraints](docs/COURSEWORK_CONSTRAINTS.md): hard requirements and zero-mark pitfalls.
-- [Starter code audit](docs/STARTER_CODE_AUDIT.md): what must be replaced, rather than merely copied.
-- [Sample XML audit](docs/SAMPLE_XML_AUDIT.md): checked data counts and optional fields.
-- [Development log](docs/DEVELOPMENT_LOG.md): chronological implementation and verification.
-- [Testing strategy](docs/TEST_STRATEGY.md): test cases and evidence, kept separate from planned tests.
-- [GenAI usage and prompts](docs/GENAI_USAGE_LOG.md): mandatory Guided GenAI disclosure.
-- [Design decisions](docs/DECISIONS.md): architectural choices and constraints.
-- [Submission checklist](docs/SUBMISSION_CHECKLIST.md): final hand-in artifacts.
+Current source: `app/src/main/java/com/kirilbezmen/trafficscotland/`; documentation is in `docs/`. The project was successfully launched in Android Studio on Pixel 9 Pro; the **repository does not yet include the full standard Gradle wrapper JAR and scripts**, so a completely fresh standalone wrapper build has **not** been verified.
 
-## Dates
+## Assessment and documentation
 
-- **CW1:** Monday **23 November 2026**. The detailed CW1 assignment and module schedule both say **17:00**. An earlier generic assessment brief states noon, so use **12:00 as an internal safety cutoff** unless clarified with the module team.
-- **CW2:** Monday **30 November 2026**, invigilated at GCU during lab time.
-- **Internal completion target:** 18–20 November 2026.
+| Rubric area | Max marks |
+| --- | ---: |
+| Requested app functionality | **42** |
+| Portrait / landscape layouts | **8** |
+| XmlPullParser and data structures | **10** |
+| Architecture | **10** |
+| Threading and automatic updating | **10** |
+| Documented testing | **15** |
+| Narrated video | **5** |
+| **Total** | **100** |
 
-## Academic integrity and data
+The rubric contains an **icons line inconsistency (6 versus 8)** — clarification pending. Full descriptions and DOs/DON'Ts: [Assessment tracker](docs/ASSESSMENT_TRACKER.md) and [Coursework constraints](docs/COURSEWORK_CONSTRAINTS.md).
 
-The brief designates GenAI as **G — AI Guided**: AI assistance to code, debug and test must be fully disclosed, including the relevant prompts. The student must review, understand and test the final work. Do not silently use techniques ruled out by the rubric.
+**Source of truth for work:** GitHub commits and Issues. **Working documentation:**
+- [Development log](docs/DEVELOPMENT_LOG.md): meaningful changes and actual verification.
+- [Testing strategy](docs/TEST_STRATEGY.md): expected vs actual, evidence, device/API, status.
+- [GenAI usage log](docs/GENAI_USAGE_LOG.md): disclose actual AI assistance and prompts (G — Guided).
+- [Architecture](docs/ARCHITECTURE.md): implementation decisions.
+- [Submission checklist](docs/SUBMISSION_CHECKLIST.md): final delivery and naming.
 
-Traffic Scotland data originates from Traffic Scotland / Transport Scotland. No live stream has been fetched or certified here, and no sample traffic data is bundled yet. Check permissions and attribution terms for any feed incorporated later.
+Other audit/reference documents in `docs/` are optional working notes; **they are not separate GCU hand-ins**.
 
-**Principle:** Rubric first, reliable functionality second, polish third. Honours Project remains the main academic priority.
+### Final submission (separate from internal Markdown docs)
+
+The official coursework specification requires a **Word document** `Surname_GivenName_StudentId.docx` with originality declaration, complete GenAI disclosure and prompt appendix, link to OneDrive narrated video, links to GitHub source and APK, and a written **documented test strategy**. Also prepare narrated portrait/landscape video and an External Examiner backup **ZIP** (APK + video + ZIP of cleaned Android project). See [Submission checklist](docs/SUBMISSION_CHECKLIST.md). Don't manufacture test results.
+
+**Internal targets:** core functionality by early November, testing/polish by mid-November, export/record/review final deliverables around 18–20 November. Honours Project remains the highest time priority.
