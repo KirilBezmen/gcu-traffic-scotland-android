@@ -33,6 +33,12 @@
     <string name="no_delay">No delay</string>
     <string name="delay_unknown">Delay unknown</string>
     <string name="list_pending">Loading traffic data — please wait.</string>
+    <string name="map_results">Show filtered results on map</string>
+    <string name="map_selection_count">%1$d selected situations (tap markers for details)</string>
+    <string name="map_all_count">All geolocated traffic situations</string>
+    <string name="clear_selection">Show all situations</string>
+    <string name="map_key_required">Google Maps is permitted for this coursework. Add your own restricted Maps SDK for Android API key to local.properties as MAPS_API_KEY, then Gradle Sync. The traffic lists remain available without a Maps key.</string>
+    <string name="map_loading">Loading geographic map…</string>
     <string name="map_pending">Map is not implemented yet. Mapping must use an allowed service and parsed Traffic Scotland coordinates.</string>
     <string name="details_pending">Situation ID: %1$s. Further details will be shown after XML parsing is implemented.</string>
 </resources>

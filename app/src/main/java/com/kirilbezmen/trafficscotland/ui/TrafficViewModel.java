@@ -11,6 +11,9 @@ import com.kirilbezmen.trafficscotland.data.repository.TrafficRepository;
 import com.kirilbezmen.trafficscotland.util.TrafficDistance;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.List;
 import java.util.Locale;
 
@@ -22,6 +25,7 @@ public class TrafficViewModel extends AndroidViewModel {
     private Section section = Section.HOME;
     private String incidentSearch = "";
     private String roadworksSearch = "";
+    private final LinkedHashSet<String> selectedMapIds = new LinkedHashSet<>();
     private boolean nearbyOnly = false;
     private int radiusKm = 25;
 
@@ -49,6 +53,14 @@ public class TrafficViewModel extends AndroidViewModel {
         if (section == Section.ROADWORKS) roadworksSearch = query == null ? "" : query;
         if (section == Section.INCIDENTS) incidentSearch = query == null ? "" : query;
     }
+
+    /** The user's search result selection for multi-marker map view. */
+    public void selectForMap(List<TrafficSituation> selected) {
+        selectedMapIds.clear();
+        for (TrafficSituation s : selected) selectedMapIds.add(s.getId());
+    }
+    public Set<String> mapSelection() { return Collections.unmodifiableSet(selectedMapIds); }
+    public void clearMapSelection() { selectedMapIds.clear(); }
 
     public boolean isNearbyOnly() { return nearbyOnly; }
     public void setNearbyOnly(boolean enabled) { nearbyOnly = enabled; }

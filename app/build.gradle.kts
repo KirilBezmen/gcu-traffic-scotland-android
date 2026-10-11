@@ -31,6 +31,9 @@ android {
             javaString(developerProps.getProperty("TRAFFIC_CLIENT_ID", "")))
         buildConfigField("String", "TRAFFIC_CLIENT_KEY",
             javaString(developerProps.getProperty("TRAFFIC_CLIENT_KEY", "")))
+        buildConfigField("String", "MAPS_API_KEY",
+            javaString(developerProps.getProperty("MAPS_API_KEY", "")))
+        manifestPlaceholders["MAPS_API_KEY"] = developerProps.getProperty("MAPS_API_KEY", "")
         buildConfigField("String", "TRAFFIC_ROADWORKS_URL",
             javaString(developerProps.getProperty("TRAFFIC_ROADWORKS_URL", "")))
     }
@@ -47,6 +50,8 @@ dependencies {
     implementation("androidx.fragment:fragment:1.8.5")
     implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.7")
     implementation("androidx.lifecycle:lifecycle-livedata:2.8.7")
+    // Mapping SDK expressly allowed by GCU coursework brief.
+    implementation("com.google.android.gms:play-services-maps:20.0.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")

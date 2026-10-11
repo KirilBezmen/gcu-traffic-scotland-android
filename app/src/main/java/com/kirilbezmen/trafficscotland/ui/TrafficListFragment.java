@@ -6,6 +6,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -86,6 +87,15 @@ public class TrafficListFragment extends Fragment {
             }
             @Override public void onStartTrackingTouch(SeekBar bar) {}
             @Override public void onStopTrackingTouch(SeekBar bar) {}
+        });
+        view.findViewById(R.id.mapResults).setOnClickListener(v -> {
+            TrafficRepository.Snapshot snap = model.getSnapshot().getValue();
+            if (snap == null || snap.loading || model.filtered(section, snap).isEmpty()) {
+                Toast.makeText(requireContext(), R.string.no_situations, Toast.LENGTH_SHORT).show();
+                return;
+            }
+            model.selectForMap(model.filtered(section, snap));
+            ((MainActivity) requireActivity()).navigate(TrafficViewModel.Section.MAP);
         });
         view.findViewById(R.id.listRefresh).setOnClickListener(v -> model.refresh());
         model.getSnapshot().observe(getViewLifecycleOwner(), s -> update(view, s));

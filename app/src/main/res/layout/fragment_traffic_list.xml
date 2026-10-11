@@ -75,6 +75,11 @@
             android:progress="20"
             android:contentDescription="@string/radius_description" />
     </LinearLayout>
+    <Button
+        android:id="@+id/mapResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/map_results" />
     <TextView
         android:id="@+id/listCount"
         android:layout_width="match_parent"
