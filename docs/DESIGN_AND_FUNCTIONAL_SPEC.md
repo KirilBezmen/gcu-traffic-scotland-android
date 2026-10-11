@@ -1,0 +1,49 @@
+# Traffic Scotland Explorer — UI/functional design specification (11 Oct 2026)
+
+## Product objective
+
+A readable **native Java/XML Android app**, built for GCU Mobile Platform Development CW1, using the specified authorised **Traffic Scotland DATEX II XML**. A visually attractive interface must never substitute unimplemented requirements.
+
+## Concept
+
+**Home:** original illustrated Scottish mountain highway with **traffic cones and warning sign**, title *Roads in focus*, live/fixture data status, three quick actions. No copied Traffic Scotland identity. This illustration is drawn from self-authored Android VectorDrawable shapes.
+
+**Visual language:** navy #0B2D5B, blue #2563EB, off-white #F3F6FA; semantic amber for reported delay, red for long delay, muted when unknown. Large legible text, high-contrast cards, 48dp navigation touch targets, colour always paired with text.
+
+**Portrait:** title + horizontal four-section navigation; one fragment on screen.
+**Landscape:** navy left navigation rail, fragment content on the right. Must preserve section and selected details on rotation (requires device check).
+
+## Screens and data flow
+
+| Destination | Content | Required interactions | Implementation |
+| --- | --- | --- | --- |
+| Home | Illustrated road, counts, clear data provenance | Incidents / Roadworks / Map, refresh | Source committed; Android UI test pending |
+| Incidents | Feed record type, road ID(s), generalPublicComment, original icon | Search road exactly, select -> details | Source committed; Android UI test pending |
+| Roadworks | Same plus colour-coded delay-type label | Search road, select -> details | Source committed; Android UI test pending |
+| Details | Record fields, subtype, validity, impact, lane restrictions, direction, from/to coords | Back navigation | Source committed; Android UI test pending |
+| Map | Multiple selected locations on map, nearby radius | Filter and select map items | **Not implemented** |
+
+### Information quality and ethics
+- When data are lecturer samples: show **Historic lecturer XML samples — NOT current traffic conditions** on each screen. Never display them as live.
+- When credentials approved and official feeds succeed: show **LIVE**. Download on background worker.
+- When offline and cached genuine response exists: label **CACHED** and show stale message. When no cache: show error/empty, never invent data.
+- Never claim severity, duration or completion from missing fields. Delay labels derive strictly from actual `delaysType` values; if absent show `Delay unknown`.
+- Sample XML may contain situations no longer current; figures on home are record counts, not an alert of current conditions.
+- Third-party icons only if license allows it and source documented; current cone + warning vector paths are original and require no third-party license.
+
+## Technical acceptance checklist
+
+- [x] One Activity + Fragments + AndroidViewModel + repository **source created**
+- [x] Java PullParser parses String with typed record/location models
+- [x] Official sample fixtures bundled for **debug-time** UI verification (4 incidents, 405 roadworks)
+- [x] First four representative parser tests passed **11 Oct 2026, API 36**
+- [ ] Full supplied XML instrumentation tests executed and screenshot archived
+- [ ] UI app rebuilt and device-verified after these changes
+- [ ] Road filtering, selection/details, and rotated display verified on device
+- [ ] Approved live DATEX II endpoints and credentials verified (API access pending)
+- [ ] Real map, selected multiple map markers and nearby-distance filtering
+- [ ] At least six suitably licensed situation icons in final UI
+- [ ] Thorough test plan evidence, offline/refresh tests, screen recording, APK, Word/AI disclosures
+
+## Rubric protections
+Official feed only. Parse **downloaded String** with XmlPullParser. No WebView. Android Java/XML. Single Activity + Fragments + MVVM. Avoid deprecated AsyncTask/runOnUiThread. Auto-update startup and hourly while app is active. Offline shows last verified LIVE cached data (not old demo samples).
