@@ -8,7 +8,7 @@ Source documents supplied 10 October 2026: MPD_26_27_Traffic.docx (9 pages), Mar
 | --- | ---: | --- | --- |
 | Functionality: incidents + roadworks and interactions | **42** | Working selectable lists, details, road/distance search, delay colours, licensed icons and multi-selection map | Not implemented |
 | Portrait + landscape | **8** | Two different activity_main.xml arrangements; selection/display survives rotation | Two layouts committed; rotation not tested |
-| PullParser + Java collections | **10** | XML String parsed into typed objects; optional impact/validity/location details in appropriate collections | Not implemented |
+| PullParser + Java collections | **10** | XML String parsed into typed objects; optional impact/validity/location details in appropriate collections | Source committed; Android tests pending |
 | Architecture | **10** | One Activity + Fragments + explicit MVVM to target full 10 | Foundation committed; integration/build not tested |
 | Background threading + auto refresh | **10** | Replace starter runOnUiThread/Thread organisation (6); start-up + periodic refresh (4) | Not implemented |
 | Documented testing | **15** | Feed/UI consistency (5), navigation (4), feature tests (4), offline (2) with actual and expected results and evidence | Test plan draft only |

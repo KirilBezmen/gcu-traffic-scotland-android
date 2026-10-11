@@ -54,3 +54,9 @@ Related commit/issue/test IDs:
 **Adopted:** Commit `07734399ad8c24715f29066f548d4c57944a150f` on the private GitHub repository. A subsequent documentation commit maps the project naming convention.
 
 **Verification:** GitHub write succeeded; **no Android Studio build/emulator test of this commit has been performed**. User's separate local Empty Views app previously ran the default Hello World screen, which does not verify this newer GitHub project. No XML parser/network functionality yet.
+
+## Entry 005 — 11 October 2026
+**Tool:** ChatGPT with GitHub connector and local XML inspection/test harness.
+**Exact user prompt:** `запросил что мы можем теперь делать дальше` (with screenshot showing Public Restricted API request submitted; complete screenshot remains in original chat).
+**Contribution:** Analysed two provided DATEX II samples; implemented Java PullParser and three nested model classes for incidents/roadworks and included an Android instrumentation test suite. Pushed code to private GitHub repository. Generated source fixture values from real coursework examples; external StAX adapter used only to preliminarily validate Java parsing algorithm offline and not included in app.
+**Adopted:** Code commit `d723f2e` and follow-up tests/docs commit. No Android emulator execution claimed. Student must Git Pull, review and run test suite; prompt is disclosed here for assessed use.

@@ -32,7 +32,7 @@ The above is a **plan**. A single-Activity/Fragments/ViewModel **navigation scaf
 | --- | --- |
 | GitHub repository, source scaffold and documentation | Prepared and committed |
 | Local Android Studio build and emulator run | **GitHub snapshot not verified** (only separate local starter Hello World app ran) |
-| XML feed loading, parsing and collections | Not implemented — mandatory next milestone |
+| XML feed loading, parsing and collections | Parser/models source committed; Android instrumentation not yet run; network download not implemented |
 | Incidents/roadworks list, filter and details | Not implemented |
 | Official detailed marking rubric | Reviewed; see docs/ASSESSMENT_TRACKER.md |
 | Test evidence, APK and narrated video | Not produced |

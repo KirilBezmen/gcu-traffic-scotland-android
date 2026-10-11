@@ -43,3 +43,16 @@ GenAI assistance logged:
 **Next action:** Clone the GitHub repo and supply a compatible wrapper from local generated project, sync/build/test; then implement full XML parsing and repository functionality in focused classes.
 
 **AI assistance:** GENAI_USAGE_LOG.md Entry 004.
+
+## 11 October 2026 — DATEX II XmlPullParser implementation (API approval pending)
+**Prerequisite:** Student requested Traffic Scotland Public Restricted API access; portal shows under administrator review, request submitted 11 Oct 2026 at 15:45.
+
+**Implementation:** New `TrafficXmlParser`, `TrafficSituation`, `TrafficRecord`, `TrafficLocation` under data/parser and data/model. Uses `XmlPullParserFactory`, downloaded XML String -> `StringReader`, hierarchical event parsing for generalPublicComment, validity, delays/lanes, road name descriptors, locations (from/to), direction and coordinates, handles missing optional tags and unknown subtrees.
+
+**Local preliminary validation:** Java source compiled with JDK using a throwaway lightweight xmlpull interface adapter backed by StAX for OFFLINE TEST ONLY; ran the same Java parsing logic on both supplied full XML samples and extracted 4 unplanned and 405 roadworks situations with expected sample details. This compatibility test is NOT a native Android PullParser/emulator pass and the adapter is NOT included in submitted code.
+
+**GitHub code commit:** `d723f2ef836952d4f09997845387a6bf36e18462`. Android instrumentation test source added separately.
+
+**Not implemented / verified:** Real authenticated network retrieval, cache, actual device/parser tests, view binding, UI data lists, map or filters. No real API credentials were accessed or committed.
+
+**Next:** Student uses Git Pull in Android Studio; run `TrafficXmlParserTest` instrumentation test. Then arrange official feeds in background repository/VM, connect parsed list, and test live source after approval.

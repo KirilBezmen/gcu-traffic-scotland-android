@@ -27,3 +27,10 @@ Record test date, device/emulator, Android/API level, commit SHA, steps, expecte
 
 ## Submission
 Summarise execution and any open defects in the Word test strategy. Never claim an unexecuted test has passed.
+
+## Parser regression instrumentation tests (added 11 Oct 2026)
+`app/src/androidTest/java/com/kirilbezmen/trafficscotland/data/parser/TrafficXmlParserTest.java` includes four tests: sample-like incident with two endpoints and missing end date; roadworks duration/delay; empty server response; unknown tags and optional fields. **All four are NOT YET RUN ON ANDROID**.
+
+Offline analysis of the supplied original examples found **4 unplanned + 405 roadworks** records. To count these as coursework testing evidence, run a device/instrumented test of the real full files and document observed values/screenshots. Independent local JDK compatibility checks are preliminary, not a substitute.
+
+Record actual Android run details (commit, emulator, API, date, outcome) only after executing tests.
