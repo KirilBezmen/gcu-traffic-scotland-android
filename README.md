@@ -49,13 +49,13 @@
 
 | Issue | Milestone | Status |
 | :-- | :-- | :-- |
-| [#1](../../issues/1) | Android Studio setup and authorised API access | In progress (approval pending) |
-| [#2](../../issues/2) | Complete XML parsing and real fixture tests | In progress |
-| [#3](../../issues/3) | Selectable incidents / roadworks and detail UI | Planned |
-| [#4](../../issues/4) | Portrait, landscape and MVVM saved state | Partly implemented |
-| [#5](../../issues/5) | Search, nearby, map, icons and delay colours | Planned |
-| [#6](../../issues/6) | Background loading, auto refresh, offline handling | Planned |
-| [#7](../../issues/7) | Testing, video, APK, Word and backup ZIP | Test evidence started |
+| [#1](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/1) | Android Studio setup and authorised API access | In progress (approval pending) |
+| [#2](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/2) | Complete XML parsing and real fixture tests | In progress |
+| [#3](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/3) | Selectable incidents / roadworks and detail UI | Planned |
+| [#4](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/4) | Portrait, landscape and MVVM saved state | Partly implemented |
+| [#5](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/5) | Search, nearby, map, icons and delay colours | Planned |
+| [#6](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/6) | Background loading, auto refresh, offline handling | Planned |
+| [#7](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/7) | Testing, video, APK, Word and backup ZIP | Test evidence started |
 
 **Rules:** Each issue has a definition of done; close it only when the implementation AND its tests are verified. Each change should have a meaningful Git commit. No guessed completion percentages or unexecuted PASS results.
 
