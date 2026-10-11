@@ -21,10 +21,12 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-      - name: Install SDK platform
-        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      # ubuntu-latest ships an Android SDK + cmdline-tools. Do not call the
+      # archived Android "tools" SDK package (removed upstream).
+      - name: Install Android platform 35
+        run: |
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          sdkmanager --install "platforms;android-35" "build-tools;35.0.0"
       # Standard Gradle from GitHub Actions until launchers/JAR are committed.
       - name: Set up Gradle 8.9
         uses: gradle/actions/setup-gradle@v4
