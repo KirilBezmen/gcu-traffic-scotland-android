@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background">#F2F5FA</color>
+    <color name="background">#F3F6FA</color>
     <color name="panel">#FFFFFF</color>
-    <color name="ink">#162235</color>
-    <color name="subtitle">#556579</color>
-    <color name="accent">#2156A5</color>
-    <color name="panel_stroke">#DFE7F1</color>
+    <color name="white">#FFFFFF</color>
+    <color name="navy">#0B2D5B</color>
+    <color name="ink">#172B4D</color>
+    <color name="subtitle">#64748B</color>
+    <color name="accent">#2563EB</color>
+    <color name="pale_blue">#DBEAFE</color>
+    <color name="panel_stroke">#DCE5EF</color>
 </resources>

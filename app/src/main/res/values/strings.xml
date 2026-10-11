@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Traffic Scotland Explorer</string>
+    <string name="home">Home</string>
     <string name="incidents">Incidents</string>
     <string name="roadworks">Roadworks</string>
     <string name="map">Map</string>
     <string name="details">Situation details</string>
+    <string name="back">Back</string>
+    <string name="refresh">Refresh</string>
+    <string name="loading">Loading traffic information…</string>
+    <string name="home_headline">Roads in focus.</string>
+    <string name="home_subtitle">Incidents, roadworks and useful travel updates across Scotland.</string>
+    <string name="hero_description">Illustrated Scottish road with mountains, orange cones and a warning sign</string>
+    <string name="explore_title">Explore traffic</string>
+    <string name="home_counts">%1$d incidents  ·  %2$d roadworks</string>
+    <string name="data_overview">Data overview</string>
     <string name="navigation_description">Traffic section navigation</string>
-    <string name="list_pending">Project foundation complete. Live traffic data will appear here after the required PullParser and repository are implemented.</string>
+    <string name="search_road">Search by road — e.g. M8, A9</string>
+    <string name="results_count">%1$d situations</string>
+    <string name="results_count_placeholder">0 situations</string>
+    <string name="unknown_road">Road not specified</string>
+    <string name="no_situations">No traffic situations available.</string>
+    <string name="no_matches">No situations found on this road.</string>
+    <string name="situation_icon">Traffic event type</string>
+    <string name="incident_label">Incident</string>
+    <string name="long_delay">Long delay</string>
+    <string name="reported_delay">Delay reported</string>
+    <string name="no_delay">No delay</string>
+    <string name="delay_unknown">Delay unknown</string>
     <string name="map_pending">Map is not implemented yet. Mapping must use an allowed service and parsed Traffic Scotland coordinates.</string>
     <string name="details_pending">Situation ID: %1$s. Further details will be shown after XML parsing is implemented.</string>
 </resources>

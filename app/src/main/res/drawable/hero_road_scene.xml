@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="960dp"
+    android:height="450dp"
+    android:viewportWidth="960"
+    android:viewportHeight="450">
+    <!-- Original geometric road, Scottish hills, cones and warning sign. -->
+    <path android:fillColor="#90C8F4" android:pathData="M0,0 L960,0 L960,450 L0,450 Z" />
+    <path android:fillColor="#CDE5F6" android:pathData="M0,208 L115,64 L238,214 L350,108 L459,220 L610,74 L748,216 L872,101 L960,191 L960,450 L0,450 Z" />
+    <path android:fillColor="#5E88A6" android:pathData="M0,285 L140,179 L254,240 L355,165 L502,254 L670,158 L822,249 L960,174 L960,450 L0,450 Z" />
+    <path android:fillColor="#2B597E" android:pathData="M0,328 L161,258 L322,298 L515,251 L697,326 L883,272 L960,289 L960,450 L0,450 Z" />
+    <path android:fillColor="#1C355A" android:pathData="M425,256 L550,256 L820,450 L117,450 Z" />
+    <path android:fillColor="#F9FBFF" android:pathData="M480,274 L490,274 L496,295 L472,295 Z" />
+    <path android:fillColor="#F9FBFF" android:pathData="M466,314 L504,314 L521,345 L447,345 Z" />
+    <path android:fillColor="#F9FBFF" android:pathData="M431,371 L540,371 L572,435 L399,435 Z" />
+    <path android:fillColor="#F59E0B" android:pathData="M227,346 L272,346 L295,441 L198,441 Z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M220,385 L280,385 L286,411 L213,411 Z" />
+    <path android:fillColor="#F59E0B" android:pathData="M711,304 L742,304 L773,428 L681,428 Z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M704,347 L750,347 L761,374 L694,374 Z" />
+    <path android:fillColor="#E5484D" android:pathData="M765,87 L852,242 L678,242 Z" />
+    <path android:fillColor="#FFF9EE" android:pathData="M765,118 L823,224 L706,224 Z" />
+    <path android:strokeColor="#1C355A" android:strokeWidth="12" android:strokeLineCap="round" android:pathData="M765,153 L765,190" />
+    <path android:fillColor="#1C355A" android:pathData="M755,202 L775,202 L775,222 L755,222 Z" />
+</vector>
