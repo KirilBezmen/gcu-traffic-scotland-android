@@ -9,10 +9,10 @@
 | XML-02 | Run `OfficialXmlFixturesTest`, sample_unplanned | 4 incidents, nested dates/locations | 4 incidents parsed; originalIncidentsContainFourSituations green on Pixel 9 Pro API36, 11 Oct | **PASS** | [Student test screenshot noted](evidence/test-logs/XML_FULL_FIXTURES_2026-10-11.md) |
 | XML-03 | Run `OfficialXmlFixturesTest`, sample_roadworks | 405 roadworks; valid records and location coverage | 405 roadworks parsed; originalRoadworksContain405Situations green on Pixel 9 Pro API36, 11 Oct | **PASS** | [Student test screenshot noted](evidence/test-logs/XML_FULL_FIXTURES_2026-10-11.md) |
 | XML-04 | Malformed XML, missing/unknown nested fields | Safe error / sensible optional defaults | — | NOT RUN | — |
-| UI-01 | New Home on Pixel 9 Pro | Road/cones/warning illustration, counters, source state | — | NOT RUN | — |
-| UI-02 | Incidents list, tap 1st item | Type + exact comment, correct details ID | — | NOT RUN | — |
+| UI-01 | New Home on Pixel 9 Pro | Road/cones/warning illustration, counters, source state | 11 Oct 2026 screenshot: branded illustrated Home, **4 incidents · 405 roadworks**, historic sample warning, primary navigation visible | **PASS (visible requirements)** | Student screenshot in ChatGPT; [source-to-screen log](evidence/test-logs/INCIDENT_A74_DETAILS_2026-10-11.md) |
+| UI-02 | Incidents list, tap 1st item | Type + exact comment, correct details ID | A74(M) card opens record **I_20260810_248** with matching roadClosed subtype and full comment; 11 Oct screenshot | **PASS (first incident)** | Student screenshot in ChatGPT; [source-to-screen log](evidence/test-logs/INCIDENT_A74_DETAILS_2026-10-11.md) |
 | UI-03 | Roadworks list, tap long-delay item | Correct type/description, impact/validity shown | — | NOT RUN | — |
-| UI-04 | Compare sample XML and UI rows/details | Exact values from XML, no fabricated fields | — | NOT RUN | — |
+| UI-04 | Compare sample XML and UI rows/details | Exact values from XML, no fabricated fields | A74(M): comment/record/subtype/validity/start/updated/direction/lanes/**to** location and coords match raw XML; **from** not yet visible; roadwork untested | **PARTIAL** | [Detailed A74 audit](evidence/test-logs/INCIDENT_A74_DETAILS_2026-10-11.md) |
 | UI-05 | Search "M8"; then "M80" | No false substring cross-match | — | NOT RUN | — |
 | UI-06 | Nearby toggle at 5,25,200 km | Fixed Glasgow reference, distance-appropriate matches | — | NOT RUN | — |
 | UI-07 | Roadwork delay colour + text legend | Short/long clearly distinguished, missing clearly handled | — | NOT RUN | — |

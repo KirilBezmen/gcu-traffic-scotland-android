@@ -125,3 +125,10 @@ Related commit/issue/test IDs:
 **Student message:** Screenshot of Android Studio / Pixel 9 Pro with 2 passed tests in `OfficialXmlFixturesTest`.
 **AI contribution:** Interpreted observed test results; updated M1 acceptance issue, test strategy, README, QA execution matrix and development log. Distinguishes historical XML fixture verification from live feed/UI tests; no Java or Android test code was generated in this step.
 **Validation:** Student executed test; screenshot in conversation, still needs archiving to GitHub evidence folder.
+
+
+## Entry 014 — 11 October 2026 (student-led XML-to-UI audit)
+**Tool:** ChatGPT using screenshots from student and private GitHub original XML source.
+**Student message:** Two Android Studio screenshots showing working Home with 4 incidents / 405 roadworks and first A74(M) Incident Details on Pixel 9 Pro.
+**AI contribution:** Compared each field actually visible on the Details screenshot to the lecturer-supplied original `sample_unplanned.xml`, documented matching values, missing optional incident end date, and unverified From endpoint; updated QA matrix and issue progress. **No new Android source was generated** and no live API/map test has been claimed.
+**Student next validation:** scroll Details to verify the From endpoint, inspect a Roadworks record and archive screenshots in GitHub.

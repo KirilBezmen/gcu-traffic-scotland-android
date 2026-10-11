@@ -124,3 +124,9 @@ GenAI assistance logged:
 
 ## 11 October 2026 — Full official lecturer XML files tested on Android
 Student screenshot of Android Studio test window demonstrates `OfficialXmlFixturesTest` ran with **2/2 passed**, both `originalIncidentsContainFourSituations` and `originalRoadworksContain405Situations` green, on Pixel 9 Pro AVD. `:app:connectedDebugAndroidTest` BUILD SUCCESSFUL in 8 seconds. Historical lecturer assets **4 incidents / 405 roadworks** correctly parsed according to test assertions. The screenshot is in conversation, not in GitHub; source SHA on student device not visible. This is **not** live API or field-to-screen verification. M1 remains open for that audit. More detail: [test log](evidence/test-logs/XML_FULL_FIXTURES_2026-10-11.md).
+
+
+## 11 October 2026 — M2 visual Details smoke test, actual XML comparison
+**Student evidence:** Two Pixel 9 Pro emulator screenshots show the new Home screen (4 incidents / 405 roadworks, historical-source warning and branded road/cone/warning artwork) and the first A74(M) incident Details after navigation.
+**Grounded verification:** Compared visible record id I_20260810_248, subtype roadClosed, type, generalPublicComment, validity status, start, last updated, southBound direction, operational lanes 0, to-location J19 Eaglesfield and coordinates 55.065432/-3.273135 against the original `sample_unplanned.xml`; all visible fields matched. An end time is absent in XML and appropriately not displayed.
+**Still required:** Scroll down to the From J18 Ecclefechan endpoint, independently verify one complete roadworks Details screen, UI tests/rotation and real LIVE feeds. Evidence/screenshots only in ChatGPT conversation, not GitHub yet. [Comparison matrix](evidence/test-logs/INCIDENT_A74_DETAILS_2026-10-11.md).
