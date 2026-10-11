@@ -41,3 +41,16 @@ Related commit/issue/test IDs:
 **Assistance:** Analysed rubric, inspected Java skeleton code, audited the XML samples and their item counts, proposed rubric-led MVVM architecture, created requirements/tracing/audit documentation. No new Android runtime functionality written in this entry.
 **Adopted / verification:** Documentation committed to GitHub; XML sample inspection with an XML parser was conducted for **analysis only**, *not* as the implementation parser. No Android build or app testing performed.
 **Student follow-up:** Review assessment matrix and source restrictions; confirm source access, check app locally, maintain complete prompt transcript for GCU declaration.
+
+## Entry 004 — 11 October 2026
+**Tool:** ChatGPT with connected GitHub.
+**User prompt (last instruction, verbatim):**
+> теперь давай сюда и пишем сразу идеальный полноценный код который мы не будем 100 раз редактировать сразу на 100%
+
+**Context:** The user also pasted their local Android Studio `MainActivity.java`, beginning `package com.kirilbezmen.trafficscotland;`. Keep the complete user message in the original chat transcript for the final prompt appendix.
+
+**AI contribution:** Authored the first one-Activity navigation shell, MVVM section state, three separate Fragment classes, portrait and landscape activity_main layouts, fragment placeholder layouts, strings, Internet permission and Gradle dependency declarations. The old starter raw-XML UI is superseded in the GitHub copy; professor's code remains an annotated reference.
+
+**Adopted:** Commit `07734399ad8c24715f29066f548d4c57944a150f` on the private GitHub repository. A subsequent documentation commit maps the project naming convention.
+
+**Verification:** GitHub write succeeded; **no Android Studio build/emulator test of this commit has been performed**. User's separate local Empty Views app previously ran the default Hello World screen, which does not verify this newer GitHub project. No XML parser/network functionality yet.

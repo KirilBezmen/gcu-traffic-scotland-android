@@ -24,14 +24,14 @@ Traffic Scotland Explorer is an Android Studio / Java project intended to read T
 4. Show incidents and roadworks with relevant filtering/selection.
 5. Show details, handle loading and errors, and verify behaviour with documented tests.
 
-The above is a **plan**. It does not claim that these features currently work.
+The above is a **plan**. A single-Activity/Fragments/ViewModel **navigation scaffold** is now committed, with clearly labelled placeholder screens. Traffic functionality is not yet implemented or verified.
 
 ## Current status
 
 | Area | Status |
 | --- | --- |
 | GitHub repository, source scaffold and documentation | Prepared and committed |
-| Local Android Studio build and emulator run | **Not verified** |
+| Local Android Studio build and emulator run | **GitHub snapshot not verified** (only separate local starter Hello World app ran) |
 | XML feed loading, parsing and collections | Not implemented — mandatory next milestone |
 | Incidents/roadworks list, filter and details | Not implemented |
 | Official detailed marking rubric | Reviewed; see docs/ASSESSMENT_TRACKER.md |

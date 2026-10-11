@@ -32,3 +32,14 @@ GenAI assistance logged:
 **Next:** Register official Traffic Scotland restricted API with GCU email; test Android Studio build; then implement and test PullParser before UI features.
 
 **GenAI disclosure:** see GENAI_USAGE_LOG.md entry 003.
+
+## 11 October 2026 — First architecture-level code commit
+**Goal:** Stabilise `MainActivity` to avoid rewriting network/UI code in it during feature development.
+
+**Code commit:** `07734399ad8c24715f29066f548d4c57944a150f`. Added 5 Java files, main layout variants, 2 fragment layouts, strings, dependencies and Internet manifest permission. UI is a navigable, **unverified scaffold**; map/list/detail content are explicit placeholders.
+
+**Local status:** Student demonstrated a successful Android Studio Hello World emulator run in a **separate local generated project**, not this GitHub snapshot. These must be reconciled before reporting a successful run.
+
+**Next action:** Clone the GitHub repo and supply a compatible wrapper from local generated project, sync/build/test; then implement full XML parsing and repository functionality in focused classes.
+
+**AI assistance:** GENAI_USAGE_LOG.md Entry 004.
