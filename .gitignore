@@ -22,4 +22,5 @@ Thumbs.db
 *.key
 .env
 .env.*
-# Keep the Gradle wrapper scripts and JAR in version control once generated
+traffic_credentials.properties
+# Keep generated Gradle wrapper scripts/JAR in version control once available
