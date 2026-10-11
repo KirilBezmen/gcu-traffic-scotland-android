@@ -8,11 +8,11 @@
     <string name="details">Situation details</string>
     <string name="back">Back</string>
     <string name="refresh">Refresh</string>
+    <string name="refresh_content_description">Refresh traffic information</string>
     <string name="loading">Loading traffic information…</string>
     <string name="home_headline">Roads in focus.</string>
     <string name="home_subtitle">Incidents, roadworks and useful travel updates across Scotland.</string>
     <string name="hero_description">Illustrated Scottish road with mountains, orange cones and a warning sign</string>
-    <string name="explore_title">Explore traffic</string>
     <string name="home_counts">%1$d incidents  ·  %2$d roadworks</string>
     <string name="data_overview">Data overview</string>
     <string name="navigation_description">Traffic section navigation</string>
@@ -33,7 +33,7 @@
     <string name="no_delay">No delay</string>
     <string name="delay_unknown">Delay unknown</string>
     <string name="list_pending">Loading traffic data — please wait.</string>
-    <string name="map_results">Show filtered results on map</string>
+    <string name="map_results">View results on map</string>
     <string name="map_selection_count">%1$d selected situations (tap markers for details)</string>
     <string name="map_all_count">All geolocated traffic situations</string>
     <string name="clear_selection">Show all situations</string>
