@@ -22,8 +22,8 @@
 | MVVM and Fragments | Shared AndroidViewModel, background repository and list/detail/home code committed | Build and verify transitions, rotation and selection | 🟡 Code committed, new UI unverified |
 | Portrait / landscape | Separate `activity_main.xml` arrangements committed | Test rotation and persistence of selected data, filters and scroll state | 🟡 Not verified |
 | Incident / roadworks lists + details | Native ListView card adapter and detail fields implemented in source | Pull and run on emulator; compare rows to XML values | 🟡 Not yet emulator-tested |
-| Road / nearby search | Exact road-ID list filter implemented in source | Test M8 vs M80; build nearby-radius filtering | 🟡 Road filter source only |
-| Delays, licensed icons, map | Delay type colour labels + 2 original vector icons; map still placeholder | 6+ varied icons, accessible legend, real selected marker map | 🟡 Partial |
+| Road / nearby search | Exact road-ID and 5–200 km radius filter from fixed Glasgow coordinate source compiled | Test sample location data, filtering, rotation | 🟡 Device testing pending |
+| Delays, licensed icons, map | Delay colours + seven original icons; Google Maps multi-result/segment code compiled | Configure Maps API key locally; validate marker tapping, legends and adequate icons | 🟡 Source only, map key pending |
 | Auto-update + offline state | Java Executor background worker, startup/hourly refresh, live-cache fallback **source committed** | Test after API approval (no live responses yet) | 🟡 Unverified live |
 | Assessment test evidence | Four instrumented parser tests passed (synthetic examples) | Full-fixture, UI, navigation, offline and feed-vs-display tests | 🟡 In progress |
 | Final submission | No APK/video/Word/backup ZIP submitted | Prepare final artefacts after working functionality | ⚪ To do |
@@ -39,7 +39,7 @@
 [~] Approval for official Traffic Scotland API
 [>] NEXT: Git Pull → compile / run new Home + lists → full sample XML tests
 [~] Search by road + details source written; distance remains
-[~] 2 original icons / delay badges; real map remains
+[~] Seven original icons / delay badges / Maps code; Maps key and tests remain
 [ ] Distinct landscape state / usability validation
 [~] Background/refresh/cache code written; real conditions not verified
 [ ] Full testing evidence, demo video, APK and Word summary
@@ -65,7 +65,7 @@ Three narrowly scoped tasks are **closed as completed**, without prematurely clo
 | [#2](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/2) | Complete XML parsing and real fixture tests | In progress |
 | [#3](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/3) | Selectable incidents / roadworks and detail UI | Source committed; emulator verification pending |
 | [#4](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/4) | Portrait, landscape and MVVM saved state | Partly implemented |
-| [#5](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/5) | Search, nearby, map, icons and delay colours | Planned |
+| [#5](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/5) | Search, nearby, map, icons and delay colours | Source written; device/Maps key verification pending |
 | [#6](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/6) | Background loading, auto refresh, offline handling | Implementation drafted; live verification pending |
 | [#7](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/7) | Testing, video, APK, Word and backup ZIP | Test evidence started |
 
@@ -140,3 +140,11 @@ The official coursework specification requires a **Word document** `Surname_Give
 - [Full XML Android tests](app/src/androidTest/java/com/kirilbezmen/trafficscotland/data/parser/OfficialXmlFixturesTest.java): **written but NOT yet executed on Android**.
 
 **Next verification:** Git Pull → Gradle Sync → run `app` on Pixel 9 Pro (Home, lists, type/description, search M8/M80, details, landscape), then right-click `OfficialXmlFixturesTest` → Run and save the actual results. **None of these new UI/tests has been confirmed by an Android run yet.**
+
+### Google Maps prerequisite
+The [Google Maps SDK](https://developers.google.com/maps/documentation/android-sdk/config) is the *one explicitly permitted mapping SDK* used. Set a restricted `MAPS_API_KEY` **locally** before trying to display real map tiles; see [credential setup](docs/ANDROID_CREDENTIALS_SETUP.md). Without it the Map tab explains the missing setup, **not a crash**. Never paste maps keys into a public issue or ChatGPT.
+
+### CI verification
+- GitHub Actions debug app + Android test APK compilation and JVM unit tests have passed on recent 11 Oct commits; view the [current CI history](https://github.com/KirilBezmen/gcu-traffic-scotland-android/actions/workflows/android-build.yml).
+- A **credential-free debug APK** is uploaded as an Actions artifact for 7 days on green builds. It contains labelled lecturer examples, not verified live traffic.
+- Android instrumentation tests for 4/405 full lecturer XML **must still be run on a Pixel 9 Pro emulator** and documented. CI only compiled the Android test APK, it did not execute emulator tests.

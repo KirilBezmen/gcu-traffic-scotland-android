@@ -60,3 +60,12 @@ Record actual Android run details (commit, emulator, API, date, outcome) only af
 | Map + nearby distance | Geolocated selected markers and radius filter | Not implemented | TODO |
 
 Tests are deliberately marked NOT RUN until evidence exists. Add Android Studio Screenshots to `docs/evidence/screenshots/` and record date/device/API/commit and actual results.
+
+## New acceptance tests — Google Maps and radius
+| Scenario | Expected | Actual | Status |
+| --- | --- | --- | --- |
+| Nearby reference point | 5–200 km radius centred on fixed Glasgow coordinates, selection retained when rotating | JVM distance tests in green CI; UI not yet run | PARTIAL |
+| Long line near Glasgow | Event appears when road segment crosses radius even if endpoints are far | JUnit source included; CI unit tests pass | PASS (algorithm only) |
+| Road search > map | Search M8, click **Show filtered results on map**, multiple matching pins, tap details | No Maps key available to this session | BLOCKED |
+| Map with no key | Useful setup message, lists remain usable | Not yet run on device | NOT RUN |
+| Seven vector icons | Icon semantics match subtype and label, attribution document | Sources committed but screenshot proof missing | NOT RUN |

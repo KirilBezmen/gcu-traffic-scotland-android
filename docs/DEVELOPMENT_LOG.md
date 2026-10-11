@@ -91,3 +91,10 @@ GenAI assistance logged:
 **Academic scope:** Original official feeds ONLY; no WebView; Java/XML PullParser; sample mode clearly labelled. **Pending:** validate samples 4/405 on Android, test UI, official live API access, map and nearby filter, complete icon set, full test evidence.
 
 **Development note:** Original traffic sample XML may be copyrighted/licensed. It resides in a private coursework repository for educational testing. Review Traffic Scotland data terms before any public distribution.
+
+## 11 October 2026 — Nearby filter, Google Maps, and icon expansions
+**Source work:** Added Haversine and point-to-line radius filter from fixed Glasgow centre; editable 5–200 km nearby search; JUnit unit tests, including a segment crossing the reference point. Added **Google Maps SDK 20.0.0**, BuildConfig/Manifest local `MAPS_API_KEY`, multi-result selection from list search, selected map markers and linear roadwork polylines; map displays key-required explanation if not configured. Authored five additional original SVG-style Android vector icons (total seven) and documented their authoring in `ICON_SOURCES.md`.
+
+**Verification:** GitHub Actions successfully compiled base UI, repository, radius feature and Maps-integrated project; JVM tests passed in green Actions builds. **No live Google Maps key, tile rendering or marker click has been observed on the student emulator yet.** User still needs to run full supplied XML instrumentation tests and UI tests manually. API approval pending.
+
+**CI artifact:** credential-free debug APK available through green GitHub Actions workflow run (expires after 7 days).

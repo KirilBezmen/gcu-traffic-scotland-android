@@ -18,3 +18,12 @@ TRAFFIC_ROADWORKS_URL=<the exact authorised roadworks Content.xml URL>
 **Important security limitation:** BuildConfig credentials are extractable from a distributed Android APK. Do not upload a credentials-bearing APK to a public repository; discuss safer credential delivery with the module team before final APK submission. The app is intended as an educational prototype.
 
 **Current status (11 Oct 2026):** developer request has been submitted but approval and actual authenticated retrieval are **not yet confirmed**.
+
+## Optional Maps API key (independent of Traffic Scotland data API)
+Google Maps SDK is expressly permitted by Mario's assignment brief. To display actual map tiles and the selected multi-marker layers:
+1. Create a Google Cloud project only if you accept its billing/usage terms, enable **Maps SDK for Android**, and create an Android-restricted API key (app id `com.kirilbezmen.trafficscotland` + debug/release SHA-1 fingerprints).
+2. Add `MAPS_API_KEY=<key>` to the same **untracked** `local.properties` file.
+3. Gradle Sync, run on a Google Play-enabled Pixel 9 Pro emulator and test map markers; tap marker info windows for details.
+4. Never commit the key; review usage restrictions and quotas. **The key is still extractable from APK and must be restricted**.
+
+When no key is configured, the Map tab displays a setup explanation and the rest of the app works normally. Compilation of Maps code in CI is **not proof of live map tile rendering**.

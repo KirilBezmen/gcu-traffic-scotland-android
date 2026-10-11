@@ -21,7 +21,7 @@ A readable **native Java/XML Android app**, built for GCU Mobile Platform Develo
 | Incidents | Feed record type, road ID(s), generalPublicComment, original icon | Search road exactly, select -> details | Source committed; Android UI test pending |
 | Roadworks | Same plus colour-coded delay-type label | Search road, select -> details | Source committed; Android UI test pending |
 | Details | Record fields, subtype, validity, impact, lane restrictions, direction, from/to coords | Back navigation | Source committed; Android UI test pending |
-| Map | Multiple selected locations on map, nearby radius | Filter and select map items | **Not implemented** |
+| Map | Multiple geolocated events; from/to segments | Select a filtered road result set, marker tap -> details | **Google Maps source committed, needs local Maps API key + device test** |
 
 ### Information quality and ethics
 - When data are lecturer samples: show **Historic lecturer XML samples — NOT current traffic conditions** on each screen. Never display them as live.
@@ -41,9 +41,14 @@ A readable **native Java/XML Android app**, built for GCU Mobile Platform Develo
 - [ ] UI app rebuilt and device-verified after these changes
 - [ ] Road filtering, selection/details, and rotated display verified on device
 - [ ] Approved live DATEX II endpoints and credentials verified (API access pending)
-- [ ] Real map, selected multiple map markers and nearby-distance filtering
-- [ ] At least six suitably licensed situation icons in final UI
+- [x] Google Maps SDK integration, road-result multi-selection and fixed-point nearby-radius filter **source written**; live map requires local Google Maps API key and device testing
+- [x] Seven original vector icon drawables and type mapping **source written**; adequate use must still be proved in screenshots
 - [ ] Thorough test plan evidence, offline/refresh tests, screen recording, APK, Word/AI disclosures
 
 ## Rubric protections
 Official feed only. Parse **downloaded String** with XmlPullParser. No WebView. Android Java/XML. Single Activity + Fragments + MVVM. Avoid deprecated AsyncTask/runOnUiThread. Auto-update startup and hourly while app is active. Offline shows last verified LIVE cached data (not old demo samples).
+
+## Implementation updates
+- **Google Maps SDK 20.0.0**, official Google Maps Android API. Map cannot display tiles without separately supplied/restricted `MAPS_API_KEY`. AndroidManifest and Gradle read key from untracked local.properties.
+- Selecting **Show filtered results on map** from a road/nearby list records multiple situation IDs in ViewModel. Google Map displays markers and polylines for available to/from endpoints; tap info window for details. Label distinguishes lecturer samples vs actual feed.
+- Seven **original vector icons** and provenance documented in [ICON_SOURCES.md](ICON_SOURCES.md). No external third-party icon library.
