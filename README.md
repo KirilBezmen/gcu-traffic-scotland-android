@@ -15,7 +15,7 @@
 - [**Visual Board setup and issue/status import**](docs/PROJECT_BOARD.md) — ready-to-create GitHub Projects blueprint, workflow columns, prioritised #1–#13, sprints. **Visual board itself is not yet created.**
 - [**Full functional / product logic**](docs/PRODUCT_REQUIREMENTS.md) — Home, feeds, details, road/nearby search, delay colours, map, rotation, MVVM, startup/hourly updates, offline handling and risks.
 - [**100-mark rubric acceptance**](docs/RUBRIC_100_CHECKLIST.md) — exact marking areas and safe evidence gates; icon discrepancy noted.
-- [**QA actual-versus-expected execution table**](docs/QA_EXECUTION_MATRIX.md) — 27 cases, all unexecuted new checks clearly marked NOT RUN.
+- [**QA actual-versus-expected execution table**](docs/QA_EXECUTION_MATRIX.md) — 26 cases, previously executed check distinguished from unexecuted checks.
 - Existing [GitHub Issues](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues) track 7 major milestones, 3 new P0 blocker/verification issues and 3 closed verified checkpoints.
 
 ## Development dashboard
