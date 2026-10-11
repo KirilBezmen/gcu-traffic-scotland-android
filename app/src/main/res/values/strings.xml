@@ -28,6 +28,7 @@
     <string name="reported_delay">Delay reported</string>
     <string name="no_delay">No delay</string>
     <string name="delay_unknown">Delay unknown</string>
+    <string name="list_pending">Loading traffic data — please wait.</string>
     <string name="map_pending">Map is not implemented yet. Mapping must use an allowed service and parsed Traffic Scotland coordinates.</string>
     <string name="details_pending">Situation ID: %1$s. Further details will be shown after XML parsing is implemented.</string>
 </resources>
