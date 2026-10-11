@@ -41,7 +41,7 @@ public final class TrafficSituationAdapter extends BaseAdapter {
         String kind = (record.getSubtype() + " " + record.getRecordType()).toLowerCase(Locale.ROOT);
         if (kind.contains("roadclosed") || kind.contains("carriagewayclosed"))
             return R.drawable.ic_road_closed;
-        if (kind.contains("queuing") || kind.contains("abnormaltraffic"))
+        if (kind.contains("queuing") || kind.contains("congestion"))
             return R.drawable.ic_queue;
         if (kind.contains("laneclosed") || kind.contains("laneclosure"))
             return R.drawable.ic_lane_closed;
