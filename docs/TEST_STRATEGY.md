@@ -29,7 +29,7 @@ Record test date, device/emulator, Android/API level, commit SHA, steps, expecte
 Summarise execution and any open defects in the Word test strategy. Never claim an unexecuted test has passed.
 
 ## Parser regression instrumentation tests (added 11 Oct 2026)
-`app/src/androidTest/java/com/kirilbezmen/trafficscotland/data/parser/TrafficXmlParserTest.java` includes four tests: sample-like incident with two endpoints and missing end date; roadworks duration/delay; empty server response; unknown tags and optional fields. **All four are NOT YET RUN ON ANDROID**.
+`app/src/androidTest/java/com/kirilbezmen/trafficscotland/data/parser/TrafficXmlParserTest.java` includes four tests: sample-like incident with two endpoints and missing end date; roadworks duration/delay; empty server response; unknown tags and optional fields. **Historical note superseded:** all four representative Android tests PASSED on Pixel 9 Pro, 11 October 2026.
 
 Offline analysis of the supplied original examples found **4 unplanned + 405 roadworks** records. To count these as coursework testing evidence, run a device/instrumented test of the real full files and document observed values/screenshots. Independent local JDK compatibility checks are preliminary, not a substitute.
 
@@ -48,18 +48,18 @@ Record actual Android run details (commit, emulator, API, date, outcome) only af
 
 **Scope limitation:** These tests use small representative constructed XML fragments and **not** the complete official supplied XML fixtures. Full-file parsing count, actual live XML feed, map/UI presentation and offline tests remain outstanding. Do not conflate these four tests with full coursework verification.
 
-## Pending full lecturer samples / UI — 11 October 2026
+## Full lecturer samples passed / pending UI field checks — 11 October 2026
 | Scenario | Expected | Observed | Status |
 | --- | --- | --- | --- |
-| Full unplanned XML (lecturer fixture) | **4** situations; types/comments/from-to coords | Not yet executed on Android | NOT RUN |
-| Full current roadworks XML | **405** situations; validity/end, delays and coordinates | Not yet executed on Android | NOT RUN |
+| Full unplanned XML (lecturer fixture) | **4** situations, nested fields | Pixel 9 Pro AVD; complete fixture instrumentation test passed 11 Oct | **PASS** |
+| Full current roadworks XML | **405** situations; nested fields/coordinate coverage | Pixel 9 Pro AVD; complete fixture instrumentation test passed 11 Oct | **PASS** |
 | New Home, lists and detail screen | Clearly labelled sample source, valid counts, select a row and fields equal XML | Not yet run | NOT RUN |
 | Search `M8` versus `M80` | Exact road route match, not substring | Not yet run in new UI | NOT RUN |
 | Orientation | Portrait tabs vs landscape rail, state + loaded data stay | Not yet run | NOT RUN |
 | Live API fetch and offline cached mode | Authenticated official XML; cache on no internet | API approval pending | BLOCKED |
 | Map + nearby distance | Geolocated selected markers and radius filter | Not implemented | TODO |
 
-Tests are deliberately marked NOT RUN until evidence exists. Add Android Studio Screenshots to `docs/evidence/screenshots/` and record date/device/API/commit and actual results.
+All other unexecuted tests remain NOT RUN; complete XML lecturer fixtures now have observed Android evidence. Add Android Studio Screenshots to `docs/evidence/screenshots/` and record date/device/API/commit and actual results.
 
 ## New acceptance tests — Google Maps and radius
 | Scenario | Expected | Actual | Status |
@@ -69,3 +69,7 @@ Tests are deliberately marked NOT RUN until evidence exists. Add Android Studio 
 | Road search > map | Search M8, click **Show filtered results on map**, multiple matching pins, tap details | No Maps key available to this session | BLOCKED |
 | Map with no key | Useful setup message, lists remain usable | Not yet run on device | NOT RUN |
 | Seven vector icons | Icon semantics match subtype and label, attribution document | Sources committed but screenshot proof missing | NOT RUN |
+
+
+## Executed full sample tests — 11 October 2026
+Two full lecturer sample Android tests `OfficialXmlFixturesTest` **PASSED 2/2** on Pixel 9 Pro emulator API36. First test asserted four incident situations and incident record/summary/start/coordinates; second asserted 405 roadworks, required validity/summary and >390 entries with coordinates. `BUILD SUCCESSFUL in 8s`. Screenshot submitted by student in conversation, pending archival to GitHub. [Full test record](evidence/test-logs/XML_FULL_FIXTURES_2026-10-11.md). No LIVE API functionality is inferred.

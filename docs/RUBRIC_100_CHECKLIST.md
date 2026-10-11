@@ -52,7 +52,7 @@
 - [x] Older GitHub navigation shell launched on Pixel 9 Pro API 36.
 - [x] **Four small representative XML Android instrumentation tests** completed: **4/4 passed** on Pixel 9 Pro API36.
 - [x] Green GitHub Actions compilation/JVM tests for newer source code.
-- [ ] **Full lecturer XML (4 incidents + 405 roadworks) Android tests not yet confirmed.**
+- [x] **Full lecturer XML Android tests CONFIRMED PASS, 2/2 on Pixel 9 Pro (11 Oct)**: 4 incidents and 405 roadworks. Source-to-screen validation remains open.
 - [ ] **Current Home/list/detail/road/nearby/map build not yet student-device verified.**
 - [ ] **Live authenticated feed / map-key / offline / orientation tests not yet confirmed.**
 

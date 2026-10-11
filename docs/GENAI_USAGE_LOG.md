@@ -118,3 +118,10 @@ Related commit/issue/test IDs:
 
 **AI contribution:** Inspected current source; wrote replacement native Java/XML Home and TrafficList fragment UI with removal of duplicate Explore traffic nav, full-page fixed layouts, scrolling restricted to ListView, conditional Nearby slider, circular refresh icon and contentDescription; authored separate responsive landscape fragment layouts; created new Android UI smoke tests; updated documentation and committed these changes. Retained Java/XML native approach, single Activity + Fragments + MVVM and Traffic Scotland source restrictions.
 **Student review/validation required:** Pull code in Android Studio, sync Gradle, run actual emulator UI and two new tests, capture evidence, confirm layout fits landscape. GitHub green compilation alone is not device validation. These exact prompts plus other prompt entries must be included in the final GenAI declaration appendix.
+
+
+## Entry 013 — 11 October 2026 (test reporting)
+**Tool:** ChatGPT with connected GitHub.
+**Student message:** Screenshot of Android Studio / Pixel 9 Pro with 2 passed tests in `OfficialXmlFixturesTest`.
+**AI contribution:** Interpreted observed test results; updated M1 acceptance issue, test strategy, README, QA execution matrix and development log. Distinguishes historical XML fixture verification from live feed/UI tests; no Java or Android test code was generated in this step.
+**Validation:** Student executed test; screenshot in conversation, still needs archiving to GitHub evidence folder.

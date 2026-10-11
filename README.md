@@ -14,10 +14,10 @@
 
 We have **seven active Issues** ([M0–M6](docs/PROJECT_BOARD.md)), one per coursework milestone. [#8–#10](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues?q=is%3Aissue%20is%3Aclosed) are three verified narrow completed checkpoints; **#11–#13 are archived duplicates, not completed work**, merged back into M0/M1. As of 11 Oct: **7 Open / 6 Closed (3 completed + 3 duplicate)**.
 
-- [**Simple board setup and seven task statuses**](docs/PROJECT_BOARD.md) — the visual GitHub Project **has not been created**; one manual click-through in Projects is still needed.
+- [**Simple board setup and seven task statuses**](docs/PROJECT_BOARD.md) — user reports creating the GitHub Project with 7 open issues imported; board status/visibility still to verify.
 - [**Full application/product logic**](docs/PRODUCT_REQUIREMENTS.md) — data, UI, state, maps, background refresh and offline.
 - [**All 100 rubric marks, possible vs verified**](docs/RUBRIC_100_CHECKLIST.md) — evidence and clarification requirements.
-- [**26 test scenarios: actual vs expected**](docs/QA_EXECUTION_MATRIX.md) — small XML 4/4 previously observed, new UI/full XML unverified.
+- [**26 test scenarios: actual vs expected**](docs/QA_EXECUTION_MATRIX.md) — **4/4 small XML tests plus 2/2 full lecturer XML tests PASS**; field-to-display checks still pending.
 
 ## Development dashboard
 
@@ -27,7 +27,7 @@ We have **seven active Issues** ([M0–M6](docs/PROJECT_BOARD.md)), one per cour
 | :-- | :-- | :-- | :-- |
 | Android setup | GitHub app launched on **Pixel 9 Pro emulator**; Java and XML navigation shell | Verify fresh clone can build with committed Gradle wrapper | ✅ Local run / ⚠️ wrapper |
 | Official API access | Applied using GCU email on **11 Oct**, Public Restricted API | Wait for administrator approval; never commit client credentials | 🟡 Pending |
-| XmlPullParser + models | Parser source; **4/4** representative tests passed; **4 + 405 original sample XML files now included** | Run newly added full-file instrumentation tests on Android | 🟡 New tests not yet run |
+| XmlPullParser + models | **4/4 representative + 2/2 full lecturer XML tests PASSED on Pixel 9 Pro**, including 4 incidents / 405 roadworks | Verify field-to-screen fidelity and remaining parsing edge cases | ✅ Fixture test / 🟡 integration audit |
 | MVVM and Fragments | Shared AndroidViewModel, background repository and list/detail/home code committed | Build and verify transitions, rotation and selection | 🟡 Code committed, new UI unverified |
 | Portrait / landscape | Separate `activity_main.xml` arrangements committed | Test rotation and persistence of selected data, filters and scroll state | 🟡 Not verified |
 | Incident / roadworks lists + details | Native ListView card adapter and detail fields implemented in source | Pull and run on emulator; compare rows to XML values | 🟡 Not yet emulator-tested |
@@ -46,7 +46,7 @@ We have **seven active Issues** ([M0–M6](docs/PROJECT_BOARD.md)), one per cour
 [✔] GitHub / Java+XML / single Activity and Fragment placeholders
 [✔] Representative XmlPullParser tests (4 pass)
 [~] Approval for official Traffic Scotland API
-[>] NEXT: Git Pull → compile / run new Home + lists → full sample XML tests
+[>] NEXT: XML fields versus app Details; test NavigationChromeTest and rotation
 [~] Search by road + details source written; distance remains
 [~] Seven original icons / delay badges / Maps code; Maps key and tests remain
 [ ] Distinct landscape state / usability validation
@@ -146,7 +146,7 @@ The official coursework specification requires a **Word document** `Surname_Give
 - [Official sample XMLs](app/src/main/assets/): **4 unplanned events and 405 roadworks**, bundled for local **debug** testing only. UI explicitly says **historic samples, NOT live conditions**.
 - [Traffic Scotland credential setup](docs/ANDROID_CREDENTIALS_SETUP.md): uses ignored local properties after portal approval; do not publish credentials-bearing APK.
 - [GitHub Actions](.github/workflows/android-build.yml): debug + instrumentation test compilation only, not device execution. CI verification pending; user should check [Actions](https://github.com/KirilBezmen/gcu-traffic-scotland-android/actions).
-- [Full XML Android tests](app/src/androidTest/java/com/kirilbezmen/trafficscotland/data/parser/OfficialXmlFixturesTest.java): **written but NOT yet executed on Android**.
+- [Full XML Android tests](app/src/androidTest/java/com/kirilbezmen/trafficscotland/data/parser/OfficialXmlFixturesTest.java): **2/2 PASSED on Pixel 9 Pro AVD, 11 October 2026**; see [evidence log](docs/evidence/test-logs/XML_FULL_FIXTURES_2026-10-11.md).
 
 **Next verification:** Git Pull → Gradle Sync → run `app` on Pixel 9 Pro (Home, lists, type/description, search M8/M80, details, landscape), then right-click `OfficialXmlFixturesTest` → Run and save the actual results. **None of these new UI/tests has been confirmed by an Android run yet.**
 
@@ -156,7 +156,7 @@ The [Google Maps SDK](https://developers.google.com/maps/documentation/android-s
 ### CI verification
 - GitHub Actions debug app + Android test APK compilation and JVM unit tests have passed on recent 11 Oct commits; view the [current CI history](https://github.com/KirilBezmen/gcu-traffic-scotland-android/actions/workflows/android-build.yml).
 - A **credential-free debug APK** is uploaded as an Actions artifact for 7 days on green builds. It contains labelled lecturer examples, not verified live traffic.
-- Android instrumentation tests for 4/405 full lecturer XML **must still be run on a Pixel 9 Pro emulator** and documented. CI only compiled the Android test APK, it did not execute emulator tests.
+- **2/2 full lecturer XML Android instrumentation tests PASSED on Pixel 9 Pro AVD 11 October 2026**, as shown in student screenshot. CI compiles Android test APKs but does not execute emulator tests.
 
 ### UI refinement (11 October 2026)
 

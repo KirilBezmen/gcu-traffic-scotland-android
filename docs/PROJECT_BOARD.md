@@ -1,6 +1,6 @@
 # Traffic Scotland Explorer — Simple CW1 development board
 
-> **Not a GitHub Project yet:** this file is the source-of-truth board plan. The real visual board is not created until the repository owner clicks **Projects → New project → Board**. Creating documentation or GitHub Issues does not automatically create a visual GitHub Project.
+> **Visual GitHub Project:** student confirmed creating the project and auto-importing 7 open issues on 11 October 2026. Board statuses/settings have not been verified through an API; this document remains the issue workflow plan.
 
 ## One project · seven active tasks · no duplicate work
 
@@ -9,7 +9,7 @@
 | GitHub Issue | Phase | Initial board status | What actually needs doing next |
 | --- | --- | --- | --- |
 | [#1](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/1) | **M0** Android setup and official API | **Blocked** | Fresh-clone Gradle wrapper; await Traffic Scotland approval; validate both official feeds |
-| [#2](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/2) | **M1** DATEX II XmlPullParser | **Testing** | Run Android tests against complete lecturer XML fixtures (4 incidents / 405 roadworks) |
+| [#2](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/2) | **M1** DATEX II XmlPullParser | **Testing** | **2/2 full lecturer XML Android tests PASSED** (4 incidents, 405 roadworks); verify field-to-screen values next |
 | [#3](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/3) | **M2** Incident/roadworks UI + details | **Testing** | Pull code, launch new UI, check rows/details vs source XML |
 | [#4](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/4) | **M3** Single Activity/MVVM/rotation | **Testing** | Portrait↔landscape switching, preserve filters, selected detail and visible data |
 | [#5](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/5) | **M4** Search/nearby/map/icons/delays | **In Progress** | Validate radius/search; restricted Maps key and multi-selection; proper 6+ icons |

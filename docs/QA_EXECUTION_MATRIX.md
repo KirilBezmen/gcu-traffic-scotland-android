@@ -1,13 +1,13 @@
 # CW1 QA execution matrix — expected vs actual
 
-**Rules:** \`NOT RUN\` and \`BLOCKED\` are not PASS. After running each scenario, replace placeholders with date/time, emulator/Android version, commit SHA, actual observed result and evidence path. Student screenshot from 11 October confirmed **4/4 small XML test cases**, not the full feed.
+**Rules:** \`NOT RUN\` and \`BLOCKED\` are not PASS. After running each scenario, replace placeholders with date/time, emulator/Android version, commit SHA, actual observed result and evidence path. On 11 October student screenshots confirmed 4/4 small XML tests and 2/2 tests on complete lecturer XML files. Neither verifies live API or exact UI fields.
 
 | ID | Scenario / Steps | Expected | Actual | State | Evidence |
 | --- | --- | --- | --- | --- | --- |
 | BUILD-01 | Clean Git clone, Gradle Sync / assembleDebug / install | Importable/reproducible app | Await wrapper + fresh clone | NOT RUN | — |
 | XML-01 | Run four representative \`TrafficXmlParserTest\` | 4 passes | 4/4 green, Pixel 9 Pro API 36, 11 Oct | **PASS** | Screenshot in ChatGPT, not yet GitHub |
-| XML-02 | Run \`OfficialXmlFixturesTest\`, sample_unplanned | 4 situations; correct nested fields | — | NOT RUN | — |
-| XML-03 | Run \`OfficialXmlFixturesTest\`, sample_roadworks | 405 situations; 810 location point nodes in XML audit | — | NOT RUN | — |
+| XML-02 | Run `OfficialXmlFixturesTest`, sample_unplanned | 4 incidents, nested dates/locations | 4 incidents parsed; originalIncidentsContainFourSituations green on Pixel 9 Pro API36, 11 Oct | **PASS** | [Student test screenshot noted](evidence/test-logs/XML_FULL_FIXTURES_2026-10-11.md) |
+| XML-03 | Run `OfficialXmlFixturesTest`, sample_roadworks | 405 roadworks; valid records and location coverage | 405 roadworks parsed; originalRoadworksContain405Situations green on Pixel 9 Pro API36, 11 Oct | **PASS** | [Student test screenshot noted](evidence/test-logs/XML_FULL_FIXTURES_2026-10-11.md) |
 | XML-04 | Malformed XML, missing/unknown nested fields | Safe error / sensible optional defaults | — | NOT RUN | — |
 | UI-01 | New Home on Pixel 9 Pro | Road/cones/warning illustration, counters, source state | — | NOT RUN | — |
 | UI-02 | Incidents list, tap 1st item | Type + exact comment, correct details ID | — | NOT RUN | — |
