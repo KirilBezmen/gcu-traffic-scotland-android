@@ -50,6 +50,33 @@
         android:orientation="vertical"
         android:padding="14dp">
 
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="10dp">
+            <LinearLayout android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:orientation="vertical"
+                android:padding="9dp" android:layout_marginEnd="3dp"
+                android:background="@drawable/bg_incident_tile">
+                <TextView android:id="@+id/homeIncidentCount" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:text="—"
+                    android:textSize="24sp" android:textStyle="bold" android:textColor="@color/danger"/>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="@string/incidents" android:textSize="12sp"
+                    android:textColor="@color/navy" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:orientation="vertical"
+                android:padding="9dp" android:layout_marginStart="3dp"
+                android:background="@drawable/bg_roadworks_tile">
+                <TextView android:id="@+id/homeRoadworkCount" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:text="—"
+                    android:textSize="24sp" android:textStyle="bold" android:textColor="@color/amber"/>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="@string/roadworks" android:textSize="12sp"
+                    android:textColor="@color/navy" android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
