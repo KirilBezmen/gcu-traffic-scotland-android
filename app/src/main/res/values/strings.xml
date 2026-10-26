@@ -43,7 +43,7 @@
     <string name="details_pending">Situation ID: %1$s. Further details will be shown after XML parsing is implemented.</string>
     <string name="brand_traffic">Traffic Scotland</string>
     <string name="brand_explorer">Explorer</string>
-    <string name="home_eyebrow">SCOTLAND&#39;S ROADS AT A GLANCE</string>
+    <string name="home_eyebrow">ROADS ACROSS SCOTLAND</string>
     <string name="from_feed">From selected data source</string>
     <string name="open_details">Open situation details</string>
     <string name="details_information">Situation information</string>
