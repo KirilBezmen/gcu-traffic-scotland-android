@@ -6,7 +6,7 @@
 ![Platform](https://img.shields.io/badge/Platform-Android%208%2B-3DDC84)
 ![Assessment](https://img.shields.io/badge/CW1-70%25%20of%20module-485569)
 ![Phase](https://img.shields.io/badge/Phase-native%20UI%20integration-E5A449)
-![Tests](https://img.shields.io/badge/Android%20parser%20tests-4%20passed-238636)
+![Tests](https://img.shields.io/badge/Android%20parser%20tests-6%20verified-238636)
 
 > **Independent student coursework; not an official Traffic Scotland app.** The GitHub code is an evolving implementation, **not a completed or fully tested submission**. The approved DATEX II feeds and the coursework's DOs/DON'Ts govern every feature.
 
@@ -17,7 +17,7 @@ We have **seven active Issues** ([M0–M6](docs/PROJECT_BOARD.md)), one per cour
 - [**Simple board setup and seven task statuses**](docs/PROJECT_BOARD.md) — user reports creating the GitHub Project with 7 open issues imported; board status/visibility still to verify.
 - [**Full application/product logic**](docs/PRODUCT_REQUIREMENTS.md) — data, UI, state, maps, background refresh and offline.
 - [**All 100 rubric marks, possible vs verified**](docs/RUBRIC_100_CHECKLIST.md) — evidence and clarification requirements.
-- [**26 test scenarios: actual vs expected**](docs/QA_EXECUTION_MATRIX.md) — **4/4 small XML tests plus 2/2 full lecturer XML tests PASS**; field-to-display checks still pending.
+- [**26 test scenarios: actual vs expected**](docs/QA_EXECUTION_MATRIX.md) — **4/4 representative XML tests plus 2/2 full lecturer XML tests PASS**, and source-to-Details A74(M)/M8 screenshots verified; 3 more parser regression tests committed on 26 Oct but have NOT RUN on Android.
 
 ## Development dashboard
 

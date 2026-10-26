@@ -53,7 +53,8 @@
 - [x] **Four small representative XML Android instrumentation tests** completed: **4/4 passed** on Pixel 9 Pro API36.
 - [x] Green GitHub Actions compilation/JVM tests for newer source code.
 - [x] **Full lecturer XML Android tests CONFIRMED PASS, 2/2 on Pixel 9 Pro (11 Oct)**: 4 incidents and 405 roadworks. Source-to-screen validation remains open.
-- [ ] **Current Home/list/detail/road/nearby/map build not yet student-device verified.**
+- [x] **Home, initial Incidents/Roadworks and A74(M)/M8 Details verified on Pixel 9 Pro screenshots** (11 Oct); both source-to-Details specimen audits match lecturer XML.
+- [ ] **Search, Nearby, icon coverage, delay colouring, real multi-pin map and all rotation scenarios remain unverified.**
 - [ ] **Live authenticated feed / map-key / offline / orientation tests not yet confirmed.**
 
 ## Submission and time gate

@@ -2,6 +2,20 @@
 
 > **Visual GitHub Project:** student confirmed creating the project and auto-importing 7 open issues on 11 October 2026. Board statuses/settings have not been verified through an API; this document remains the issue workflow plan.
 
+
+## Fastest responsible route to full CW1 submission — 26 October 2026
+
+**Stop cosmetic work.** Implement only missing marking criteria, fix defects found by tests, and finish a defensible submission. Main branch as checked on 26 Oct: last green CI was `8f4cf8a` (11 Oct); additional parser tests committed `4591b68` 26 Oct — **new Android tests not yet run on emulator**.
+
+1. **Blocker P0: real feeds.** Student says developer access was granted. Verify it is **authorised DATEX II Unplanned Events and Current Roadworks**. Put Client ID, Client Key and exact Roadworks `Content.xml` URL ONLY in untracked `local.properties`. Never share real secrets via chat/GitHub/issue/screenshots. Run startup and retry, confirm live records and source badge. Address distributable APK credential exposure before hand-in. Verify Maps API key separately.
+2. **P0 rubric 42/100: user journey.** Demonstrate Incidents/Roadworks, exact road filters (M8 vs M80), Nearby radius, meaningful 6+ icons with licencing, roadworks short/long colour-coded delays correctly interpreted from official fields, and **multiple user-selected map markers**. If the rubric's duration/delay semantics or icon max 6/8 is unclear, ask Mario Mata rather than inventing a rule.
+3. **P0 rubric 18/100: architecture + rotation.** One Activity / Fragments / ViewModel already in source; check landscape layout distinction, retained selected item, search and radius. Run `NavigationChromeTest` on device.
+4. **P0 rubric 10/100: XML.** 4 small plus 2 full-fixture parser tests already PASS; source-to-screen A74(M) and M8 audited. Three new tests for truncated XML, multiple records and absent optional fields are **NOT RUN**; execute full parser suite on Pixel 9 Pro and record results. Exercise live feed validation.
+5. **P0 rubric 10/100: background/offline.** Verify first automatic refresh, another timed refresh, loss of connectivity after genuine live fetch (cached label), and fresh-install offline (error, not fake LIVE).
+6. **P0 rubric 20/100: evidence and hand-in.** Complete actual/expected evidence table, archive images, narrate both orientations, build and verify APK and clean-clone Android source, Word summary + originality + complete exact GenAI prompts + OneDrive video link, plus required examiner ZIP. Check GCULearn final instructions. **23 Nov CW1:** conflicting 12:00 vs 17:00 documentation; use 12:00 until clarified. **30 Nov CW2:** separate supervised class test.
+
+**Definitions of Done:** Code committed; Android emulator execution PASS with date/API/commit/evidence; security and source constraints checked; only then mark Issue completed. CI compilation is not an Android test run. M0–M6 stay open until every acceptance item is evidenced.
+
 ## One project · seven active tasks · no duplicate work
 
 **Keep just seven open GitHub Issues, one for each coursework phase (M0–M6).** Each issue contains current verified progress, remaining acceptance checkboxes and evidence needed for full marks. Treat **Issues as tasks, not errors**; an Open Issue does not imply broken software.

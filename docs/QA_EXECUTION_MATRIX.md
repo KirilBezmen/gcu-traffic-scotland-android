@@ -48,3 +48,13 @@ If test fails: record actual failure; create/change GitHub Issue; fix, rerun; lo
 | UX-07 | Run NavigationChromeTest on Pixel 9 Pro | 2/2 Android instrumentation smoke tests pass | — | NOT RUN |
 
 **Screenshot already observed before this UI refactor:** 4/4 original `TrafficXmlParserTest` passing on Pixel 9 Pro AVD, and Incidents screen displaying **4 situations** from historical lecturer XML. These are baseline observations, not evidence for UX-01 through UX-07 after refactor.
+
+## Parser regression expansion — added 26 October 2026
+
+| ID | Test | Expected | Actual on Android | Status |
+| --- | --- | --- | --- | --- |
+| XML-05 | `truncatedXmlIsRejected` | Truncated DATEX XML throws XmlPullParserException | Not executed on Pixel 9 Pro | **NOT RUN** |
+| XML-06 | `multipleSituationRecordsAreRetainedWithSeparateValues` | Two records under one situation, distinct IDs/delays, M8 and M80 both discoverable | Not executed on Pixel 9 Pro | **NOT RUN** |
+| XML-07 | `missingOptionalValuesRemainAbsent` | Missing validity, impact and coordinates remain empty/null; A9 != A90 | Not executed on Pixel 9 Pro | **NOT RUN** |
+
+Source: `app/src/androidTest/java/com/kirilbezmen/trafficscotland/data/parser/TrafficXmlParserTest.java`. Three tests added in Git commit `4591b68`. They must NOT be counted as passed unless Android Studio execution is observed.

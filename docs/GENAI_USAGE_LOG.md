@@ -139,3 +139,9 @@ Related commit/issue/test IDs:
 **Student contribution:** Three Pixel 9 Pro emulator screenshots showing the A74(M) incident's previously hidden From location and the full details of selected M8 Woodside Roadworks record.
 **AI contribution:** Retrieved official lecturer-supplied original DATEX II XML samples from GitHub, compared screenshot values with the source (including dates, delays, direction and coordinates), authored the M8 test evidence report and updated the prior A74 report, QA matrix, development notes and GitHub milestone evidence. No Android Java/XML application code was generated in this entry.
 **Validation boundaries:** Comparisons cover two selected historical fixture records and observed screenshots only. Remaining emulator regression tests and live API not performed. Screenshot binary evidence still needs permanent upload.
+
+## Entry 016 — 26 October 2026 (fast-track rubric readiness)
+**Tool:** ChatGPT + connected GitHub.
+**Exact student's prompt:** "нужно закончить как можно скорее"
+**AI contribution:** Reviewed current project Java, parser, XML, repository, navigation, build configuration, rubric tracker and GitHub Issues. Added three Android instrumentation regression cases for malformed/truncated XML, multiple DATEX situation records and missing optional values; revised README verification summary and prioritised P0 rubric acceptance in the existing PROJECT_BOARD.md; updated QA matrix. No user secret was retrieved or placed in GitHub.
+**Validation:** Source committed as `4591b68`; tests are **not yet executed on Android emulator**. CI compilation, when green, only confirms build; student must run `TrafficXmlParserTest` and capture outcome. All previous confirmed results remain unchanged.
