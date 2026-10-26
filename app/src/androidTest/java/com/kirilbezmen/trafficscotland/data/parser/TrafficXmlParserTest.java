@@ -102,4 +102,63 @@ public class TrafficXmlParserTest {
         assertFalse(data.get(0).matchesRoad("M8"));
         assertEquals(0, data.get(0).getRecords().get(0).getLocations().size());
     }
+
+    /**
+     * A partially downloaded official DATEX II document must not be silently
+     * accepted as an empty or incomplete list of live events.
+     */
+    @Test(expected = XmlPullParserException.class)
+    public void truncatedXmlIsRejected() throws Exception {
+        String incomplete = HEADER + "<situation id='partial'><situationRecord id='record'>" +
+                "<generalPublicComment><comment><values><value lang='en'>M8 works";
+        new TrafficXmlParser().parse(incomplete, TrafficSituation.Feed.CURRENT_ROADWORKS);
+    }
+
+    /** Multiple records of one situation remain grouped in the model. */
+    @Test
+    public void multipleSituationRecordsAreRetainedWithSeparateValues() throws Exception {
+        String xml = HEADER + "<situation id='multiple'>" +
+                "<situationRecord id='r1' xsi:type='MaintenanceWorks'>" +
+                "<generalPublicComment><comment><values><value lang='en'>M8 lane works</value>" +
+                "</values></comment></generalPublicComment>" +
+                "<impact><delays><delaysType>longDelays</delaysType></delays></impact>" +
+                "</situationRecord>" +
+                "<situationRecord id='r2' xsi:type='MaintenanceWorks'>" +
+                "<generalPublicComment><comment><values><value lang='en'>M80 bridge inspection</value>" +
+                "</values></comment></generalPublicComment>" +
+                "<impact><delays><delaysType>delays</delaysType></delays></impact>" +
+                "</situationRecord></situation>" + FOOTER;
+        ArrayList<TrafficSituation> result = new TrafficXmlParser().parse(
+                xml, TrafficSituation.Feed.CURRENT_ROADWORKS);
+        assertEquals(1, result.size());
+        assertEquals(2, result.get(0).getRecords().size());
+        assertEquals("r1", result.get(0).getRecords().get(0).getId());
+        assertEquals("longDelays", result.get(0).getRecords().get(0).getDelaysType());
+        assertEquals("r2", result.get(0).getRecords().get(1).getId());
+        assertEquals("delays", result.get(0).getRecords().get(1).getDelaysType());
+        assertTrue(result.get(0).matchesRoad("M8"));
+        assertTrue(result.get(0).matchesRoad("M80"));
+    }
+
+    /** Optional impact, coordinates and validity must stay absent, not invented. */
+    @Test
+    public void missingOptionalValuesRemainAbsent() throws Exception {
+        String xml = HEADER + "<situation id='minimal'>" +
+                "<situationRecord id='bare' xsi:type='MaintenanceWorks'>" +
+                "<generalPublicComment><comment><values><value lang='en'>A9 roadworks</value>" +
+                "</values></comment></generalPublicComment>" +
+                "</situationRecord></situation>" + FOOTER;
+        TrafficSituation situation = new TrafficXmlParser().parse(
+                xml, TrafficSituation.Feed.CURRENT_ROADWORKS).get(0);
+        TrafficRecord record = situation.getRecords().get(0);
+        assertEquals("", record.getValidFrom());
+        assertEquals("", record.getValidTo());
+        assertEquals("", record.getDelaysType());
+        assertNull(record.getOperationalLanes());
+        assertTrue(record.getLocations().isEmpty());
+        assertEquals("A9 roadworks", situation.getSummary());
+        assertTrue(situation.matchesRoad("A9"));
+        assertFalse(situation.matchesRoad("A90"));
+    }
+
 }
