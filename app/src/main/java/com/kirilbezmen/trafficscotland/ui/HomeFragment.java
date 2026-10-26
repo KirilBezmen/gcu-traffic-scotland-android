@@ -18,6 +18,11 @@ public class HomeFragment extends Fragment {
 
     @Override public void onViewCreated(@NonNull View view, @Nullable Bundle state) {
         super.onViewCreated(view, state);
+        View hero = view.findViewById(R.id.homeHero);
+        if (hero != null && ValueAnimator.areAnimatorsEnabled()) {
+            hero.setAlpha(0.2f);
+            hero.animate().alpha(1f).setDuration(420).start();
+        }
         TrafficViewModel model =
                 new ViewModelProvider(requireActivity()).get(TrafficViewModel.class);
         View refresh = view.findViewById(R.id.homeRefresh);
