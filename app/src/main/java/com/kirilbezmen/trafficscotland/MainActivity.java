@@ -74,12 +74,15 @@ public class MainActivity extends AppCompatActivity {
             default: page = new HomeFragment(); break;
         }
         manager.beginTransaction().setReorderingAllowed(true)
+                .setCustomAnimations(R.anim.ux_fade_in, R.anim.ux_fade_out)
                 .replace(R.id.fragmentHost, page, section.name()).commit();
     }
 
     public void openSituationDetails(String id) {
         if (id == null || id.isEmpty()) return;
         getSupportFragmentManager().beginTransaction().setReorderingAllowed(true)
+                .setCustomAnimations(R.anim.ux_fade_in, R.anim.ux_fade_out,
+                        R.anim.ux_fade_in, R.anim.ux_fade_out)
                 .replace(R.id.fragmentHost, TrafficDetailsFragment.newInstance(id), "details")
                 .addToBackStack("details").commit();
     }
