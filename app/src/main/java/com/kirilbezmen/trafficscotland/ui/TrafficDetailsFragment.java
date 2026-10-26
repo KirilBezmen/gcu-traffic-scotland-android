@@ -1,6 +1,11 @@
 package com.kirilbezmen.trafficscotland.ui;
 
 import android.os.Bundle;
+import android.graphics.Typeface;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.StyleSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.TextView;
 
@@ -48,7 +53,7 @@ public class TrafficDetailsFragment extends Fragment {
             ((TextView) view.findViewById(R.id.detailsSummary)).setText(item.getSummary());
             ((TextView) view.findViewById(R.id.detailsType)).setText(item.getType());
             ((TextView) view.findViewById(R.id.detailsSource)).setText(data.message);
-            StringBuilder body = new StringBuilder();
+            SpannableStringBuilder body = new SpannableStringBuilder();
             for (TrafficRecord record : item.getRecords()) {
                 field(body, "Record", record.getId());
                 field(body, "Event subtype", record.getSubtype());
@@ -72,12 +77,18 @@ public class TrafficDetailsFragment extends Fragment {
                     }
                 }
             }
-            ((TextView) view.findViewById(R.id.detailsBody)).setText(body.toString().trim());
+            ((TextView) view.findViewById(R.id.detailsBody)).setText(body);
         });
     }
 
-    private void field(StringBuilder body, String label, String value) {
+    private void field(SpannableStringBuilder body, String label, String value) {
         if (value == null || value.trim().isEmpty()) return;
-        body.append(label).append("\n").append(value.trim()).append("\n\n");
+        int from = body.length();
+        body.append(label);
+        body.setSpan(new StyleSpan(Typeface.BOLD), from, body.length(),
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        body.setSpan(new ForegroundColorSpan(0xFF0B2D5B), from, body.length(),
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        body.append("\n").append(value.trim()).append("\n\n");
     }
 }
