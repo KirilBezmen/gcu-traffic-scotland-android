@@ -58,3 +58,20 @@ If test fails: record actual failure; create/change GitHub Issue; fix, rerun; lo
 | XML-07 | `missingOptionalValuesRemainAbsent` | Missing validity, impact and coordinates remain empty/null; A9 != A90 | Not executed on Pixel 9 Pro | **NOT RUN** |
 
 Source: `app/src/androidTest/java/com/kirilbezmen/trafficscotland/data/parser/TrafficXmlParserTest.java`. Three tests added in Git commit `4591b68`. They must NOT be counted as passed unless Android Studio execution is observed.
+
+## New native UX review branch — 26 October 2026
+
+`feat/premium-native-ux-2026-10-26` / draft PR #14 implements the approved graphic UX direction. **Do not treat the AI-generated mockup as evidence of tested functionality.** All scenarios below remain NOT RUN on Pixel 9 Pro until student observation.
+
+| ID | Scenario | Expected | Observed | Status |
+| --- | --- | --- | --- | --- |
+| DESIGN-01 | Open Home (portrait) on debug fixtures | Original hero graphic, 4/405 from provided XML, **SAMPLE** warning visible | — | NOT RUN |
+| DESIGN-02 | Check tab nav and cards | Native four tabs, selected state, accurate incident/roadworks cards | — | NOT RUN |
+| DESIGN-03 | Tap incident, roadworks; Back | Styled details; data remains identical to XML, back returns correctly | — | NOT RUN |
+| DESIGN-04 | Rotate Home/list/details | Landscape rail, selected details and search state retained | — | NOT RUN |
+| DESIGN-05 | Press Refresh | Brief animation; actual refresh invoked, source badge stays truthful | — | NOT RUN |
+| DESIGN-06 | Open Map with restricted key | Real tiles; select multiple markers; tap marker to show parsed summary and Details | — | BLOCKED: local Maps key |
+| DESIGN-07 | Open Map without key | Helpful setup message, no crash | — | NOT RUN |
+| DESIGN-08 | Open launcher from Android | Original adaptive app icon displayed on Pixel 9 Pro | — | NOT RUN |
+
+See [design-to-implementation traceability](UI_UX_IMPLEMENTATION_2026-10-26.md); save device, date, commit and redacted screenshots when performed.
