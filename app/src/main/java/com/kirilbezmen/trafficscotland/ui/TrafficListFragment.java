@@ -1,6 +1,7 @@
 package com.kirilbezmen.trafficscotland.ui;
 
 import android.os.Bundle;
+import android.animation.ValueAnimator;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -116,7 +117,12 @@ public class TrafficListFragment extends Fragment {
         });
 
         // ImageButton has a 48dp touch target and an accessibility description.
-        view.findViewById(R.id.listRefresh).setOnClickListener(v -> model.refresh());
+        view.findViewById(R.id.listRefresh).setOnClickListener(v -> {
+            if (ValueAnimator.areAnimatorsEnabled()) {
+                v.animate().rotationBy(360f).setDuration(600).start();
+            }
+            model.refresh();
+        });
         model.getSnapshot().observe(getViewLifecycleOwner(), snapshot -> update(view, snapshot));
     }
 
