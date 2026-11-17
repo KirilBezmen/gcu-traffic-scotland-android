@@ -65,6 +65,17 @@
             <TextView android:id="@+id/homeStatus" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:maxLines="2" android:ellipsize="end"
                 android:text="@string/loading" android:textColor="@color/subtitle" android:textSize="11sp"/>
+
+    <ProgressBar
+        android:id="@+id/homeProgress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="6dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/accent"
+        android:importantForAccessibility="no"
+        android:visibility="gone" />
         </LinearLayout>
         <ImageButton android:id="@+id/homeRefresh" android:layout_width="48dp"
             android:layout_height="48dp" android:background="?attr/selectableItemBackgroundBorderless"
