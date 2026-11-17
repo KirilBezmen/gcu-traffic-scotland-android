@@ -153,3 +153,10 @@ Related commit/issue/test IDs:
 **Student's responsibilities:** Examine the code, make/approve UX decisions, run Pixel 9 Pro tests in Android Studio, debug issues with or without AI assistance, compare visible fields against original XML, archive actual screenshots and decide on merging.
 **Validation:** Github Actions CI build plus JVM tests verify code compiles on runs with `conclusion=success`. This does **not** verify visible appearance, orientation retention, maps, live DATEX II or on-device functionality. All new UX screenshots and tests are pending. No API keys were exposed.
 **Academic restrictions:** Original Java/XML plus approved Google Maps SDK only, no WebViews or unauthorised traffic feed. The generated UI board contains fictional demo examples which were **not** implemented as live facts.
+
+## Entry 018 — 17 November 2026 — User-delegated refresh UX reliability
+**Exact student prompt:** "Так, какие задачи ты можешь взять на себя и начать их реализовывать?"
+**Tool:** ChatGPT with connected GitHub.
+**GenAI contributions:** Inspected the current draft UX branch, Repository/ViewModel/Fragment/UI sources and CI status. Fixed `TrafficRepository.refresh()` to announce a real in-progress state while preserving already-loaded source-labelled records; added indeterminate ProgressBars for Home and Incidents/Roadworks in both portrait and landscape; updated Home and TrafficListFragment so previous valid results remain displayed during a new fetch; added test instructions to QA Execution Matrix.
+**Code review:** Work placed on draft PR #14, without touching main or adding any API credentials. The student must review all changes and test them on Pixel 9 Pro.
+**Verification:** Await latest GitHub Actions result, then manually run app and capture evidence. **No emulator pass, approved DATEX II live download, offline cache test or final Word submission is claimed.**
