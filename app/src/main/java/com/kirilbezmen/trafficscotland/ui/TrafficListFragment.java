@@ -21,7 +21,6 @@ import com.kirilbezmen.trafficscotland.MainActivity;
 import com.kirilbezmen.trafficscotland.R;
 import com.kirilbezmen.trafficscotland.data.repository.TrafficRepository;
 
-import java.util.Collections;
 
 /**
  * Static header and filters; only the ListView viewport scrolls.
@@ -129,7 +128,10 @@ public class TrafficListFragment extends Fragment {
     private void update(View view, TrafficRepository.Snapshot data) {
         if (data == null || adapter == null) return;
         ((TextView) view.findViewById(R.id.listSource)).setText(data.message);
-        adapter.submit(data.loading ? Collections.emptyList() : model.filtered(section, data));
+        view.findViewById(R.id.listProgress).setVisibility(data.loading ? View.VISIBLE : View.GONE);
+        // Previous LIVE/CACHED/SAMPLE results remain visible while refresh runs.
+        // A first launch with no data continues to show the Loading message.
+        adapter.submit(model.filtered(section, data));
         ((TextView) view.findViewById(R.id.listCount))
                 .setText(getString(R.string.results_count, adapter.getCount()));
 
