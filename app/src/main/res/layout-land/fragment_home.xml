@@ -122,5 +122,16 @@
             android:text="@string/loading"
             android:textColor="@color/subtitle"
             android:textSize="13sp" />
+
+    <ProgressBar
+        android:id="@+id/homeProgress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="6dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/accent"
+        android:importantForAccessibility="no"
+        android:visibility="gone" />
     </LinearLayout>
 </LinearLayout>
