@@ -90,3 +90,16 @@ Changes: `TrafficRepository.refresh()` publishes a loading snapshot before netwo
 | LOAD-06 | Live fetch fails without cache | ERROR state; no false live information | Pending access/credentials | BLOCKED |
 
 Do not count CI resource compilation as emulator execution. Screenshots are required for actual/expected results, no secrets in images.
+
+## Road-search JVM regressions — 17 November 2026
+
+Added `TrafficSituationRoadSearchTest.java` for route matching independent of DATEX API credentials.
+
+| ID | Requirement | Expected | CI execution | Emulator/UI |
+| --- | --- | --- | --- | --- |
+| SEARCH-JVM-01 | M8 vs M80 | Exact motorway match, no substring collision | Pending latest JVM test run | NOT RUN |
+| SEARCH-JVM-02 | Case and whitespace | M8 matches lower-case/space-trimmed user query | Pending latest JVM test run | NOT RUN |
+| SEARCH-JVM-03 | A74(M) suffix | Suffixed Scottish road distinct from A74 | Pending latest JVM test run | NOT RUN |
+| SEARCH-JVM-04 | Multiple records/comment fallback | Index routes in all records, exclude unrelated routes | Pending latest JVM test run | NOT RUN |
+
+These tests do not prove the search EditText, search results, navigation, keyboard or rotation UX. User must verify these separately.
