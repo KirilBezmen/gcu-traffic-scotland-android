@@ -37,15 +37,16 @@ public class HomeFragment extends Fragment {
             TextView counts = view.findViewById(R.id.homeCounts);
             TextView incidents = view.findViewById(R.id.homeIncidentCount);
             TextView works = view.findViewById(R.id.homeRoadworkCount);
-            boolean ready = !data.loading && !"ERROR".equals(data.source)
-                    && !"NONE".equals(data.source);
+            View progress = view.findViewById(R.id.homeProgress);
+            if (progress != null) progress.setVisibility(data.loading ? View.VISIBLE : View.GONE);
+            boolean hasData = !"ERROR".equals(data.source) && !"NONE".equals(data.source);
             int a = data.incidents.size();
             int b = data.roadworks.size();
-            counts.setText(ready ? getString(R.string.home_counts, a, b) :
+            counts.setText(hasData ? getString(R.string.home_counts, a, b) :
                     getString(R.string.loading));
             status.setText(data.message);
-            if (incidents != null) incidents.setText(ready ? String.valueOf(a) : "—");
-            if (works != null) works.setText(ready ? String.valueOf(b) : "—");
+            if (incidents != null) incidents.setText(hasData ? String.valueOf(a) : "—");
+            if (works != null) works.setText(hasData ? String.valueOf(b) : "—");
         });
     }
 }
