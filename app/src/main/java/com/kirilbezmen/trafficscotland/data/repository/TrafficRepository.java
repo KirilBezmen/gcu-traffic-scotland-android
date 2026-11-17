@@ -93,6 +93,21 @@ public final class TrafficRepository {
 
     public void refresh() {
         if (!working.compareAndSet(false, true)) return;
+
+        // Display a real loading state without throwing away already verified
+        // LIVE, CACHED or clearly labelled historic SAMPLE results.
+        Snapshot previous = observable.getValue();
+        if (previous == null) previous = Snapshot.empty();
+        String message = "NONE".equals(previous.source)
+                ? "Loading traffic information…"
+                : "Refreshing… " + previous.message;
+        Snapshot loading = new Snapshot(previous.incidents, previous.roadworks,
+                previous.source, message, previous.retrievedAt, true);
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            observable.setValue(loading);
+        } else {
+            mainHandler.post(() -> observable.setValue(loading));
+        }
         executor.execute(() -> {
             try {
                 Snapshot next;
