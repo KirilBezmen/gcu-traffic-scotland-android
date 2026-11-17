@@ -103,3 +103,14 @@ Added `TrafficSituationRoadSearchTest.java` for route matching independent of DA
 | SEARCH-JVM-04 | Multiple records/comment fallback | Index routes in all records, exclude unrelated routes | Pending latest JVM test run | NOT RUN |
 
 These tests do not prove the search EditText, search results, navigation, keyboard or rotation UX. User must verify these separately.
+
+## Navigation state restoration Android instrumented tests — added 17 November 2026
+
+`NavigationChromeTest` now has four tests: previous two for Home chrome and list/filter visibility plus two newly added checks below. Existing test suite **MUST be run by the student on Pixel 9 Pro**, as CI only compiles it.
+
+| ID | Expected | Actual | Status |
+| --- | --- | --- | --- |
+| NAV-03 | Roadworks tab remains checked; Roadworks title visible after Activity recreation | Not run on emulator | NOT RUN |
+| NAV-04 | M8 query and Incidents tab remain selected after Activity recreation | Not run on emulator | NOT RUN |
+
+Activity recreation tests are NOT proof that the distinct landscape composition works; separately rotate and capture UI state.
