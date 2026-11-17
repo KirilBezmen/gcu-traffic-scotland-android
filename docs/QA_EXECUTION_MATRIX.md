@@ -75,3 +75,18 @@ Source: `app/src/androidTest/java/com/kirilbezmen/trafficscotland/data/parser/Tr
 | DESIGN-08 | Open launcher from Android | Original adaptive app icon displayed on Pixel 9 Pro | — | NOT RUN |
 
 See [design-to-implementation traceability](UI_UX_IMPLEMENTATION_2026-10-26.md); save device, date, commit and redacted screenshots when performed.
+
+## Background refresh and visible loading — 17 November 2026 (PR #14)
+
+Changes: `TrafficRepository.refresh()` publishes a loading snapshot before network/sample processing; both portrait/landscape Home and lists expose a native indeterminate ProgressBar; lists retain previously displayed data during a refresh, preserving the original provenance label. This is a **code implementation**, not yet evidence of visual/emulator behaviour.
+
+| ID | Procedure | Expected result | Actual on Pixel 9 Pro | Status |
+| --- | --- | --- | --- | --- |
+| LOAD-01 | Cold start without local DATEX II credentials (DEBUG) | Brief progress indicator, then 4 incidents/405 roadworks from the original labelled historic lecturer XML samples | Not run | NOT RUN |
+| LOAD-02 | Tap Refresh on Home and list | Progress indicator is visible while refreshing; prior XML records remain accessible; completed data remains correctly marked SAMPLE/LIVE/CACHED | Not run | NOT RUN |
+| LOAD-03 | Rotate while loading / after load | No crash; landscape has distinct rail; information source and filters remain correct | Not run | NOT RUN |
+| LOAD-04 | Authorized live fetch succeeds | Both official DATEX II streams displayed as LIVE, only after both parse | Pending access/credentials | BLOCKED |
+| LOAD-05 | Live fetch fails after successful fetch | CACHED label explicitly shown; last valid records preserved | Pending access/credentials | BLOCKED |
+| LOAD-06 | Live fetch fails without cache | ERROR state; no false live information | Pending access/credentials | BLOCKED |
+
+Do not count CI resource compilation as emulator execution. Screenshots are required for actual/expected results, no secrets in images.
