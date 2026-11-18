@@ -217,3 +217,11 @@ Student supplied Pixel 9 Pro API 36 emulator screenshot at approximately 12:49 U
 **Result:** **PASS (observed):** Details → Back returns to Roadworks, and the selected Nearby mode/radius/result count persist in Landscape. Screenshot visible in ChatGPT; original PNG not yet archived to GitHub. Exact installed APK commit SHA not independently established. This confirms the tested navigation path only, not all activity recreation/back-stack paths.
 
 **Next:** test opening Map without a locally configured Google Maps key (expected clear no-key message, no crash) before attempting authenticated map tiles or multiple markers.
+
+## UX-MAP-00 — No Maps SDK key fallback (18 November 2026)
+
+**User screenshot:** Pixel 9 Pro emulator Android API 36 at ~12:58 UK time, premium UX branch. The Map tab is selected and shows the labelled historic lecturer XML source and native empty-key information panel: “Google Maps is permitted for this coursework. Add your own restricted Maps SDK for Android API key to local.properties as MAPS_API_KEY, then Gradle Sync. The traffic lists remain available without a Maps key.” App is visibly running, with no crash. The original screenshot is in this ChatGPT conversation but has not been added to GitHub; exact APK SHA remains unverified.
+
+**Result: PASS for no-key fallback screen and no visible crash.** **BLOCKED for map tiles, source-derived markers, multiple selected records, info windows and navigation until user configures a restricted Google Maps key locally.** No marks are claimed for actual map rendering on this screenshot.
+
+**Next:** configure `MAPS_API_KEY` privately in root `local.properties`, verify Android SDK restriction and fingerprint, then retest real map tiles/markers on Pixel 9 Pro. Do not share or commit the key, or redistribute a secret-bearing APK.
