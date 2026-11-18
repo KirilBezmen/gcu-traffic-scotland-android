@@ -172,3 +172,11 @@ Student supplied Pixel 9 Pro API 36 screenshot at approximately 12:43 UK time. R
 **Outcome: PASS for the observed M8 vs M80 interactive filtering comparison** (21 vs 11 different displayed result sets, correctly labelled routes). UI renders correct-looking matches and does not hang. This is not an independent audit of *all* 11 or 21 records, and exact installed APK commit SHA and archived screenshots remain pending. The earlier JVM regression test checks exact matching algorithm separately; distinguish CI from emulator observation.
 
 **Next test:** Nearby toggle, radius and actual fixed-reference filtering, first on Roadworks without search text.
+
+## UX-NEARBY-01 — Roadworks 25 km (18 November 2026)
+
+**Student-observed screenshot:** Pixel 9 Pro Android emulator API 36, 18 November 2026 approximately 12:44 local. Search field empty; "Show nearby situations" checked. Radius label explicitly reads `25 km from Glasgow city centre (fixed reference)`; slider is visible. Roadworks result count is **53 situations** compared with 405 without nearby filtering. First visible entries include M8 Woodside roadworks. Historical sample-data warning remains present.
+
+**Observed UI verdict: PASS (25-km nearby control and list filtering)**. This screenshot confirms that the radius controls become visible, the UI reports the fixed reference and filters results to 53; it does **not independently validate all 53 geospatial inclusion decisions**, or the 5 km / 200 km extremes. Follow-up: set slider to 5 km, record result count and screenshot, then 200 km.
+
+Screenshot is in original ChatGPT conversation only (not yet stored in GitHub); installed APK commit SHA still needs student confirmation. No live API inference.
