@@ -158,3 +158,9 @@ Student explicitly confirmed that all remaining A74(M) Details fields pass, incl
 | Back navigation / orientation | Return to list/maintain state | Not shown | NOT RUN |
 
 **Outcome:** PASS for all displayed M8 roadworks fields (first selected roadwork), not proof of all 405 situations, Back or Landscape. Student should archive original screenshot and record installed commit SHA. **Next critical task:** Search M8 vs M80 from each list and verify actual results; capture clear screenshots.
+
+## UX-SEARCH-01 — Roadworks M8 query (18 November 2026)
+
+Student supplied a Pixel 9 Pro emulator screenshot at approximately 12:42 UK time with Roadworks search text `M8`, **21 situations** shown, and visible first results labelled `M8, A82, A81, A804` / `M8, A82, A804`, roadwork descriptions and `Long delay` badges. Historic lecturer XML provenance is clearly shown. Android API 36 was established in earlier emulator screenshots. Exact installed APK commit SHA is unconfirmed; screenshot PNG has not yet been archived in GitHub.
+
+**Outcome:** **PARTIAL PASS:** search input filters and renders a set of 21 M8-related Roadworks rows, without observed UI crash. This screenshot alone does **not** prove all 21 source records match, that M80 is excluded, or that 21 is the independently verified expected count. Next compare M80 query and capture both screens; do not mark full 4-mark road-search requirement PASS yet.
