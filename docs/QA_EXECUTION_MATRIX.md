@@ -201,3 +201,11 @@ Student supplied Pixel 9 Pro API 36 emulator screenshot at approximately 12:49 U
 **Observed status: PARTIAL PASS** — distinct landscape composition and retained selected section/filter/result count. **Known limitation:** software keyboard is open across the bottom of the screenshot; some lower layout/slider/list interactions cannot be assessed and text is cramped. Screenshot is in the ChatGPT conversation, not yet archived to GitHub; precise installed commit SHA still unconfirmed.
 
 **Next:** dismiss the keyboard (Android Back once), verify radius label and list visibility without keyboard, capture uncluttered landscape screenshot; then separately rotate while Details is open and test Back state. Do not claim the full 8 orientation marks from this one screen.
+
+## UX-ROT-02 — Roadworks Details visible in Landscape (18 November 2026)
+
+**Evidence:** Student uploaded Pixel 9 Pro emulator screenshot at ~12:53 UK local time on 18 Nov 2026, after previous Roadworks Nearby/landscape exploration. The UI shows the distinct dark vertical navigation rail (Roadworks selected), a horizontally oriented details area, record `D_159301`, event subtype `roadworks`, validity `definedByValidityTimeSpec` and corresponding start/end/updated dates previously compared with lecturer's historic M8 XML. App remains responsive enough to render the details fragment after rotation.
+
+**Observation:** PARTIAL PASS for selected record identity and visible text retained in landscape. **Not yet verified:** full content scroll/coordinates or Details back navigation in Landscape. Text looks unusually small at this AVD landscape size; potential legibility issue for user-facing usability. The screenshot does not visibly show the Details back button (likely vertically scrolled). Test steps for next pass: press system Back from Details, verify Roadworks filtered list is shown in landscape, then rotate to portrait and verify last search/Nearby state. Source remains historic lecturer XML; no live access implied.
+
+**Evidence limitation:** Screenshot only in ChatGPT, not committed as a PNG to repo. Exact installed APK SHA to be recorded by student.
