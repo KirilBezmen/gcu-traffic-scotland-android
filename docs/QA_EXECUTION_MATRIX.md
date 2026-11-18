@@ -114,3 +114,23 @@ These tests do not prove the search EditText, search results, navigation, keyboa
 | NAV-04 | M8 query and Incidents tab remain selected after Activity recreation | Not run on emulator | NOT RUN |
 
 Activity recreation tests are NOT proof that the distinct landscape composition works; separately rotate and capture UI state.
+
+## UX-DETAIL-01 — A74(M) Details on redesigned interface (18 November 2026)
+
+**Evidence:** Student-provided Pixel 9 Pro emulator screenshot in ChatGPT at ~12:37 UK time, API 36 visible earlier, newly checked-out `feat/premium-native-ux-2026-10-26` branch. **The exact installed APK commit SHA remains unconfirmed** and the screenshot PNG has **not** been archived into GitHub. No screenshot of this test has been misrepresented as a committed file.
+
+| XML field / behaviour | Observed on current screenshot | Result |
+| --- | --- | --- |
+| Road | `A74(M)` | MATCH to lecturer historic sample |
+| Record type | `RoadOrCarriagewayOrLaneManagement` | MATCH |
+| Comment | A74M(S) J19 Ecclefechan off slip closed for essential roadworks | MATCH |
+| Record ID | `I_20260810_248` | MATCH |
+| Subtype / validity | `roadClosed` / `definedByValidityTimeSpec` | MATCH |
+| Start | `2026-08-10T11:37:42+01:00` | MATCH |
+| Last updated | `2026-08-24T18:25:33+01:00` | MATCH |
+| Direction / operational lanes | `southBound` / `0` | MATCH |
+| To location | `J19; A74(M) J19 Eaglesfield` | MATCH |
+| From and To coordinates, from endpoint | Below screenshot viewport; **not visible** | NOT VERIFIED on redesigned build |
+| Back navigation, landscape retention | Not shown | NOT RUN |
+
+**Outcome:** **PARTIAL PASS — visible fields of first incident** on 18 Nov premium UX, not a full details or navigation PASS. Prior full-field A74 audit on 11 Oct belongs to the previous app build and must not be transferred silently to the redesign. **Next:** scroll down, verify J19/J18 coordinates and return via Back; save original screenshot and installed commit SHA.
