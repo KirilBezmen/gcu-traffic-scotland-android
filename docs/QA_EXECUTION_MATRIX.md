@@ -251,3 +251,13 @@ An A90/A981 Fraserburgh marker-preview screenshot was followed by an A76/A702 Dr
 Student screenshot displays Map with `All geolocated traffic situations`, `Show all situations` and numerous roadworks markers. **Observed:** map-selection state is empty, so the map is displaying all geolocated samples, not an 11-result M80 subset. The screenshot does **not** show how the user navigated to Map (direct Map tab versus the list's `View results on map` button). **Status: INCONCLUSIVE / NOT VERIFIED as a filtered-map test, rather than confirmed code failure.**
 
 Static Java review: `TrafficListFragment.mapResults` calls `model.selectForMap(model.filtered(section, snapshot))` followed by `navigate(MAP)`; `TrafficMapFragment.drawMarkers` checks `model.mapSelection()` and filters marker IDs when nonempty. No code defect established from this static review. Controlled retest: return to Roadworks; uncheck Nearby, search M80; verify 11 list matches; specifically tap dark `View results on map` (not bottom Map tab); screenshot Map immediately. Expected header `11 selected situations` (or corresponding resource copy), only selected events with coordinates visible. Record actual and compare with source IDs before fixing anything.
+
+## UX-MAP-03 — controlled Roadworks M80 filtered-map retest, PASS (18 November 2026)
+
+**Evidence:** Student's Pixel 9 Pro Android API 36 emulator screenshot, ~13:32 local UK time, taken immediately after using Roadworks search `M80` (previously confirmed 11 matches) then the **dark `View results on map` button**, not the bottom Map tab. Map header reads exactly **`11 selected situations (tap markers for details)`**. Only a small cluster of orange roadworks markers is visible in central Scotland (Glasgow/Falkirk vicinity), with Google basemap tiles and explicit **historic lecturer XML, NOT current traffic** provenance.
+
+**Result: PASS** for transferring the 11 selected Roadworks IDs and filtering displayed markers in the controlled UI flow. The earlier screenshot showing `All geolocated traffic situations` reflected an empty selection/default Map screen and is **not a defect**.
+
+**Important evidence limit:** 11 selected *situations* need not mean 11 visually distinct markers—some records can share coordinates or overlap and not all records necessarily have mappable coordinates. The screenshot confirms subset appearance and the 11-selection label; a source-to-map verification of every ID/coordinate and `Show all situations` reset remains pending. Screenshot is in this ChatGPT conversation, not yet archived in GitHub; installed APK SHA not independently recorded.
+
+**Next milestone:** authorised Traffic Scotland DATEX II connection; keep provider and Maps secrets out of repository and screenshots.
