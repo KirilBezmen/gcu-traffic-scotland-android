@@ -225,3 +225,11 @@ Student supplied Pixel 9 Pro API 36 emulator screenshot at approximately 12:49 U
 **Result: PASS for no-key fallback screen and no visible crash.** **BLOCKED for map tiles, source-derived markers, multiple selected records, info windows and navigation until user configures a restricted Google Maps key locally.** No marks are claimed for actual map rendering on this screenshot.
 
 **Next:** configure `MAPS_API_KEY` privately in root `local.properties`, verify Android SDK restriction and fingerprint, then retest real map tiles/markers on Pixel 9 Pro. Do not share or commit the key, or redistribute a secret-bearing APK.
+
+## UX-MAP-01 — Google Maps tiles and multiple XML-based markers (18 November 2026)
+
+**Evidence:** Pixel 9 Pro API 36 emulator screenshot supplied by student in ChatGPT at approximately 13:22 UK time on 18 November 2026. After configuring a new Maps SDK for Android API key locally in the ignored root `local.properties`, the Map tab displays real Google basemap tiles and numerous orange roadworks marker icons distributed over Scotland, alongside the historic lecturer XML samples disclosure. Native Home/Incidents/Roadworks/Map navigation remains visible; no visible API authorization error or crash.
+
+**Result: PASS (visible map rendering and multiple roadworks markers).** This screenshot does **not** independently validate every point's source coordinates, selected-results-only marker filtering, marker tap info windows, marker preview to Details, map rotation, or DATEX II LIVE API. These remain pending. Installed APK Git SHA not recorded. Original screenshot only in the ChatGPT conversation, not yet archived in GitHub. **Do not include the actual API key in any screenshot or repository file**.
+
+**Next manual test:** tap an orange roadworks marker in Map, verify title and source-grounded preview; tap preview to open the matching Details record and confirm Back navigation returns to Map.
