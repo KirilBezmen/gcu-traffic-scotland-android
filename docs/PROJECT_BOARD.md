@@ -1,5 +1,8 @@
 # Traffic Scotland Explorer — Simple CW1 development board
 
+> **Current project status — 18 November 2026:** The app's native UI, authorised DATEX II LIVE feeds, Maps and key flows were student-tested and merged into `main` via [PR #14](https://github.com/KirilBezmen/gcu-traffic-scotland-android/pull/14). Seven [current Issues](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues) now list verified tasks and remaining evidence. The earlier 26 October plan below is **historical**, not the latest status. For current status use [README](../README.md), [QA Matrix](QA_EXECUTION_MATRIX.md) and [Student Work](STUDENT_WORK_AND_EVIDENCE.md). Gradle Wrapper 8.9 is now committed; a fresh Windows clone still needs testing. APK credential security and hand-in artefacts remain open.
+
+
 > **Visual GitHub Project:** student confirmed creating the project and auto-importing 7 open issues on 11 October 2026. Board statuses/settings have not been verified through an API; this document remains the issue workflow plan.
 
 
