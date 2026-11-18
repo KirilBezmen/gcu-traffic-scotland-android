@@ -261,3 +261,22 @@ Static Java review: `TrafficListFragment.mapResults` calls `model.selectForMap(m
 **Important evidence limit:** 11 selected *situations* need not mean 11 visually distinct markers—some records can share coordinates or overlap and not all records necessarily have mappable coordinates. The screenshot confirms subset appearance and the 11-selection label; a source-to-map verification of every ID/coordinate and `Show all situations` reset remains pending. Screenshot is in this ChatGPT conversation, not yet archived in GitHub; installed APK SHA not independently recorded.
 
 **Next milestone:** authorised Traffic Scotland DATEX II connection; keep provider and Maps secrets out of repository and screenshots.
+
+## DATEX-LIVE-00 — official Developer Guide integration (18 November 2026)
+
+**Student provided** approved DATEX II Developer Guide excerpt. It confirms:
+- Base URL: `https://datex2.trafficscotland.org/rest/2.3/`
+- Unplanned Events: `publications/UnplannedEvents/Content.xml`
+- Current Roadworks: `publications/CurrentRoadworks/Content.xml`
+- Authorization per HTTP Basic: `Authorization: Basic <base64(clientId:clientKey)>` (Guide says RFC 7617; its PowerShell example includes `Basic ` prefix, despite Java snippet omitting the scheme name).
+- Content is SOAP-wrapped DATEX II XML and may change around every five minutes; app's hourly refresh targets coursework requirements.
+
+**Implementation:** `TrafficRepository.java` now uses confirmed static endpoints and includes the `Basic ` authorization scheme. `TRAFFIC_ROADWORKS_URL` no longer required; only `TRAFFIC_CLIENT_ID` and `TRAFFIC_CLIENT_KEY` are required locally in `local.properties`. These two values are **sensitive and extractable from APK BuildConfig**. Never share full screenshots/compiled secret-bearing APK.
+
+| ID | Test | Expected | Status |
+| --- | --- | --- | --- |
+| DATEX-LIVE-01 | Local credentials + rebuilt app on Pixel 9 Pro | Header-based authenticated downloads of BOTH Content.xml endpoints; UI label `Official Traffic Scotland data`, not SAMPLE | NOT RUN |
+| DATEX-LIVE-02 | Tap Refresh | New request and updated source/timestamp without UI blocking | NOT RUN |
+| DATEX-LIVE-03 | Disconnect network after successful live fetch | Clearly marked CACHED, last successful XML remains shown | NOT RUN |
+| DATEX-LIVE-04 | No cache/no internet while credentials configured | Explicit ERROR, never invented LIVE/SAMPLE | NOT RUN |
+| DATEX-LIVE-05 | Verify original XML parser against current live payload | No SOAP/namespace parsing regressions; sensible incident and roadwork records | NOT RUN |
