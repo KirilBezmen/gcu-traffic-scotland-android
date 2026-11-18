@@ -193,3 +193,11 @@ Screenshot is in original ChatGPT conversation only (not yet stored in GitHub); 
 | 200 km (right edge) | **370** | 370 > 53 and < 405; labels/cards render | PASS (UI) |
 
 **Scope:** Verifies requested radius range, UI filtering and expected monotonic increase in reported counts for these samples. This does **not** independently verify all point-to-segment distance calculations or inclusion/exclusion of all 405 roadworks. Existing JVM distance regression tests cover representative geometry separately. **Next:** rotate to Landscape with Nearby 5 or 200 km active and verify filter state and distinct navigation rail; capture a landscape screenshot.
+
+## UX-ROT-01 — Roadworks / Nearby landscape rotation (18 November 2026)
+
+Student supplied Pixel 9 Pro API 36 emulator screenshot at approximately 12:49 UK local time, following preceding Roadworks Nearby test at **200 km / 370 situations**. Screenshot shows distinct landscape layout: dark left navigation rail, `Roadworks` selected, search and Nearby controls in a left filter column, a scrollable roadworks results area on the right, checkbox still checked and **370 situations** preserved across rotation. Nearby distance label appears consistent with the previously selected 200 km setting. Lecturer historical XML warning remains visible.
+
+**Observed status: PARTIAL PASS** — distinct landscape composition and retained selected section/filter/result count. **Known limitation:** software keyboard is open across the bottom of the screenshot; some lower layout/slider/list interactions cannot be assessed and text is cramped. Screenshot is in the ChatGPT conversation, not yet archived to GitHub; precise installed commit SHA still unconfirmed.
+
+**Next:** dismiss the keyboard (Android Back once), verify radius label and list visibility without keyboard, capture uncluttered landscape screenshot; then separately rotate while Details is open and test Back state. Do not claim the full 8 orientation marks from this one screen.
