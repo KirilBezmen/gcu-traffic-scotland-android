@@ -180,3 +180,16 @@ Student supplied Pixel 9 Pro API 36 screenshot at approximately 12:43 UK time. R
 **Observed UI verdict: PASS (25-km nearby control and list filtering)**. This screenshot confirms that the radius controls become visible, the UI reports the fixed reference and filters results to 53; it does **not independently validate all 53 geospatial inclusion decisions**, or the 5 km / 200 km extremes. Follow-up: set slider to 5 km, record result count and screenshot, then 200 km.
 
 Screenshot is in original ChatGPT conversation only (not yet stored in GitHub); installed APK commit SHA still needs student confirmation. No live API inference.
+
+## UX-NEARBY-02 / UX-NEARBY-03 — 5 km and 200 km extremes (18 November 2026)
+
+**User-supplied Pixel 9 Pro emulator screenshots, 18 Nov 2026 approx. 12:47 UK.** Both show Roadworks, blank road search, Nearby checked, labelled fixed Glasgow city centre reference, visible radius slider, original lecturer historic XML source warning and result cards. Screenshot PNG files remain attached to the ChatGPT conversation and are **not yet archived in the repository**. Exact installed APK SHA not provided.
+
+| Radius | Visible result count | Comparison / UI outcome | Status |
+| --- | ---: | --- | --- |
+| No Nearby | 405 | Full lecturer sample | Prior screenshot |
+| 5 km (left edge) | **14** | 14 < 53; visible roadworks cards and working slider | PASS (UI) |
+| 25 km (middle value) | **53** | Previously documented check | PASS (UI) |
+| 200 km (right edge) | **370** | 370 > 53 and < 405; labels/cards render | PASS (UI) |
+
+**Scope:** Verifies requested radius range, UI filtering and expected monotonic increase in reported counts for these samples. This does **not** independently verify all point-to-segment distance calculations or inclusion/exclusion of all 405 roadworks. Existing JVM distance regression tests cover representative geometry separately. **Next:** rotate to Landscape with Nearby 5 or 200 km active and verify filter state and distinct navigation rail; capture a landscape screenshot.
