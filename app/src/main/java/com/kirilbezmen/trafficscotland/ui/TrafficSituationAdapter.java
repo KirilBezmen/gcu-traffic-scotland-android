@@ -1,7 +1,6 @@
 package com.kirilbezmen.trafficscotland.ui;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,25 +76,47 @@ public final class TrafficSituationAdapter extends BaseAdapter {
         boolean works = situation.getFeed() == TrafficSituation.Feed.CURRENT_ROADWORKS;
         icon.setImageResource(iconFor(record, works));
 
+        TextView meta = row.findViewById(R.id.rowMeta);
+        if (record == null) {
+            meta.setVisibility(View.GONE);
+        } else {
+            StringBuilder secondary = new StringBuilder();
+            if (!record.getDirection().isEmpty()) secondary.append(record.getDirection());
+            if (!record.getValidFrom().isEmpty()) {
+                if (secondary.length() > 0) secondary.append("  ·  ");
+                // Show exactly the supplied XML date prefix, never a fabricated "minutes ago".
+                secondary.append(record.getValidFrom().substring(
+                        0, Math.min(10, record.getValidFrom().length())));
+            }
+            meta.setText(secondary.toString());
+            meta.setVisibility(secondary.length() == 0 ? View.GONE : View.VISIBLE);
+        }
+
         TextView delay = row.findViewById(R.id.rowDelay);
         if (works) {
             String type = record == null ? "" : record.getDelaysType();
             if (type.equalsIgnoreCase("veryLongDelays") || type.equalsIgnoreCase("longDelays")) {
                 delay.setText(R.string.long_delay);
-                delay.setTextColor(Color.parseColor("#B42318"));
+                delay.setTextColor(0xFFB42318);
+                delay.setBackgroundResource(R.drawable.bg_status_red);
             } else if (type.equalsIgnoreCase("delays")) {
                 delay.setText(R.string.reported_delay);
-                delay.setTextColor(Color.parseColor("#B45309"));
+                delay.setTextColor(0xFF975108);
+                delay.setBackgroundResource(R.drawable.bg_status_amber);
             } else if (type.equalsIgnoreCase("noDelay")) {
                 delay.setText(R.string.no_delay);
-                delay.setTextColor(Color.parseColor("#087F5B"));
+                delay.setTextColor(0xFF087F5B);
+                delay.setBackgroundResource(R.drawable.bg_status_green);
             } else {
                 delay.setText(R.string.delay_unknown);
-                delay.setTextColor(Color.parseColor("#64748B"));
+                delay.setTextColor(0xFF64748B);
+                delay.setBackgroundResource(R.drawable.bg_status_slate);
             }
         } else {
+            // Incident type is based on the DATEX II record; do not invent severity.
             delay.setText(R.string.incident_label);
-            delay.setTextColor(Color.parseColor("#B42318"));
+            delay.setTextColor(0xFFB42318);
+            delay.setBackgroundResource(R.drawable.bg_status_red);
         }
         return row;
     }

@@ -1,4 +1,6 @@
-# Written test strategy — draft
+# Written test strategy — working document
+
+**Current source of truth:** [QA Execution Matrix](QA_EXECUTION_MATRIX.md) and [CW1 Final Sprint](CW1_FINAL_SPRINT_2026-11-17.md). The older early-October planning entries below are retained as a historical baseline and should NOT be copied into the November submission as current "not implemented" statuses. Actual observed results require date, Android API, device and commit SHA.
 
 ## Objectives
 Demonstrate correctness of Traffic Scotland data handling, meaningful UI, resilience to invalid data and usability across mobile conditions. Full required test types depend on official rubric.
@@ -9,7 +11,7 @@ Demonstrate correctness of Traffic Scotland data handling, meaningful UI, resili
 - **System/UI:** launch, navigation, selection, details, loading/empty/error states, portrait/landscape and accessibility.
 - **Regression:** rerun representative tests after each change.
 
-## Planned cases (NOT YET EXECUTED)
+## Early-October plan (historical baseline — superseded by QA Execution Matrix)
 | Test ID | Scenario | Expected result | Actual result | Status |
 | --- | --- | --- | --- | --- |
 | ENV-01 | Android clean clone, Gradle sync and install | Successful build/run | Not attempted | Not run |

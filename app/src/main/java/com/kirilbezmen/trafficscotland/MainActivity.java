@@ -1,6 +1,9 @@
 package com.kirilbezmen.trafficscotland;
 
 import android.os.Bundle;
+import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
@@ -42,9 +45,13 @@ public class MainActivity extends AppCompatActivity {
         navigationGroup.check(buttonFor(viewModel.getSection()));
         navigationGroup.setOnCheckedChangeListener((group, id) -> {
             TrafficViewModel.Section target = sectionFor(id);
-            if (target != null) showSection(target);
+            if (target != null) {
+                tintNavigation();
+                showSection(target);
+            }
         });
 
+        tintNavigation();
         // FragmentManager itself restores selected/back-stack fragment on rotation.
         if (savedInstanceState == null) showSection(viewModel.getSection());
     }
@@ -74,14 +81,36 @@ public class MainActivity extends AppCompatActivity {
             default: page = new HomeFragment(); break;
         }
         manager.beginTransaction().setReorderingAllowed(true)
+                .setCustomAnimations(R.anim.ux_fade_in, R.anim.ux_fade_out)
                 .replace(R.id.fragmentHost, page, section.name()).commit();
     }
 
     public void openSituationDetails(String id) {
         if (id == null || id.isEmpty()) return;
         getSupportFragmentManager().beginTransaction().setReorderingAllowed(true)
+                .setCustomAnimations(R.anim.ux_fade_in, R.anim.ux_fade_out,
+                        R.anim.ux_fade_in, R.anim.ux_fade_out)
                 .replace(R.id.fragmentHost, TrafficDetailsFragment.newInstance(id), "details")
                 .addToBackStack("details").commit();
+    }
+
+
+    /** Checked tabs have distinct icon/text colour in both native orientations. */
+    private void tintNavigation() {
+        boolean landscape = getResources().getConfiguration().orientation
+                == Configuration.ORIENTATION_LANDSCAPE;
+        int[] ids = { R.id.navHome, R.id.navIncidents, R.id.navRoadworks, R.id.navMap };
+        for (int id : ids) {
+            RadioButton button = findViewById(id);
+            if (button == null) continue;
+            int color = button.isChecked() ? getColor(landscape ? R.color.navy : R.color.accent)
+                    : getColor(landscape ? R.color.white : R.color.subtitle);
+            button.setTextColor(color);
+            Drawable[] icons = button.getCompoundDrawablesRelative();
+            for (Drawable drawable : icons) {
+                if (drawable != null) drawable.mutate().setTint(color);
+            }
+        }
     }
 
     private TrafficViewModel.Section sectionFor(int id) {

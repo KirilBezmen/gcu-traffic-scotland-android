@@ -39,8 +39,9 @@ public final class TrafficRepository {
     private static final long REFRESH_MILLIS = 60 * 60 * 1000L;
     private static final String INCIDENT_URL =
             "https://datex2.trafficscotland.org/rest/2.3/publications/UnplannedEvents/Content.xml";
-    // CurrentRoadworks URL must be copied from the authorised DATEX II guide.
-    // Never silently guess an alternative provider or endpoint.
+    // Official Traffic Scotland DATEX II v2.3 Developer Guide, Current Roadworks Content.
+    private static final String ROADWORKS_URL =
+            "https://datex2.trafficscotland.org/rest/2.3/publications/CurrentRoadworks/Content.xml";
     private static final String CACHE_INCIDENTS = "last_live_unplanned.xml";
     private static final String CACHE_ROADWORKS = "last_live_roadworks.xml";
 
@@ -93,6 +94,21 @@ public final class TrafficRepository {
 
     public void refresh() {
         if (!working.compareAndSet(false, true)) return;
+
+        // Display a real loading state without throwing away already verified
+        // LIVE, CACHED or clearly labelled historic SAMPLE results.
+        Snapshot previous = observable.getValue();
+        if (previous == null) previous = Snapshot.empty();
+        String message = "NONE".equals(previous.source)
+                ? "Loading traffic information…"
+                : "Refreshing… " + previous.message;
+        Snapshot loading = new Snapshot(previous.incidents, previous.roadworks,
+                previous.source, message, previous.retrievedAt, true);
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            observable.setValue(loading);
+        } else {
+            mainHandler.post(() -> observable.setValue(loading));
+        }
         executor.execute(() -> {
             try {
                 Snapshot next;
@@ -117,13 +133,12 @@ public final class TrafficRepository {
 
     private boolean hasCredentials() {
         return !BuildConfig.TRAFFIC_CLIENT_ID.trim().isEmpty()
-                && !BuildConfig.TRAFFIC_CLIENT_KEY.trim().isEmpty()
-                && !BuildConfig.TRAFFIC_ROADWORKS_URL.trim().isEmpty();
+                && !BuildConfig.TRAFFIC_CLIENT_KEY.trim().isEmpty();
     }
 
     private Snapshot loadLive() throws Exception {
         String incidentsXml = download(INCIDENT_URL);
-        String roadworksXml = download(BuildConfig.TRAFFIC_ROADWORKS_URL);
+        String roadworksXml = download(ROADWORKS_URL);
         TrafficXmlParser parser = new TrafficXmlParser();
         ArrayList<TrafficSituation> incidents = parser.parse(
                 incidentsXml, TrafficSituation.Feed.UNPLANNED_EVENTS);
@@ -181,8 +196,9 @@ public final class TrafficRepository {
         connection.setReadTimeout(25000);
         connection.setRequestProperty("Accept", "application/xml");
         String credentials = BuildConfig.TRAFFIC_CLIENT_ID + ":" + BuildConfig.TRAFFIC_CLIENT_KEY;
-        // The lecturer starter sends Base64(clientId:clientKey), without a Basic prefix.
-        connection.setRequestProperty("Authorization",
+        // Traffic Scotland's DATEX II v2.3 guide requires HTTP Basic authentication:
+        // Authorization: Basic base64(clientId:clientKey) (RFC 7617).
+        connection.setRequestProperty("Authorization", "Basic " +
                 Base64.encodeToString(credentials.getBytes(StandardCharsets.UTF_8), Base64.NO_WRAP));
         try {
             int status = connection.getResponseCode();

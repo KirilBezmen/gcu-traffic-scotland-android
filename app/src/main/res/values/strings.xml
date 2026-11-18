@@ -10,7 +10,7 @@
     <string name="refresh">Refresh</string>
     <string name="refresh_content_description">Refresh traffic information</string>
     <string name="loading">Loading traffic information…</string>
-    <string name="home_headline">Roads in focus.</string>
+    <string name="home_headline">Drive informed.&#10;Explore further.</string>
     <string name="home_subtitle">Incidents, roadworks and useful travel updates across Scotland.</string>
     <string name="hero_description">Illustrated Scottish road with mountains, orange cones and a warning sign</string>
     <string name="home_counts">%1$d incidents  ·  %2$d roadworks</string>
@@ -41,4 +41,12 @@
     <string name="map_loading">Loading geographic map…</string>
     <string name="map_pending">Map is not implemented yet. Mapping must use an allowed service and parsed Traffic Scotland coordinates.</string>
     <string name="details_pending">Situation ID: %1$s. Further details will be shown after XML parsing is implemented.</string>
+    <string name="brand_traffic">Traffic Scotland</string>
+    <string name="brand_explorer">Explorer</string>
+    <string name="home_eyebrow">ROADS ACROSS SCOTLAND</string>
+    <string name="from_feed">From selected data source</string>
+    <string name="open_details">Open situation details</string>
+    <string name="details_information">Situation information</string>
+    <string name="map_preview_description">Tap to open selected situation details</string>
+    <string name="map_preview_tap">Tap to open details</string>
 </resources>

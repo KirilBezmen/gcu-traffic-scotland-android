@@ -34,8 +34,6 @@ android {
         buildConfigField("String", "MAPS_API_KEY",
             javaString(developerProps.getProperty("MAPS_API_KEY", "")))
         manifestPlaceholders["MAPS_API_KEY"] = developerProps.getProperty("MAPS_API_KEY", "")
-        buildConfigField("String", "TRAFFIC_ROADWORKS_URL",
-            javaString(developerProps.getProperty("TRAFFIC_ROADWORKS_URL", "")))
     }
 
     buildFeatures { buildConfig = true }

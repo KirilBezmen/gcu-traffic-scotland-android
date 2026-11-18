@@ -1,6 +1,7 @@
 package com.kirilbezmen.trafficscotland.ui;
 
 import android.os.Bundle;
+import android.animation.ValueAnimator;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -20,7 +21,6 @@ import com.kirilbezmen.trafficscotland.MainActivity;
 import com.kirilbezmen.trafficscotland.R;
 import com.kirilbezmen.trafficscotland.data.repository.TrafficRepository;
 
-import java.util.Collections;
 
 /**
  * Static header and filters; only the ListView viewport scrolls.
@@ -116,14 +116,22 @@ public class TrafficListFragment extends Fragment {
         });
 
         // ImageButton has a 48dp touch target and an accessibility description.
-        view.findViewById(R.id.listRefresh).setOnClickListener(v -> model.refresh());
+        view.findViewById(R.id.listRefresh).setOnClickListener(v -> {
+            if (ValueAnimator.areAnimatorsEnabled()) {
+                v.animate().rotationBy(360f).setDuration(600).start();
+            }
+            model.refresh();
+        });
         model.getSnapshot().observe(getViewLifecycleOwner(), snapshot -> update(view, snapshot));
     }
 
     private void update(View view, TrafficRepository.Snapshot data) {
         if (data == null || adapter == null) return;
         ((TextView) view.findViewById(R.id.listSource)).setText(data.message);
-        adapter.submit(data.loading ? Collections.emptyList() : model.filtered(section, data));
+        view.findViewById(R.id.listProgress).setVisibility(data.loading ? View.VISIBLE : View.GONE);
+        // Previous LIVE/CACHED/SAMPLE results remain visible while refresh runs.
+        // A first launch with no data continues to show the Loading message.
+        adapter.submit(model.filtered(section, data));
         ((TextView) view.findViewById(R.id.listCount))
                 .setText(getString(R.string.results_count, adapter.getCount()));
 

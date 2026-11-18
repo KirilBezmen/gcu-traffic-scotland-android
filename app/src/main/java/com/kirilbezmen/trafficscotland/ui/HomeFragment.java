@@ -1,5 +1,6 @@
 package com.kirilbezmen.trafficscotland.ui;
 
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -11,32 +12,41 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.kirilbezmen.trafficscotland.R;
 
-/**
- * Home is a fixed-height native fragment. MainActivity already provides all
- * navigation, so this screen deliberately has no duplicate Explore buttons.
- */
+/** Native Home, both orientation layouts, with explicit source provenance. */
 public class HomeFragment extends Fragment {
     public HomeFragment() { super(R.layout.fragment_home); }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    @Override public void onViewCreated(@NonNull View view, @Nullable Bundle state) {
+        super.onViewCreated(view, state);
+        View hero = view.findViewById(R.id.homeHero);
+        if (hero != null && ValueAnimator.areAnimatorsEnabled()) {
+            hero.setAlpha(0.2f);
+            hero.animate().alpha(1f).setDuration(420).start();
+        }
         TrafficViewModel model =
                 new ViewModelProvider(requireActivity()).get(TrafficViewModel.class);
-
-        view.findViewById(R.id.homeRefresh).setOnClickListener(v -> model.refresh());
-
-        model.getSnapshot().observe(getViewLifecycleOwner(), snapshot -> {
+        View refresh = view.findViewById(R.id.homeRefresh);
+        refresh.setOnClickListener(v -> {
+            if (ValueAnimator.areAnimatorsEnabled()) {
+                v.animate().rotationBy(360f).setDuration(600).start();
+            }
+            model.refresh();
+        });
+        model.getSnapshot().observe(getViewLifecycleOwner(), data -> {
             TextView status = view.findViewById(R.id.homeStatus);
             TextView counts = view.findViewById(R.id.homeCounts);
-            if (snapshot.loading) {
-                status.setText(R.string.loading);
-                counts.setText(R.string.loading);
-            } else {
-                status.setText(snapshot.message);
-                counts.setText(getString(R.string.home_counts,
-                        snapshot.incidents.size(), snapshot.roadworks.size()));
-            }
+            TextView incidents = view.findViewById(R.id.homeIncidentCount);
+            TextView works = view.findViewById(R.id.homeRoadworkCount);
+            View progress = view.findViewById(R.id.homeProgress);
+            if (progress != null) progress.setVisibility(data.loading ? View.VISIBLE : View.GONE);
+            boolean hasData = !"ERROR".equals(data.source) && !"NONE".equals(data.source);
+            int a = data.incidents.size();
+            int b = data.roadworks.size();
+            counts.setText(hasData ? getString(R.string.home_counts, a, b) :
+                    getString(R.string.loading));
+            status.setText(data.message);
+            if (incidents != null) incidents.setText(hasData ? String.valueOf(a) : "—");
+            if (works != null) works.setText(hasData ? String.valueOf(b) : "—");
         });
     }
 }

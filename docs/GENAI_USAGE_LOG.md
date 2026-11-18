@@ -145,3 +145,27 @@ Related commit/issue/test IDs:
 **Exact student's prompt:** "нужно закончить как можно скорее"
 **AI contribution:** Reviewed current project Java, parser, XML, repository, navigation, build configuration, rubric tracker and GitHub Issues. Added three Android instrumentation regression cases for malformed/truncated XML, multiple DATEX situation records and missing optional values; revised README verification summary and prioritised P0 rubric acceptance in the existing PROJECT_BOARD.md; updated QA matrix. No user secret was retrieved or placed in GitHub.
 **Validation:** Source committed as `4591b68`; tests are **not yet executed on Android emulator**. CI compilation, when green, only confirms build; student must run `TrafficXmlParserTest` and capture outcome. All previous confirmed results remain unchanged.
+
+## Entry 017 — 26 October 2026 — Native premium UX implementation
+**Student prompt (verbatim):** "Мне нравится а теперь давай реализуй это все в код"
+**Tool:** ChatGPT with connected GitHub, plus the preceding AI-generated static UI reference board (not a real screenshot).
+**GenAI work:** Generated and edited Android Java/XML files for portrait-bottom / landscape-rail tabs, a native navy/blue/amber/red design system, navigation vectors, an original Highland-road adaptive launcher, responsive home hero/stats, native card/ripple styling, colour-coded *actual* DATEX II delay values, styled Details, map-marker preview, transitions and refresh/hero microanimations. Also drafted the design implementation traceability / QA plan in `docs/UI_UX_IMPLEMENTATION_2026-10-26.md`.
+**Student's responsibilities:** Examine the code, make/approve UX decisions, run Pixel 9 Pro tests in Android Studio, debug issues with or without AI assistance, compare visible fields against original XML, archive actual screenshots and decide on merging.
+**Validation:** Github Actions CI build plus JVM tests verify code compiles on runs with `conclusion=success`. This does **not** verify visible appearance, orientation retention, maps, live DATEX II or on-device functionality. All new UX screenshots and tests are pending. No API keys were exposed.
+**Academic restrictions:** Original Java/XML plus approved Google Maps SDK only, no WebViews or unauthorised traffic feed. The generated UI board contains fictional demo examples which were **not** implemented as live facts.
+
+## Entry 018 — 17 November 2026 — User-delegated refresh UX reliability
+**Exact student prompt:** "Так, какие задачи ты можешь взять на себя и начать их реализовывать?"
+**Tool:** ChatGPT with connected GitHub.
+**GenAI contributions:** Inspected the current draft UX branch, Repository/ViewModel/Fragment/UI sources and CI status. Fixed `TrafficRepository.refresh()` to announce a real in-progress state while preserving already-loaded source-labelled records; added indeterminate ProgressBars for Home and Incidents/Roadworks in both portrait and landscape; updated Home and TrafficListFragment so previous valid results remain displayed during a new fetch; added test instructions to QA Execution Matrix.
+**Additional work under same student delegation:** Added four plain-JVM exact-road filtering regression cases in `TrafficSituationRoadSearchTest.java` (M8/M80, case-insensitive input, A74(M), and multi-record comment fallback). Updated final-sprint checklist and QA matrix. These new tests require GitHub Actions results before marking PASS.
+**Code review:** Work placed on draft PR #14, without touching main or adding any API credentials. The student must review all changes and test them on Pixel 9 Pro.
+**Verification:** Await latest GitHub Actions result, then manually run app and capture evidence. **No emulator pass, approved DATEX II live download, offline cache test or final Word submission is claimed.**
+**Further GenAI contribution within Entry 018:** Authored two Android instrumented navigation regression tests verifying selected Roadworks tab and Incidents search state through Activity recreation, for student execution on Pixel 9 Pro. Their outcome remains NOT RUN (GitHub CI compiles tests but does not run emulator).
+
+## Entry 019 — 18 November 2026 — Official DATEX II guide integration
+**Student material:** Full DATEX II Developer Guide (Publication Types, publication endpoints and methods, authorization examples and SOAP Content.xml wrapper).
+**Student instruction/context:** Continue GCU Traffic Scotland Explorer CW1 integration of official approved live data.
+**GenAI contribution:** Reviewed exact official Unplanned Events and Current Roadworks Content.xml URLs; corrected Android HTTP `Authorization` to RFC 7617 Basic scheme; converted previously unknown roadworks URL to confirmed source-defined constant; removed obsolete `TRAFFIC_ROADWORKS_URL` field from Gradle configuration; documented required live integration and offline evidence tests.
+**Testing status:** Code committed to draft UI PR #14; GitHub CI result to be verified. No LIVE download claimed without student-observed emulator test. AI code generation and support must be disclosed in final report.
+**Credential risk:** ID/key remain local to student, but are built into BuildConfig and can be extracted from any APK created with them. Do not submit/redistribute authenticated builds containing private credentials without authorization.

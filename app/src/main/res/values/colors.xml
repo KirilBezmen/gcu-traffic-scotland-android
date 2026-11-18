@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background">#F3F6FA</color>
+    <color name="background">#F3F7FC</color>
     <color name="panel">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
     <color name="navy">#0B2D5B</color>
-    <color name="ink">#172B4D</color>
+    <color name="ink">#182C4C</color>
     <color name="subtitle">#64748B</color>
     <color name="accent">#2563EB</color>
     <color name="pale_blue">#DBEAFE</color>
-    <color name="panel_stroke">#DCE5EF</color>
+    <color name="panel_stroke">#DEE8F4</color>
+    <color name="danger">#DC3545</color>
+    <color name="amber">#E98611</color>
+    <color name="success">#059669</color>
+    <color name="soft_red">#FFF0F1</color>
+    <color name="soft_amber">#FFF3E2</color>
+    <color name="soft_green">#E8F8F0</color>
+    <color name="soft_slate">#EEF3F8</color>
 </resources>

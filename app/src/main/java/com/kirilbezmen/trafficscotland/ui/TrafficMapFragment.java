@@ -39,6 +39,7 @@ public class TrafficMapFragment extends Fragment {
     private GoogleMap map;
     private TrafficRepository.Snapshot latest;
     private TrafficViewModel model;
+    private String previewSituationId;
 
     public TrafficMapFragment() { super(R.layout.fragment_map); }
 
@@ -47,6 +48,8 @@ public class TrafficMapFragment extends Fragment {
         model = new ViewModelProvider(requireActivity()).get(TrafficViewModel.class);
         view.findViewById(R.id.clearMapSelection).setOnClickListener(v -> {
             model.clearMapSelection();
+            previewSituationId = null;
+            view.findViewById(R.id.mapPreview).setVisibility(View.GONE);
             drawMarkers();
         });
         if (BuildConfig.MAPS_API_KEY.trim().isEmpty()) {
@@ -54,11 +57,17 @@ public class TrafficMapFragment extends Fragment {
         } else {
             FrameLayout container = view.findViewById(R.id.mapContainer);
             mapView = new MapView(requireContext());
-            container.addView(mapView, new FrameLayout.LayoutParams(
+            container.addView(mapView, 0, new FrameLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             mapView.onCreate(state);
             mapView.getMapAsync(googleMap -> {
                 map = googleMap;
+                view.findViewById(R.id.mapHint).setVisibility(View.GONE);
+                map.setOnMarkerClickListener(marker -> {
+                    Object id = marker.getTag();
+                    if (id instanceof String) showPreview((String) id);
+                    return false; // allow the native info window as well
+                });
                 map.getUiSettings().setZoomControlsEnabled(true);
                 map.setOnInfoWindowClickListener(marker -> {
                     Object situationId = marker.getTag();
@@ -74,7 +83,26 @@ public class TrafficMapFragment extends Fragment {
             ((TextView) view.findViewById(R.id.mapSource)).setText(data.message);
             drawMarkers();
         });
+        View preview = view.findViewById(R.id.mapPreview);
+        preview.setOnClickListener(v -> {
+            if (previewSituationId != null) {
+                ((MainActivity) requireActivity()).openSituationDetails(previewSituationId);
+            }
+        });
         updateSelectionLabel();
+    }
+
+    private void showPreview(String id) {
+        if (getView() == null) return;
+        TrafficSituation situation = model.findById(id);
+        if (situation == null) return;
+        previewSituationId = id;
+        TextView preview = getView().findViewById(R.id.mapPreview);
+        String roads = String.join(", ", situation.getRoadNames());
+        if (roads.isEmpty()) roads = getString(R.string.unknown_road);
+        preview.setText(roads + "\n" + situation.getSummary() + "\n"
+                + getString(R.string.map_preview_tap));
+        preview.setVisibility(View.VISIBLE);
     }
 
     private void updateSelectionLabel() {
@@ -89,6 +117,8 @@ public class TrafficMapFragment extends Fragment {
         updateSelectionLabel();
         if (map == null || latest == null || latest.loading) return;
         map.clear();
+        previewSituationId = null;
+        if (getView() != null) getView().findViewById(R.id.mapPreview).setVisibility(View.GONE);
         List<TrafficSituation> visible = new ArrayList<>(latest.incidents);
         visible.addAll(latest.roadworks);
         Set<String> selected = model.mapSelection();
@@ -146,6 +176,7 @@ public class TrafficMapFragment extends Fragment {
         }
         map = null;
         latest = null;
+        previewSituationId = null;
         super.onDestroyView();
     }
 }

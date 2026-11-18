@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:text="@string/map"
         android:textColor="@color/navy"
-        android:textSize="24sp"
+        android:textSize="26sp"
         android:textStyle="bold" />
     <TextView
         android:id="@+id/mapSelection"
@@ -31,13 +31,17 @@
         android:id="@+id/clearMapSelection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/clear_selection" />
+        android:text="@string/clear_selection"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/pale_blue"
+        android:textColor="@color/navy" />
     <FrameLayout
         android:id="@+id/mapContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@drawable/bg_card">
+        android:background="@drawable/bg_card"
+        android:layout_marginTop="8dp">
         <TextView
             android:id="@+id/mapHint"
             android:layout_width="match_parent"
@@ -47,5 +51,21 @@
             android:text="@string/map_loading"
             android:textColor="@color/subtitle"
             android:textSize="15sp" />
+        <!-- Marker preview shows real incident/roadworks values and opens Details. -->
+        <TextView
+            android:id="@+id/mapPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="12dp"
+            android:background="@drawable/bg_card"
+            android:elevation="5dp"
+            android:padding="16dp"
+            android:textColor="@color/navy"
+            android:textSize="14sp"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:visibility="gone"
+            android:contentDescription="@string/map_preview_description" />
     </FrameLayout>
 </LinearLayout>

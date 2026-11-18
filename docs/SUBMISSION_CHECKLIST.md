@@ -29,4 +29,4 @@
 - [ ] All links opened and permissions tested.
 - [ ] Check current GCULearn submission deadline/time and upload instructions.
 
-**Status: none of the above submission items are complete at scaffold stage.**
+**Status as of 17 Nov 2026:** PR #14 has CI-verified Java/XML compilation and JVM tests, but **the Word report, narrator video, secret-safe distributable APK, emulator QA and examiner ZIP are NOT complete**. Details and test order: [CW1 Final Sprint](CW1_FINAL_SPRINT_2026-11-17.md). Never mark a deliverable done before the student confirms the actual file/link and upload.
