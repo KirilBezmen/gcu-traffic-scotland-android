@@ -209,3 +209,11 @@ Student supplied Pixel 9 Pro API 36 emulator screenshot at approximately 12:49 U
 **Observation:** PARTIAL PASS for selected record identity and visible text retained in landscape. **Not yet verified:** full content scroll/coordinates or Details back navigation in Landscape. Text looks unusually small at this AVD landscape size; potential legibility issue for user-facing usability. The screenshot does not visibly show the Details back button (likely vertically scrolled). Test steps for next pass: press system Back from Details, verify Roadworks filtered list is shown in landscape, then rotate to portrait and verify last search/Nearby state. Source remains historic lecturer XML; no live access implied.
 
 **Evidence limitation:** Screenshot only in ChatGPT, not committed as a PNG to repo. Exact installed APK SHA to be recorded by student.
+
+## UX-BACK-01 — Back from roadworks Details in Landscape (18 November 2026)
+
+**Evidence:** Student-supplied screenshot at approximately 12:57 UK time, Pixel 9 Pro Android API 36 emulator. After opening M8 roadworks Details in Landscape, the student pressed system Back. The resulting screenshot displays the **Roadworks list** rather than Home, with the separate landscape left navigation rail, **Nearby checked**, **200 km** radius label and **370 situations**, consistent with the pre-Details state. Historic lecturer XML source warning still visible.
+
+**Result:** **PASS (observed):** Details → Back returns to Roadworks, and the selected Nearby mode/radius/result count persist in Landscape. Screenshot visible in ChatGPT; original PNG not yet archived to GitHub. Exact installed APK commit SHA not independently established. This confirms the tested navigation path only, not all activity recreation/back-stack paths.
+
+**Next:** test opening Map without a locally configured Google Maps key (expected clear no-key message, no crash) before attempting authenticated map tiles or multiple markers.
