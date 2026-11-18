@@ -164,3 +164,11 @@ Student explicitly confirmed that all remaining A74(M) Details fields pass, incl
 Student supplied a Pixel 9 Pro emulator screenshot at approximately 12:42 UK time with Roadworks search text `M8`, **21 situations** shown, and visible first results labelled `M8, A82, A81, A804` / `M8, A82, A804`, roadwork descriptions and `Long delay` badges. Historic lecturer XML provenance is clearly shown. Android API 36 was established in earlier emulator screenshots. Exact installed APK commit SHA is unconfirmed; screenshot PNG has not yet been archived in GitHub.
 
 **Outcome:** **PARTIAL PASS:** search input filters and renders a set of 21 M8-related Roadworks rows, without observed UI crash. This screenshot alone does **not** prove all 21 source records match, that M80 is excluded, or that 21 is the independently verified expected count. Next compare M80 query and capture both screens; do not mark full 4-mark road-search requirement PASS yet.
+
+## UX-SEARCH-02 — Roadworks M80 query (18 November 2026)
+
+Student supplied Pixel 9 Pro API 36 screenshot at approximately 12:43 UK time. Roadworks search input contained `M80` and rendered **11 situations**. Visible first cards included road identifiers `M876, M80`, `M80`, `M80`, and `M73, M80, M74`. None of these visible cards was a standalone `M8` result, supporting exact-route filtering. Historic lecturer XML source label remained visible. Previous `M8` search screenshot showed **21 situations**.
+
+**Outcome: PASS for the observed M8 vs M80 interactive filtering comparison** (21 vs 11 different displayed result sets, correctly labelled routes). UI renders correct-looking matches and does not hang. This is not an independent audit of *all* 11 or 21 records, and exact installed APK commit SHA and archived screenshots remain pending. The earlier JVM regression test checks exact matching algorithm separately; distinguish CI from emulator observation.
+
+**Next test:** Nearby toggle, radius and actual fixed-reference filtering, first on Roadworks without search text.
