@@ -134,3 +134,6 @@ Activity recreation tests are NOT proof that the distinct landscape composition 
 | Back navigation, landscape retention | Not shown | NOT RUN |
 
 **Outcome:** **PARTIAL PASS — visible fields of first incident** on 18 Nov premium UX, not a full details or navigation PASS. Prior full-field A74 audit on 11 Oct belongs to the previous app build and must not be transferred silently to the redesign. **Next:** scroll down, verify J19/J18 coordinates and return via Back; save original screenshot and installed commit SHA.
+
+### UX-DETAIL-01 follow-up — student confirmation (18 November 2026)
+Student explicitly confirmed that all remaining A74(M) Details fields pass, including the expected From/To endpoint coordinates and values. **Outcome: PASS as student-reported for the full first incident record.** Original screenshot of the lower viewport has not yet been supplied to GitHub, so independent visual evidence for that viewport remains pending. This does not establish landscape/back navigation or all incident records.
