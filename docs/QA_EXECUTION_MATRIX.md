@@ -233,3 +233,11 @@ Student supplied Pixel 9 Pro API 36 emulator screenshot at approximately 12:49 U
 **Result: PASS (visible map rendering and multiple roadworks markers).** This screenshot does **not** independently validate every point's source coordinates, selected-results-only marker filtering, marker tap info windows, marker preview to Details, map rotation, or DATEX II LIVE API. These remain pending. Installed APK Git SHA not recorded. Original screenshot only in the ChatGPT conversation, not yet archived in GitHub. **Do not include the actual API key in any screenshot or repository file**.
 
 **Next manual test:** tap an orange roadworks marker in Map, verify title and source-grounded preview; tap preview to open the matching Details record and confirm Back navigation returns to Map.
+
+## UX-MAP-02 — Marker selection and XML-grounded preview (18 November 2026)
+
+**Student-supplied screenshot:** Pixel 9 Pro Android API 36 emulator, approximately 13:24 UK time. In the Map tab, student tapped an orange roadworks marker north-east of mainland Scotland, and Google Maps displayed its native info window with roads `A90, A981` and description `A90 Fraserburgh - TTLS N/B`. The application's own native bottom preview simultaneously displayed the same road codes and description plus `Tap to open details`. Historic lecturer XML sample status remains clearly labelled at the top.
+
+**Observed result: PASS for marker tap, matching title/summary and bottom preview.** No evidence yet that tapping the preview navigates to the matching Details or that system Back returns to Map; both remain **NOT RUN**. Matching is assessed between two UI surfaces, not by independently reading original XML for this specific Fraserburgh record. The source image is in the conversation but has not been committed to GitHub, and exact APK commit SHA has not been recorded.
+
+**Next action:** tap the native bottom card `Tap to open details` and check road codes, type, record ID, description; then system Back. Screenshot the Details screen before marking that navigation PASS.
