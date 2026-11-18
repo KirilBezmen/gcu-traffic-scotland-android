@@ -137,3 +137,24 @@ Activity recreation tests are NOT proof that the distinct landscape composition 
 
 ### UX-DETAIL-01 follow-up — student confirmation (18 November 2026)
 Student explicitly confirmed that all remaining A74(M) Details fields pass, including the expected From/To endpoint coordinates and values. **Outcome: PASS as student-reported for the full first incident record.** Original screenshot of the lower viewport has not yet been supplied to GitHub, so independent visual evidence for that viewport remains pending. This does not establish landscape/back navigation or all incident records.
+
+## UX-DETAIL-02 — M8 Woodside roadworks on redesigned UI (18 November 2026)
+
+**Evidence:** Screenshot directly supplied by student in ChatGPT, Pixel 9 Pro emulator, Android API 36 (as visible in prior Android Studio screenshots), 18 November 2026 ~12:41 UK local. Current UI branch `feat/premium-native-ux-2026-10-26`; **exact installed APK SHA not confirmed**. Binary screenshot not yet archived in GitHub.
+
+| Field | Expected from lecturer XML | Observed in redesigned screen | Result |
+| --- | --- | --- | --- |
+| Record ID | `D_159301` | `D_159301` | PASS |
+| Event subtype | `roadworks` | `roadworks` | PASS |
+| Validity status | `definedByValidityTimeSpec` | same | PASS |
+| Start | `2023-07-22T00:00:00+01:00` | same | PASS |
+| End | `2027-12-31T23:59:00+00:00` | same | PASS |
+| Last updated | `2026-06-25T17:43:07+01:00` | same | PASS |
+| Direction | `westBound` | same | PASS |
+| Delay type | `longDelays` | same | PASS |
+| To coords | `55.870380, -4.268265` | same | PASS |
+| From coords | `55.869923, -4.261365` | same | PASS |
+| Main record type | `MaintenanceWorks` | Above screenshot viewport | NOT VISIBLE in this screenshot |
+| Back navigation / orientation | Return to list/maintain state | Not shown | NOT RUN |
+
+**Outcome:** PASS for all displayed M8 roadworks fields (first selected roadwork), not proof of all 405 situations, Back or Landscape. Student should archive original screenshot and record installed commit SHA. **Next critical task:** Search M8 vs M80 from each list and verify actual results; capture clear screenshots.
