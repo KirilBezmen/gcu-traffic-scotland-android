@@ -9,9 +9,9 @@
 - Google Maps API / free mapping is expressly allowed, but other external frameworks prohibited. Vet dependencies against this rule.
 
 ## Auth and privacy
-- Register at https://developer.trafficscotland.org/applications/datex-ii/developer-guide **using a GCU email**.
-- Apply Applications > Public Restricted API > Request access; approval can take days.
-- Once approved, obtain API Client ID and Key; transmit using the authorised format from starter code.
+- Request and maintain **DATEX II** access using the GCU university account through https://developer.trafficscotland.org/ (this is separate from Public Restricted API).
+- The student obtained approved DATEX II access and observed authentic LIVE downloads on Pixel 9 Pro on 18 November 2026.
+- Use the official DATEX II Developer Guide for Client ID/Client Key, both `Content.xml` URLs and HTTP Basic `Authorization: Basic base64(clientId:clientKey)`. Never substitute the Public Restricted API as the assessed feed.
 - Never put real credentials in Java source, screenshots, chat, GitHub, build logs or APK resources accidentally. Use ignored local config and explain the realistic limitations of secrets in shipped mobile apps.
 - A local sample fixture is only for development/tests; final app loads a fresh official feed or last successfully downloaded version when offline.
 
