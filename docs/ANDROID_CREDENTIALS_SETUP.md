@@ -1,29 +1,41 @@
-# Traffic Scotland restricted API setup (after administrator approval)
+# API setup and APK credential security
 
-**Never send Client ID/Key in ChatGPT, GitHub, screenshots, Issues or README.**
+**Current project status (18 Nov 2026):** approved Traffic Scotland DATEX II access has been tested locally on Pixel 9 Pro: 7 incidents / 421 roadworks, followed by a 423-roadwork snapshot after refresh. Google Maps was separately configured and map tiles/markers observed on emulator. No secrets are stored in the GitHub repository.
 
-1. In Android Studio, locate the local `local.properties` at project root. It is already excluded from Git.
-2. Once Traffic Scotland has formally approved the Public Restricted API request, copy credentials from the developer portal.
-3. Append the following values to `local.properties` locally (not this document). Copy the **official Current Roadworks Content.xml URL from the authorised DATEX II guide**; never substitute another provider or guess a URL.
+## Configure the two independent APIs
 
-```properties
-TRAFFIC_CLIENT_ID=<your client ID>
-TRAFFIC_CLIENT_KEY=<your client key>
-TRAFFIC_ROADWORKS_URL=<the exact authorised roadworks Content.xml URL>
-```
+1. **Official Traffic Scotland DATEX II** is the road-data source. Use **approved** Client ID and Client Key in ignored root `local.properties`:
+   ```properties
+   TRAFFIC_CLIENT_ID=YOUR_APPROVED_CLIENT_ID
+   TRAFFIC_CLIENT_KEY=YOUR_APPROVED_CLIENT_KEY
+   ```
+   The two official, source-verified paths are built into `TrafficRepository.java`:
+   - `https://datex2.trafficscotland.org/rest/2.3/publications/UnplannedEvents/Content.xml`
+   - `https://datex2.trafficscotland.org/rest/2.3/publications/CurrentRoadworks/Content.xml`
 
-4. Perform **Sync Project with Gradle Files**. The app sets constants from your untracked local properties in BuildConfig at build time, then requests the official unplanned URL and your verified official roadworks URL with the supplied base64 Authorization convention.
-5. Run the **debug app** to verify the source badge changes from `Historic lecturer XML samples` to `Official Traffic Scotland data`. Confirm in Logcat and the feed/UI test evidence that records are really retrieved. If network fails, the app uses only its most recent successfully downloaded *live* XML pair (if available), otherwise a visible error. It does not pretend samples are live.
+   The official developer guide specifies **HTTP Basic** with `clientId:clientKey` Base64-encoded. The application now sends `Authorization: Basic ...`. No `TRAFFIC_ROADWORKS_URL` setting is needed.
 
-**Important security limitation:** BuildConfig credentials are extractable from a distributed Android APK. Do not upload a credentials-bearing APK to a public repository; discuss safer credential delivery with the module team before final APK submission. The app is intended as an educational prototype.
+2. **Google Maps SDK for Android** is used **only to display maps**. Enable that exact API in a Google Cloud project with billing, create a separate key restricted to Android package `com.kirilbezmen.trafficscotland` and the local debug signing certificate SHA-1, and add:
+   ```properties
+   MAPS_API_KEY=YOUR_ANDROID_RESTRICTED_MAPS_KEY
+   ```
+   A different release signing certificate requires its own Android key restriction.
 
-**Current status (11 Oct 2026):** developer request has been submitted but approval and actual authenticated retrieval are **not yet confirmed**.
+3. Sync Gradle and run on the emulator. Source label **Official Traffic Scotland data** appears only after both official XML streams have downloaded and parsed. If valid credentials are absent from a *debug* build, only the clearly marked historic lecturer samples are used. Offline CACHED is only for previously downloaded live content.
 
-## Optional Maps API key (independent of Traffic Scotland data API)
-Google Maps SDK is expressly permitted by Mario's assignment brief. To display actual map tiles and the selected multi-marker layers:
-1. Create a Google Cloud project only if you accept its billing/usage terms, enable **Maps SDK for Android**, and create an Android-restricted API key (app id `com.kirilbezmen.trafficscotland` + debug/release SHA-1 fingerprints).
-2. Add `MAPS_API_KEY=<key>` to the same **untracked** `local.properties` file.
-3. Gradle Sync, run on a Google Play-enabled Pixel 9 Pro emulator and test map markers; tap marker info windows for details.
-4. Never commit the key; review usage restrictions and quotas. **The key is still extractable from APK and must be restricted**.
+## Critical: the current authenticated build is NOT safe to distribute
 
-When no key is configured, the Map tab displays a setup explanation and the rest of the app works normally. Compilation of Maps code in CI is **not proof of live map tile rendering**.
+`app/build.gradle.kts` currently embeds DATEX credentials via `BuildConfig.TRAFFIC_CLIENT_ID` / `TRAFFIC_CLIENT_KEY`, and passes Maps key to the manifest. **Any APK compiled locally with those DATEX values can reveal the secret even though `local.properties` itself is gitignored.**
+
+- **DO NOT** upload authenticated `app-debug.apk`, AAB or release APK to GitHub, OneDrive or the external examiner ZIP while the real DATEX key is embedded.
+- **DO NOT** share screenshots of `local.properties`, Android `BuildConfig`, HTTP `Authorization` headers or Google Cloud Credentials pages that expose keys.
+- A CI-built APK **without repository secrets** is safe from leaked DATEX credentials, but its debug SAMPLE mode **does not demonstrate the required LIVE assessment functionality**. Do not call it a complete final deliverable.
+- A legitimate production solution requires either a **tutor-approved** secure server-side proxy / credential provisioning workflow or another **explicitly authorised** assessment delivery mechanism. Do not bypass Traffic Scotland's access controls or silently change to a different feed; verify constraints with Mario Mata before final APK submission.
+
+## Reproducibility blocker
+
+The project does not yet include `gradlew`, `gradlew.bat` or `gradle/wrapper/gradle-wrapper.jar`. GitHub CI uses Gradle 8.9 installed by workflow. Android Studio can build locally, but a *fresh clone via standard wrapper command* has not been proven. Add a genuine trusted wrapper (matching Gradle 8.9) using Android Studio / the Gradle wrapper task, commit the generated wrapper files and then test a clean checkout. Do not add an unverified wrapper JAR from an arbitrary source.
+
+## Coursework and disclosure
+
+The submitted Word report must accurately disclose the use of GenAI on code, tests, debugging and documentation, including exact actual prompts. Full chronology: [GenAI usage log](GENAI_USAGE_LOG.md). Follow the [submission checklist](SUBMISSION_CHECKLIST.md).
