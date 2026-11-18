@@ -280,3 +280,17 @@ Static Java review: `TrafficListFragment.mapResults` calls `model.selectForMap(m
 | DATEX-LIVE-03 | Disconnect network after successful live fetch | Clearly marked CACHED, last successful XML remains shown | NOT RUN |
 | DATEX-LIVE-04 | No cache/no internet while credentials configured | Explicit ERROR, never invented LIVE/SAMPLE | NOT RUN |
 | DATEX-LIVE-05 | Verify original XML parser against current live payload | No SOAP/namespace parsing regressions; sensible incident and roadwork records | NOT RUN |
+
+## DATEX-LIVE-01 — first live feed success (18 November 2026, 13:59 UK)
+
+**Source:** Three screenshots supplied directly by the student in ChatGPT on 18 Nov 2026 from the Pixel 9 Pro API 36 emulator running the updated premium UX branch. Student previously configured Traffic Scotland Client ID and Client Key in ignored `local.properties`, pulled the changes based on the official DATEX II Developer Guide and rebuilt/launched the app. **Screenshots are in the ChatGPT conversation, not yet archived into the GitHub repository.** Exact local APK SHA not reported.
+
+| Screen | Observed in emulator | Expected | Verdict |
+| --- | --- | --- | --- |
+| Home | **7 incidents, 421 roadworks**, source label `Official Traffic Scotland data` | Two official sources displayed as LIVE instead of historic lecturer fixtures | PASS, displayed |
+| Incidents | **7 situations**, including A6091 road closure and M74 obstruction | Incidents list populated from authorised Unplanned Events `Content.xml` | PASS, displayed |
+| Roadworks | **421 situations**, M8 Woodside records visible | Roadworks list populated from authorised Current Roadworks `Content.xml` | PASS, displayed |
+
+The prior lecturer SAMPLE values were **4 incidents and 405 roadworks**. The changed counts and official source label strongly support authenticated live downloads and successful XML parsing of both feeds. Code only labels LIVE after both downloads and parses complete. These are **not** independent packet captures or cross-checks against current provider XML; further source-to-screen audit can strengthen evidence.
+
+**Remaining NOT RUN:** manual refresh against live feed; first successful offline CACHED fallback; no-cache ERROR state; hourly refresh observation; map with live coordinates; full XML data comparison. Credentials in BuildConfig are extractable from the compiled APK: the locally tested authenticated APK must **not** be uploaded to GitHub or submission ZIP without an approved non-leaking distribution approach. Save redacted original screenshots with date/time and commit SHA before copying evidence to Word.
