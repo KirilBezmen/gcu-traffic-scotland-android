@@ -42,5 +42,5 @@ The GitHub commit author shown by the platform reflects who/what authored or com
 
 - Run full current Android instrumentation test suite; capture results.
 - Screenshot CACHED/offline and explicit no-cache error; verify full scheduled hourly refresh or document its limits.
-- Verify repository can build from clean checkout (wrapper presently missing).
+- Verify repository can build from a **clean Windows checkout** using the now-committed trusted Gradle Wrapper; capture actual Gradle output.
 - Resolve safe APK distribution without publishing Traffic Scotland keys and prepare Word, narrated MP4, backup ZIP and links.

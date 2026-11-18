@@ -29,13 +29,11 @@ jobs:
           SDKMANAGER=$(find "$ANDROID_HOME/cmdline-tools" -type f -name sdkmanager | head -n 1)
           test -n "$SDKMANAGER" || { echo "sdkmanager missing"; exit 1; }
           "$SDKMANAGER" --install "platforms;android-35" "build-tools;35.0.0"
-      # Standard Gradle from GitHub Actions until launchers/JAR are committed.
-      - name: Set up Gradle 8.9
+      # setup-gradle validates the committed wrapper JAR. The wrapper pins Gradle 8.9.
+      - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.9'
-      - name: Compile app and run local JVM unit tests
-        run: gradle :app:assembleDebug :app:assembleDebugAndroidTest :app:testDebugUnitTest --stacktrace --no-daemon
+      - name: Compile app and run local JVM unit tests via wrapper
+        run: ./gradlew :app:assembleDebug :app:assembleDebugAndroidTest :app:testDebugUnitTest --stacktrace --no-daemon
       - name: Upload credential-free debug APK
         uses: actions/upload-artifact@v4
         with:

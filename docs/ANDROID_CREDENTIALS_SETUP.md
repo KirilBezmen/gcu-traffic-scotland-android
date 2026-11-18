@@ -32,9 +32,9 @@
 - A CI-built APK **without repository secrets** is safe from leaked DATEX credentials, but its debug SAMPLE mode **does not demonstrate the required LIVE assessment functionality**. Do not call it a complete final deliverable.
 - A legitimate production solution requires either a **tutor-approved** secure server-side proxy / credential provisioning workflow or another **explicitly authorised** assessment delivery mechanism. Do not bypass Traffic Scotland's access controls or silently change to a different feed; verify constraints with Mario Mata before final APK submission.
 
-## Reproducibility blocker
+## Reproducible build
 
-The project does not yet include `gradlew`, `gradlew.bat` or `gradle/wrapper/gradle-wrapper.jar`. GitHub CI uses Gradle 8.9 installed by workflow. Android Studio can build locally, but a *fresh clone via standard wrapper command* has not been proven. Add a genuine trusted wrapper (matching Gradle 8.9) using Android Studio / the Gradle wrapper task, commit the generated wrapper files and then test a clean checkout. Do not add an unverified wrapper JAR from an arbitrary source.
+Trusted Gradle **8.9** wrapper scripts/JAR are now committed, copied from the official Gradle 8.9 source tag with exact Git blob identity verification. The stable Gradle distribution SHA-256 is pinned in `gradle-wrapper.properties`. See [Wrapper provenance](GRADLE_WRAPPER_PROVENANCE.md). Use `.\\gradlew.bat :app:assembleDebug` on Windows or `./gradlew :app:assembleDebug` on Unix. **A clean Windows clone and Android Studio import still need student execution/evidence.**
 
 ## Coursework and disclosure
 

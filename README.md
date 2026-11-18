@@ -69,12 +69,12 @@ Google Maps uses a **separate, Android-restricted Maps SDK API key** and plots c
 3. Run Gradle Sync, select `app`, then **Run** on the emulator. With no Traffic Scotland credentials, the **debug** app deliberately uses historical lecturer XML with a prominent SAMPLE label; release does not silently substitute samples. With valid credentials, expect **Official Traffic Scotland data**.
 4. See [credential and safe-release instructions](docs/ANDROID_CREDENTIALS_SETUP.md) before publishing or sharing APKs.
 
-**Current build portability limitation:** standard `gradlew`, `gradlew.bat` and the Gradle Wrapper JAR are **not yet committed**. Android Studio and CI can resolve/use Gradle separately; a clean checkout using `./gradlew` is **not yet independently reproducible**. [M0 tracks this blocker](https://github.com/KirilBezmen/gcu-traffic-scotland-android/issues/1). Do not call a fresh-clone build PASS until resolved.
+**Reproducible build tools:** a trusted **Gradle 8.9 Wrapper** (`gradlew`, `gradlew.bat`, wrapper JAR and pinned distribution checksum) is now committed. [Source and checksums](docs/GRADLE_WRAPPER_PROVENANCE.md). CI validates builds with the wrapper; a separate **fresh Windows checkout** still needs a student-run test before being called PASS.
 
 ## Build and test
 
 - **Android Studio:** run `TrafficXmlParserTest`, `OfficialXmlFixturesTest` and `NavigationChromeTest` on a configured emulator; record the actual run and screenshots.
-- **Command line with system Gradle 8.9:** `gradle :app:assembleDebug :app:assembleDebugAndroidTest :app:testDebugUnitTest` (CI executes these commands).
+- **Command line (Windows PowerShell):** `.\\gradlew.bat :app:assembleDebug :app:assembleDebugAndroidTest :app:testDebugUnitTest`. On macOS/Linux use `./gradlew`. CI runs these tasks with the committed wrapper.
 - **Manual rubric tests:** M8/M80 search, radius 5/25/200 km, Roadworks delays, map selected-results, rotation, Back navigation, online refresh, offline cache and empty cache. See [QA Matrix](docs/QA_EXECUTION_MATRIX.md) and [test strategy](docs/TEST_STRATEGY.md).
 
 **Never commit keys, copy credentials into screenshots, or upload the locally authenticated APK:** `BuildConfig` values can be extracted from compiled APKs. A credential-free build runs with labelled samples in debug mode but is **not a substitute for demonstrating authorised LIVE functionality in a handed-in APK**. This distribution issue is an open release blocker and must be resolved with the module team.

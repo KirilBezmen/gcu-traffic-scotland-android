@@ -21,7 +21,7 @@
 - [x] Detailed rubric and prohibited approaches reviewed in documentation; check them again during final verification.
 - [ ] No secrets or sensitive data in repository.
 - [ ] Fresh clone directly opens/syncs in Android Studio.
-- [ ] Gradle wrapper launchers and JAR present.
+- [x] Trusted Gradle Wrapper scripts/JAR committed (18 Nov 2026); [provenance](GRADLE_WRAPPER_PROVENANCE.md).
 - [ ] App installs and runs on target emulator/device.
 - [ ] Live traffic/required XML functionality tested.
 - [ ] Recorded test evidence matches actual implementation/commit.
@@ -29,4 +29,4 @@
 - [ ] All links opened and permissions tested.
 - [ ] Check current GCULearn submission deadline/time and upload instructions.
 
-**Status as of 17 Nov 2026:** PR #14 has CI-verified Java/XML compilation and JVM tests, but **the Word report, narrator video, secret-safe distributable APK, emulator QA and examiner ZIP are NOT complete**. Details and test order: [CW1 Final Sprint](CW1_FINAL_SPRINT_2026-11-17.md). Never mark a deliverable done before the student confirms the actual file/link and upload.
+**Status as of 18 Nov 2026:** Current native UI and DATEX II are merged into main; the student has observed live XML, Maps, filtered search, rotation and offline cache (last item requires archived screenshot). Trusted Gradle Wrapper added. **Word report, narrated video, functional secret-safe distributable APK, final Android tests, fresh-clone check and examiner ZIP are NOT complete**. Details and test order: [CW1 Final Sprint](CW1_FINAL_SPRINT_2026-11-17.md). Never mark a deliverable done before the student confirms the actual file/link and upload.
