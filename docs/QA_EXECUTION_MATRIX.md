@@ -302,3 +302,11 @@ The prior lecturer SAMPLE values were **4 incidents and 405 roadworks**. The cha
 **Result: PASS (manual update and UI refresh for Roadworks)**. Incidents count after refresh, scheduled hourly refresh, loss-of-network caching and live Map markers have **not** yet been observed. The change 421→423 is not itself proof which exact records were added or removed.
 
 **Next:** while the authenticated app has already downloaded live data, disable *both Wi-Fi and mobile data* in the emulator, then press Refresh once. Expect `Offline: showing last successfully downloaded Traffic Scotland data`, retained roadwork counts, and functional cached records. Do NOT uninstall/clear application data before the cached-state test. No credentials in screenshots.
+
+## DATEX-LIVE-03 — Offline / CACHED fallback (student confirmation, 18 November 2026)
+
+After the confirmed authenticated DATEX II live download and manual refresh on Pixel 9 Pro, the student explicitly reported in ChatGPT: "Да, офлайн кэш, всё работает." This is a **student-reported PASS** for offline-cache behaviour.
+
+**Evidence status:** A screenshot showing both disabled Wi-Fi/mobile data and the exact CACHED source message has not yet been supplied/archived; network-disconnection configuration, retained record counts and installed build SHA were not independently reviewed. Accordingly, use **PASS (student reported), screenshot evidence pending**, rather than visually verified or fully documented PASS.
+
+Still pending: no-cache/no-internet ERROR test; scheduled hourly update; final running Android instrumentation test results; secret-safe distributable APK, narrated MP4, Word report, examiner backup ZIP and actual uploads.
