@@ -162,3 +162,10 @@ Related commit/issue/test IDs:
 **Code review:** Work placed on draft PR #14, without touching main or adding any API credentials. The student must review all changes and test them on Pixel 9 Pro.
 **Verification:** Await latest GitHub Actions result, then manually run app and capture evidence. **No emulator pass, approved DATEX II live download, offline cache test or final Word submission is claimed.**
 **Further GenAI contribution within Entry 018:** Authored two Android instrumented navigation regression tests verifying selected Roadworks tab and Incidents search state through Activity recreation, for student execution on Pixel 9 Pro. Their outcome remains NOT RUN (GitHub CI compiles tests but does not run emulator).
+
+## Entry 019 — 18 November 2026 — Official DATEX II guide integration
+**Student material:** Full DATEX II Developer Guide (Publication Types, publication endpoints and methods, authorization examples and SOAP Content.xml wrapper).
+**Student instruction/context:** Continue GCU Traffic Scotland Explorer CW1 integration of official approved live data.
+**GenAI contribution:** Reviewed exact official Unplanned Events and Current Roadworks Content.xml URLs; corrected Android HTTP `Authorization` to RFC 7617 Basic scheme; converted previously unknown roadworks URL to confirmed source-defined constant; removed obsolete `TRAFFIC_ROADWORKS_URL` field from Gradle configuration; documented required live integration and offline evidence tests.
+**Testing status:** Code committed to draft UI PR #14; GitHub CI result to be verified. No LIVE download claimed without student-observed emulator test. AI code generation and support must be disclosed in final report.
+**Credential risk:** ID/key remain local to student, but are built into BuildConfig and can be extracted from any APK created with them. Do not submit/redistribute authenticated builds containing private credentials without authorization.
