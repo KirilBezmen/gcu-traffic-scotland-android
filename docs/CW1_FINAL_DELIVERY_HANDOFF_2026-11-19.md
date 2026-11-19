@@ -26,7 +26,7 @@ This is a **submission checklist and audit**, not a declaration that the work ha
 - **GCULearn:** Submit all required artefacts to their designated slots **before 23 Nov 17:00**, allowing headroom for uploads and permission verification.
 
 ## GenAI transparency
-Category **G — Guided**. The official detailed brief says the Word document must include an appendix **with the prompting used**, in addition to an honest description of AI-assisted code, troubleshooting, tests, screenshots and report drafting. English translations of **actual Russian prompts** are supplied in `CW1_GENAI_PROMPT_TRANSLATIONS_2026-11-19.md`, explicitly identified as translations. Do not present fictional examples as actual prompts. Full chronological source: `GENAI_USAGE_LOG.md`.
+Category **G — Guided**. The official detailed brief says the Word document must include an appendix **with the prompting used**, in addition to an honest description of AI-assisted code, troubleshooting, tests, screenshots and report drafting. Professionally edited English renderings of **actual Russian development instructions** are supplied in `CW1_GENAI_PROMPT_TRANSLATIONS_2026-11-19.md`, explicitly identified as translations. Do not present fictional examples as actual prompts. Full chronological source: `GENAI_USAGE_LOG.md`.
 
 ## Rubric-sensitive findings
 - Features 42 (includes map multi-selected; route + Nearby; type/comment/details; delay colour; icons). Rubric icon line has inconsistent 6 vs 8 maximum: do not invent resolution.
