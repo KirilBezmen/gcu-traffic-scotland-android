@@ -2,14 +2,17 @@
 
 Start at the [project README](../README.md). This index separates **current evidence and required hand-in** from earlier development notes so an examiner can navigate without confusing planning with completed work.
 
-## Start here — current (18 November 2026)
+## Start here — current (19 November 2026)
 
 | Document | Use |
 | --- | --- |
+| [Final delivery handoff](CW1_FINAL_DELIVERY_HANDOFF_2026-11-19.md) | Current 19 Nov CI evidence, open QA tests, secure APK decision, naming and upload requirements |
+| [Video script](CW1_VIDEO_SCRIPT_2026-11-19.md) | Actual-emulator recording order and suggested English voiceover |
+| [Prompt translations](CW1_GENAI_PROMPT_TRANSLATIONS_2026-11-19.md) | English translations of logged authentic Russian prompts; no fictional prompts |
 | [Student work and evidence](STUDENT_WORK_AND_EVIDENCE.md) | Product decisions and real student-performed verification, with transparent AI coding contribution |
 | [QA execution matrix](QA_EXECUTION_MATRIX.md) | Expected vs actual, dates, test limits and pending evidence |
 | [Submission checklist](SUBMISSION_CHECKLIST.md) | Word, narrated video, APK, source and examiner ZIP; deadline safeguards |
-| [Credential setup](ANDROID_CREDENTIALS_SETUP.md) | Authorised DATEX II, Maps key, security and missing wrapper |
+| [Credential setup](ANDROID_CREDENTIALS_SETUP.md) | Authorised DATEX II, Maps key, security and packaging limitations |
 | [Architecture](ARCHITECTURE.md) | Single Activity + MVVM / Repository / XML parser |
 | [CW1 final sprint](CW1_FINAL_SPRINT_2026-11-17.md) | Prioritised remaining steps and documented blockers |
 | [Rubric acceptance checklist](RUBRIC_100_CHECKLIST.md) | Coursework criteria; marks are maxima, not marks awarded |
