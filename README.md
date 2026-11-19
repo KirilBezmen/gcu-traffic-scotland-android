@@ -9,6 +9,8 @@
 
 > **Educational prototype — not affiliated with Traffic Scotland.** The app can show real official Traffic Scotland DATEX II feeds **only with approved credentials**. Historical lecturer XML fixtures are clearly marked **SAMPLE**, never LIVE. This private coursework repository is **not yet a signed-off final submission**.
 
+**Final handoff (19 Nov):** [submission readiness audit](docs/CW1_FINAL_DELIVERY_HANDOFF_2026-11-19.md) · [English voiceover script](docs/CW1_VIDEO_SCRIPT_2026-11-19.md) · [authentic prompt translations](docs/CW1_GENAI_PROMPT_TRANSLATIONS_2026-11-19.md). These are preparatory documents, **not** proof of a completed video/APK/submission.
+
 ## At a glance
 
 Traffic Scotland Explorer is a native **Java + Android XML Views** app for exploring road incidents and current roadworks across Scotland. It supports source-grounded search, nearby filtering, details and Google Maps without inventing traffic conditions.
