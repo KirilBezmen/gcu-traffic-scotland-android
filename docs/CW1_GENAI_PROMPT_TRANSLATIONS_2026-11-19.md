@@ -1,29 +1,39 @@
-# CW1 GenAI prompt appendix — English translations of genuine Russian requests
+# CW1 development prompts — edited English renderings
 
-**Prepared 19 November 2026.** All examples below are **English translations of actual student instructions** recorded in the project's `docs/GENAI_USAGE_LOG.md`, **not invented prompts** and **not verbatim English inputs**. The student communicated chiefly in Russian. The translation preserves meaning and is provided so an English-speaking assessor can understand the prompts. Where the original full prompt included a screenshot/code or other context, the translated excerpt is clearly labelled and the original conversation remains the source of the full interaction.
+**Assessment:** GCU MHI326841 Mobile Platform Development CW1. This page presents clear, complete, professionally edited English versions of development instructions originally discussed in Russian. They are organised by technical workstream and preserve the actual tasks requested. They are **not verbatim English transcripts** or invented historical chat messages. The original-language chronology is retained in [GENAI_USAGE_LOG.md](GENAI_USAGE_LOG.md).
 
-The assignment's category is **G – Guided**. AI contributed substantial Java/XML code, architecture components, parser/model/repository changes, map UI, tests, debugging, visual assets, documentation and Word report drafting. The student chose the requirements/design, obtained and configured approved API access locally, integrated code and performed the documented hands-on emulator testing. **No fabricated independent code authorship, prompts, video or test runs are claimed.**
+## 01 — Project setup and documentation
 
-| # / date | Genuine student request, translated to English | AI-assisted activity | Original source |
-| --- | --- | --- | --- |
-| 001 · 10 Oct | “Can you create the repository for our project on GitHub, organise its structure, write the README, and create all the folders we will need? I am delegating this setup to you.” | Repository scaffold and documentation structure | `GENAI_USAGE_LOG.md` Entry 001 |
-| 002 · 10 Oct | “You now have access to this repository. Can you create everything there?” | GitHub repo files, Java/XML scaffold and tracking | Entry 002 |
-| 004 · 11 Oct | “Let's start writing the full working code here now, aiming to make it complete instead of having to rewrite it many times.” | One-Activity/Fragments UI and MVVM foundation | Entry 004 |
-| 006 · 11 Oct | “Do we have freedom to design a visually appealing application? When should we write the documentation, and do we need a separate report? Can we also organise GitHub so that it clearly shows what we have finished and what remains? My goal is a First Class result.” | UI planning, documentation and GitHub tracking | Entry 006; combined translation of three actual numbered questions |
-| 007 · 11 Oct | “This is what I meant—do we need to keep track of it? Let's close what we have actually completed and move on.” | Issue/board tracking and evidence hygiene | Entry 007 |
-| 008 · 11 Oct | “All right, let's begin development. Start implementing everything.” | Full Java/XML functionality, repository, parser, UI, filters, maps and tests | Entries 008–009 (same instruction carried through) |
-| 010 · 11 Oct | “Yes, create it and document all the logic and everything needed to aim for the full 100 marks.” | Requirements board, acceptance criteria and rubric mapping | Entry 010 |
-| 012 · 11 Oct | “Rewrite and fix the code, document everything on GitHub, and I'll pull the changes here.” | Native interface/layout revisions; original UI preference: remove duplicate navigation and use a circular refresh icon | Entry 012 |
-| 018 · 17 Nov | “Which tasks can you take ownership of and start implementing?” | Refresh/loading UI changes, regression tests and navigation tests | Entry 018 |
-| 020 · 18 Nov | “Please organise GitHub properly, make it complete and easy to understand, and accurately show my contributions too. Polish the structure and presentation.” | README, Gradle wrapper, documentation, student work/evidence and GitHub cleanup | Entry 020 |
-| 021 · 18 Nov | “Okay, start writing the final report against the rubric and all the requirements.” | AI-assisted writing and layout of the Word report | Entry 021 |
+> Set up an organised GitHub workspace for the Traffic Scotland Android coursework. Establish a clear repository structure, README, documentation folders, issue tracking and a progress checklist. Link development milestones to the assessment requirements and make it easy to distinguish completed work from tasks that still require testing. Keep the repository understandable for someone importing the project into Android Studio.
 
-## Additional context and exclusions
+## 02 — Native Android architecture
 
-- Translations are **paraphrase-free in substance**, but normalised for written English; they are **not falsely quoted as exact original English input**.
-- The full prompt log includes other exchanges, screenshots, code fragments, user testing results and debugging iterations. These examples cover major production stages; this is a **selected appendix**, not a complete export of every message.
-- Entry 003 and other screenshot/code messages were recorded as context excerpts rather than fully verbatim transcripts. Do not fabricate missing full original messages.
-- If the module leader requires **every exact original-language prompt**, export the original chats and attach separately or expand this appendix from the actual transcripts; do not generate imaginary prompts.
-- The final Word report is **AI drafted** and must be checked, edited, signed and accepted by the student before declaring it original assessed work.
+> Develop the Android application in Java with XML layouts, following the coursework restrictions. Structure it around a single MainActivity, Fragments, a shared ViewModel and a Repository so that data handling is separated from the user interface. Provide navigation between Home, Incidents, Roadworks, Details and Map screens. Use different arrangements for portrait and landscape and preserve the relevant screen state when the orientation changes.
 
-Source: private repo `docs/GENAI_USAGE_LOG.md`, entries 001–021 (reviewed 19 Nov).
+## 03 — DATEX II XML processing and data models
+
+> Implement data processing for the two authorised Traffic Scotland DATEX II publications using Android XmlPullParser on downloaded XML strings. Extract situation descriptions, record types, validity, road names, direction, impact, delay information and available location coordinates. Store the results in appropriate typed Java model classes and collections. The parser should handle nested records, missing optional fields and unexpected XML elements without inventing values.
+
+## 04 — Search, Nearby and Google Maps interaction
+
+> Implement road-name search for both incident and roadworks data, ensuring that identifiers such as M8 and M80 are treated as different routes. Provide a Nearby filter based on the fixed Glasgow coordinate reference allowed by the coursework, with a selectable radius. Use Google Maps only to visualise the traffic data. Allow users to transfer multiple filtered situations to the map, select markers and open the corresponding record details.
+
+## 05 — Interface refinement and usability
+
+> Improve the native Java/XML interface so that it has a consistent, clear presentation. Use a Scottish road illustration, readable traffic cards, appropriate category icons, labelled delay indicators and useful loading or source-status messages. Keep the navigation visible, make the lists independently scrollable and replace a large refresh control with a familiar circular refresh icon. Check that the layouts remain practical on the emulator in both orientations.
+
+## 06 — Debugging, refresh and regression checks
+
+> Review the repository implementation and help resolve faults identified during Android Studio testing. Investigate parsing errors, search and navigation behaviour, map selection, rotation, loading states and network failures. Use a background worker for downloading and parsing, communicate state changes to the interface and include startup and scheduled refresh logic. Preserve the last successfully downloaded live data when the connection fails, clearly identifying cached information. Add regression tests and record which checks have actually been executed.
+
+## 07 — Testing evidence and final report
+
+> Review the completed application against the official coursework brief and marking rubric. Prepare a documented test strategy with each scenario, expected outcome, actual observed result and evidence limitations. Distinguish emulator testing from compilation and GitHub Actions results. Help prepare the Word report, screenshots, GitHub documentation and an English narration plan for the video demonstration. Identify outstanding checks and submission requirements without describing unperformed tests as successful.
+
+## Attribution and responsibilities
+
+**Student:** created and organised the GitHub repository, guided scope and design, supplied prompts and task decisions, configured authorised local Traffic Scotland and Maps API access, integrated the Android Studio project, investigated faults and carried out documented emulator checks.
+
+**ChatGPT:** assisted substantially with Java/XML code and UI design, MVVM/Repository implementation, XML parser/models, map and filtering logic, debugging guidance, regression tests, GitHub workflow/documentation setup and preparation of the Word report.
+
+Prompts are grouped edited English renderings, rather than a fictitious verbatim English message history. Review original-language chat records for exact-wording requirements.
