@@ -29,8 +29,8 @@
 
 - **DO NOT** upload authenticated `app-debug.apk`, AAB or release APK to GitHub, OneDrive or the external examiner ZIP while the real DATEX key is embedded.
 - **DO NOT** share screenshots of `local.properties`, Android `BuildConfig`, HTTP `Authorization` headers or Google Cloud Credentials pages that expose keys.
-- A CI-built APK **without repository secrets** is safe from leaked DATEX credentials, but its debug SAMPLE mode **does not demonstrate the required LIVE assessment functionality**. Do not call it a complete final deliverable.
-- A legitimate production solution requires either a **tutor-approved** secure server-side proxy / credential provisioning workflow or another **explicitly authorised** assessment delivery mechanism. Do not bypass Traffic Scotland's access controls or silently change to a different feed; verify constraints with Mario Mata before final APK submission.
+- A build **without credentials** can show clearly labelled historical lecturer samples in DEBUG mode. It **does not demonstrate LIVE data** and must not be presented as the full authenticated assessed application.
+- For coursework delivery, keep this GitHub repository as **clean source only**, without APK files or releases. The separately required External Examiner ZIP is submitted through GCULearn, under applicable permissions and Traffic Scotland sharing terms. A production solution would use a secured credential-provisioning mechanism. Do not silently switch to an unauthorised traffic source.
 
 ## Reproducible build
 
