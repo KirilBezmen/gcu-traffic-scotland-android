@@ -11,7 +11,7 @@
 
 ## Clone and sync (Windows)
 
-1. Open Android Studio → **Get from VCS** → clone `https://github.com/KirilBezmen/gcu-traffic-scotland-android.git`. The repository is private; authenticated access is required.
+1. Open Android Studio → **Get from VCS** → clone `https://github.com/KirilBezmen/gcu-traffic-scotland-android.git`. When the repository is public, its source can be cloned without GitHub authentication; otherwise repository access must be granted first.
 2. Open the **project root**, not its `app` subdirectory. The Gradle project is named `Bezmen_Kiril_s2338746` in `settings.gradle.kts`.
 3. Check that `gradlew.bat`, `gradlew` and `gradle/wrapper/gradle-wrapper.jar` exist; these are **committed official Gradle 8.9** files ([provenance](GRADLE_WRAPPER_PROVENANCE.md)).
 4. Let Android Studio create a **local `local.properties`** with `sdk.dir` (never commit this file).
@@ -38,6 +38,6 @@ Run Android instrumentation tests from Android Studio:
 
 ## Important security and submission notes
 
-The local authenticated APK compiles DATEX credentials into `BuildConfig`, so **do not upload that APK or commit the API keys**. The CI debug APK uses historical fixtures and is not a completed authorised-LIVE coursework release. An approved examiner delivery solution is still required.
+The local authenticated APK compiles DATEX credentials into `BuildConfig`, so **do not upload that APK or commit the API keys**. The CI workflow builds the application from source without distributing an APK through GitHub. The coursework APK is handed in separately through the university's designated External Examiner submission. An authorised LIVE APK may contain extractable credentials.
 
-**Not yet evidenced:** clean Windows clone tested by the student, full current instrumentation suite on the final APK, and a safe published APK. The repository's green CI confirms the automated build only; do not misreport these missing manual steps as PASS.
+**Not yet evidenced:** a clean Windows clone tested by the student and full current instrumentation suite on the final installed build. The university receives the APK through a separate submission; GitHub is source only. The repository's green CI confirms the automated build only; do not misreport these missing manual steps as PASS.
