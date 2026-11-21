@@ -34,11 +34,5 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
       - name: Compile app and run local JVM unit tests via wrapper
         run: ./gradlew :app:assembleDebug :app:assembleDebugAndroidTest :app:testDebugUnitTest --stacktrace --no-daemon
-      - name: Upload credential-free debug APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: TrafficScotlandExplorer-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
-          if-no-files-found: error
-          retention-days: 7
-      # Building tests does not mean they have run on an Android emulator.
+      # GitHub receives source only. APK build outputs stay inside this temporary CI job.
+      # Compiling Android tests does not mean they have run on an emulator.

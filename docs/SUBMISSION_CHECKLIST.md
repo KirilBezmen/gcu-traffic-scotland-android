@@ -1,32 +1,40 @@
-# CW1 submission checklist
+# CW1 final submission checklist
 
-**Detailed CW1 assignment deadline:** Monday **23 November 2026 at 17:00** (also module schedule). Earlier generic formal brief says noon; aim for **12:00 as internal safety** until clarified.
+**Official GCULearn deadline: Monday 23 November 2026 at 17:00 GMT.**
 
-## Deliverables
-- [ ] Word summary (.docx or .doc) with GCU originality declaration.
-- [ ] Full disclosure of Generative AI uses and prompt appendix.
-- [ ] Link to video with voiceover showing running Android app (MP4) on OneDrive; link accessible to viewers.
-- [ ] Link to complete Android source project on GitHub.
-- [ ] Link to APK in GitHub.
-- [ ] Written documented testing strategy with actual results.
+This checklist reflects the **GCULearn Submission 1 instructions visible to the student on 21 November**: GitHub must contain a **clean Android Studio source project only, NO APK**, with API keys excluded or replaced with placeholders. The Word document must include the GitHub link and a OneDrive video link.
 
-## External Examiner backup — newly confirmed in detailed CW1 assignment
-- [ ] Create folder named `Surname_GivenName_StudentId`.
-- [ ] Place APK, narrated video and cleaned Android Studio project ZIP inside.
-- [ ] ZIP the enclosing folder (ZIP only; no RAR/7z, no password).
-- [ ] Submit separate backup ZIP where specified by GCULearn.
-- [ ] Name Word `Surname_GivenName_StudentId.docx` and video `Surname_GivenName_StudentId_Video.mp4` (or .wmv).
+## Submission 1: Word testing document
 
-## Final verification
-- [x] Detailed rubric and prohibited approaches reviewed in documentation; check them again during final verification.
-- [ ] No secrets or sensitive data in repository.
-- [ ] Fresh clone directly opens/syncs in Android Studio.
-- [x] Trusted Gradle Wrapper scripts/JAR committed (18 Nov 2026); [provenance](GRADLE_WRAPPER_PROVENANCE.md).
-- [ ] App installs and runs on target emulator/device.
-- [ ] Live traffic/required XML functionality tested.
-- [ ] Recorded test evidence matches actual implementation/commit.
-- [ ] Video shows rubric-specific functions with narration.
-- [ ] All links opened and permissions tested.
-- [ ] Check current GCULearn submission deadline/time and upload instructions.
+- [x] Word file drafted and signed by the student, name `Bezmen_Kiril_s2338746.docx`.
+- [x] Originality statement, GenAI contribution disclosure and selected prompt appendix incorporated into the student's Word file.
+- [x] Documented testing with expected and actual results.
+- [x] Repository URL included: https://github.com/KirilBezmen/gcu-traffic-scotland-android
+- [ ] Student confirms OneDrive MP4 link appears in the actual submitted DOCX and is accessible to anyone with the link.
+- [ ] Student uploads the final DOCX to GCULearn Submission 1 and saves the receipt.
 
-**Status as of 18 Nov 2026:** Current native UI and DATEX II are merged into main; the student has observed live XML, Maps, filtered search, rotation and offline cache (last item requires archived screenshot). Trusted Gradle Wrapper added. **Word report, narrated video, functional secret-safe distributable APK, final Android tests, fresh-clone check and examiner ZIP are NOT complete**. Details and test order: [CW1 Final Sprint](CW1_FINAL_SPRINT_2026-11-17.md). Never mark a deliverable done before the student confirms the actual file/link and upload.
+## Submission 2: narrated video
+
+- [x] Student reports a seven-minute recorded English demonstration.
+- [ ] Student uploads `Bezmen_Kiril_s2338746_Video.mp4` or an accessible OneDrive link to Submission 2, and checks the receipt.
+
+## Submission 3: External Examiner ZIP
+
+- [ ] Folder `Bezmen_Kiril_s2338746/` contains APK, the narrated MP4, and an **independent cleaned Android Studio source ZIP**.
+- [ ] Source ZIP excludes `local.properties`, credentials, signing keys, `.gradle` caches and `build/` directories.
+- [ ] Archive the enclosing folder to `Bezmen_Kiril_s2338746.zip` (ZIP format only, no password) and test extraction.
+- [ ] Only a permitted/controlled university hand-in should contain an authenticated LIVE APK. Embedded DATEX credentials can be recovered from such an APK, so check provider sharing conditions. A credential-free SAMPLE APK cannot by itself demonstrate LIVE functionality.
+- [ ] Student uploads ZIP through GCULearn Submission 3 and checks the receipt.
+
+## Public GitHub source check
+
+- [x] The `main` branch has Java/XML source, `gradlew.bat`, `gradlew`, the Gradle Wrapper JAR, SDK configuration and unit/instrumentation test sources.
+- [x] `local.properties` excluded by `.gitignore`; no credential file tracked in current `main` tree.
+- [ ] Student confirms public visibility or explicitly grants assessor access, since a private repository is not accessible merely by sharing a URL.
+- [ ] Student or examiner verifies fresh Android Studio clone and Gradle Sync.
+- [ ] GitHub repo contains **no APK release or downloadable APK artifacts** and CI only compiles/tests source.
+- [ ] The actual repository link is opened in a signed-out browser to verify access.
+
+**Testing honesty:** main GitHub Actions run 44332929422 succeeded at compilation and JVM tests on 18 November. Student-executed Android device test observations are documented in [QA matrix](QA_EXECUTION_MATRIX.md). New full emulator instrumentation, timed hourly refresh and no-cache ERROR remain unverified, and should not be labelled PASS.
+
+**Note:** This checklist and GitHub changes do not modify the student's approved Word document. The signed DOCX must be verified separately for broken or missing hyperlinks.
