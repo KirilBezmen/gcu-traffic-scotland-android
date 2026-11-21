@@ -1,0 +1,53 @@
+name: One-time CW1 GitHub APK removal
+
+on:
+  push:
+    branches:
+      - ops/remove-cw1-apk-from-github-2026-11-21
+    paths:
+      - .github/workflows/remove-cw1-github-apk.yml
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Remove SAMPLE APK release and tagged build
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG="cw1-examiner-sample-2026-11-21"
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release delete "$TAG" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
+          fi
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release is still present" >&2
+            exit 1
+          fi
+      - name: Delete old downloadable APK build artifacts
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh api --paginate "repos/$GITHUB_REPOSITORY/actions/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.name == "TrafficScotlandExplorer-debug") | .id' |
+          while read -r id; do
+            [ -z "$id" ] && continue
+            gh api -X DELETE "repos/$GITHUB_REPOSITORY/actions/artifacts/$id"
+            echo "Removed historical debug APK artifact"
+          done
+      - name: Remove temporary APK publishing branch
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          BRANCH="release/cw1-examiner-sample-2026-11-21"
+          gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$BRANCH" || echo "Already deleted or ref deletion unavailable"
