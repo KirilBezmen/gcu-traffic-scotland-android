@@ -1,0 +1,51 @@
+name: CW1 export clean Android Studio source ZIP
+
+on:
+  push:
+    branches:
+      - submission/cw1-zip-export-2026-11-21
+    paths:
+      - .github/workflows/export-cw1-source-zip.yml
+
+permissions:
+  contents: read
+
+jobs:
+  export-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout clean main-branch source
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Archive exactly tracked project files
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          git archive --format=zip --output=dist/Bezmen_Kiril_s2338746_AndroidStudioSourceClean.zip HEAD
+          unzip -t dist/Bezmen_Kiril_s2338746_AndroidStudioSourceClean.zip >/dev/null
+          unzip -Z -1 dist/Bezmen_Kiril_s2338746_AndroidStudioSourceClean.zip >dist/manifest.txt
+          # No untracked local.properties, build output or signing/secret files
+          if grep -Ei '(^|/)(local[.]properties|traffic_credentials[.]properties|[.]env([.]|$)|[^/]+[.]jks|[^/]+[.]keystore|[^/]+[.]pem|[^/]+[.]key|build/|[.]git/)' dist/manifest.txt; then
+            echo "Unsafe path found in project ZIP" >&2
+            exit 1
+          fi
+          grep -qx 'gradlew.bat' dist/manifest.txt
+          grep -qx 'gradle/wrapper/gradle-wrapper.jar' dist/manifest.txt
+          grep -qx 'app/build.gradle.kts' dist/manifest.txt
+          grep -qx 'settings.gradle.kts' dist/manifest.txt
+          sha256sum dist/Bezmen_Kiril_s2338746_AndroidStudioSourceClean.zip
+          git rev-parse HEAD > dist/PROJECT_COMMIT.txt
+      - name: Upload clean project source
+        uses: actions/upload-artifact@v4
+        with:
+          name: CW1-Clean-AndroidStudio-Source
+          path: |
+            dist/Bezmen_Kiril_s2338746_AndroidStudioSourceClean.zip
+            dist/PROJECT_COMMIT.txt
+          if-no-files-found: error
+          retention-days: 7
